@@ -5,6 +5,7 @@ class TravelAgency {
     this.searchType = 'flights';
     this.showServices = false;
     this.language = 'ar';
+    this.currency = 'SAR';
     this.formData = {
       from: '', to: '', departure: '', return: '', passengers: '1',
       checkIn: '', checkOut: '', rooms: '1'
@@ -107,6 +108,14 @@ class TravelAgency {
   }
 
   handleSearch() {
+    // Collect all input values before validation
+    const inputs = document.querySelectorAll('#flightsForm input, #flightsForm select, #hotelsForm input, #hotelsForm select');
+    inputs.forEach(input => {
+      if (input.name) {
+        this.formData[input.name] = input.value;
+      }
+    });
+
     if (this.searchType === 'flights') {
       if (!this.formData.from || !this.formData.to || !this.formData.departure) {
         alert(this.isRTL ? 'يرجى ملء جميع التفاصيل' : 'Please fill all details');
@@ -154,9 +163,14 @@ class TravelAgency {
               <span>🌐</span>
               ${this.language === 'ar' ? 'English' : 'عربي'}
             </button>
-            <a href="#" class="hover:text-teal-200">SAR</a>
+            <select id="currencyToggle" class="bg-teal-800 text-white px-2 py-1 rounded hover:bg-teal-700 cursor-pointer">
+              <option value="SAR" ${this.currency === 'SAR' ? 'selected' : ''}>SAR</option>
+              <option value="AED" ${this.currency === 'AED' ? 'selected' : ''}>AED</option>
+              <option value="USD" ${this.currency === 'USD' ? 'selected' : ''}>USD</option>
+              <option value="EGP" ${this.currency === 'EGP' ? 'selected' : ''}>EGP</option>
+            </select>
           </div>
-          <div class="text-xl font-bold ${this.isRTL ? '' : 'order-1'}">المسافر</div>
+          <button id="logoBtn" class="text-xl font-bold hover:text-teal-200 ${this.isRTL ? '' : 'order-1'} cursor-pointer">المسافر</button>
         </div>
       </div>
     `;
@@ -424,9 +438,23 @@ class TravelAgency {
   }
 
   attachEventListeners() {
+    // Logo click - redirect to home
+    document.getElementById('logoBtn')?.addEventListener('click', () => {
+      this.currentPage = 'home';
+      this.render();
+      this.attachEventListeners();
+    });
+
     // Language toggle
     document.getElementById('langToggle')?.addEventListener('click', () => {
       this.language = this.language === 'ar' ? 'en' : 'ar';
+      this.render();
+      this.attachEventListeners();
+    });
+
+    // Currency toggle
+    document.getElementById('currencyToggle')?.addEventListener('change', (e) => {
+      this.currency = e.target.value;
       this.render();
       this.attachEventListeners();
     });
@@ -458,9 +486,6 @@ class TravelAgency {
 
     // Search button
     document.getElementById('searchBtn')?.addEventListener('click', () => {
-      document.querySelectorAll('input, select').forEach(input => {
-        this.formData[input.name] = input.value;
-      });
       this.handleSearch();
     });
 
