@@ -10,7 +10,7 @@ class TravelAgency {
       from: '', to: '', departure: '', return: '', passengers: '1',
       checkIn: '', checkOut: '', rooms: '1'
     };
-    this.whatsappNumber = '966501234567';
+    this.whatsappNumber = '201515196284';
     this.init();
   }
 
@@ -157,7 +157,7 @@ class TravelAgency {
           <div class="flex gap-4 items-center ${this.isRTL ? '' : 'order-2'}">
             <button class="border border-white px-4 py-1 rounded-full hover:bg-teal-800">${this.t.login}</button>
             <a href="#" class="hover:text-teal-200 flex items-center gap-1">
-              <span>📞</span> +966554400000
+              <span>📞</span> +201515196284
             </a>
             <button id="langToggle" class="hover:text-teal-200 flex items-center gap-1">
               <span>🌐</span>
@@ -170,7 +170,10 @@ class TravelAgency {
               <option value="EGP" ${this.currency === 'EGP' ? 'selected' : ''}>EGP</option>
             </select>
           </div>
-          <button id="logoBtn" class="text-xl font-bold hover:text-teal-200 ${this.isRTL ? '' : 'order-1'} cursor-pointer">المسافر</button>
+          <button id="logoBtn" class="flex items-center gap-2 hover:opacity-80 ${this.isRTL ? '' : 'order-1'} cursor-pointer">
+            <img src="assets/icons/logo.png" alt="MILES TRAVEL" class="h-12 w-12">
+            <span class="text-lg font-bold text-white">MILES TRAVEL</span>
+          </button>
         </div>
       </div>
     `;
