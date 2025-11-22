@@ -1,5 +1,6 @@
 import React from 'react';
 import { Heart, Award, Users, Globe } from 'lucide-react';
+import { useLanguage, translations } from '../context/LanguageContext';
 
 const About = () => {
   const values = [
@@ -48,22 +49,22 @@ const About = () => {
     },
   ];
 
+  const { language } = useLanguage();
+
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
       <section className="bg-gradient-to-r from-teal-600 to-blue-600 text-white py-20 px-4">
         <div className="max-w-4xl mx-auto text-center">
-          <h1 className="text-5xl font-bold mb-4">About TravelHub</h1>
-          <p className="text-xl text-gray-100">
-            Making travel dreams come true since 2020
-          </p>
+          <h1 className="text-5xl font-bold mb-4">{translations[language].aboutMilesTravel}</h1>
+          <p className="text-xl text-gray-100">{translations[language].discoverTheWorld}</p>
         </div>
       </section>
 
       {/* Our Story */}
       <section className="py-16 px-4">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl font-bold mb-8">Our Story</h2>
+          <h2 className="text-3xl font-bold mb-8">{translations[language].ourStory}</h2>
           <div className="space-y-4 text-gray-700 text-lg leading-relaxed">
             <p>
               TravelHub was founded with a simple mission: to make travel accessible, affordable, and unforgettable for everyone. We believe that everyone deserves to explore the world and create lasting memories.
@@ -81,7 +82,7 @@ const About = () => {
       {/* Our Values */}
       <section className="py-16 px-4 bg-white">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl font-bold mb-12 text-center">Our Values</h2>
+          <h2 className="text-3xl font-bold mb-12 text-center">{translations[language].ourValues}</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {values.map((value, idx) => (
               <div key={idx} className="text-center p-6">
@@ -99,7 +100,7 @@ const About = () => {
       {/* Team Section */}
       <section className="py-16 px-4">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl font-bold mb-12 text-center">Meet Our Team</h2>
+          <h2 className="text-3xl font-bold mb-12 text-center">{translations[language].meetOurTeam}</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {team.map((member, idx) => (
               <div key={idx} className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition">

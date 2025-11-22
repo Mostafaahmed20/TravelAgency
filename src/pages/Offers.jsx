@@ -1,6 +1,7 @@
 import React from 'react';
 import PackageCard from '../components/Cards/PackageCard';
 import { TrendingUp, Award, Gift } from 'lucide-react';
+import { useLanguage, translations } from '../context/LanguageContext';
 
 const Offers = () => {
   const allOffers = Array.from({ length: 12 }, (_, i) => ({
@@ -31,15 +32,15 @@ const Offers = () => {
     },
   ];
 
+  const { language } = useLanguage();
+
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
       <section className="bg-gradient-to-r from-teal-600 to-blue-600 text-white py-16 px-4">
         <div className="max-w-7xl mx-auto text-center">
-          <h1 className="text-5xl font-bold mb-4">Exclusive Travel Offers</h1>
-          <p className="text-xl text-gray-100 mb-8">
-            Discover amazing deals on travel packages and experiences
-          </p>
+          <h1 className="text-5xl font-bold mb-4">{translations[language].exclusiveTravelOffers}</h1>
+          <p className="text-xl text-gray-100 mb-8">{translations[language].findAmazingDeals}</p>
         </div>
       </section>
 
@@ -66,7 +67,7 @@ const Offers = () => {
       {/* All Offers */}
       <section className="py-16 px-4">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl font-bold mb-12">All Available Packages</h2>
+          <h2 className="text-3xl font-bold mb-12">{translations[language].allAvailablePackages}</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {allOffers.map((offer) => (
               <PackageCard key={offer.id} {...offer} />

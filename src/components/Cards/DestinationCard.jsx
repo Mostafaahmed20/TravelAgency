@@ -1,7 +1,11 @@
 import React from 'react';
 import { Star, MapPin } from 'lucide-react';
+import { useCurrency } from '../../context/CurrencyContext';
+import { useLanguage, translations } from '../../context/LanguageContext';
 
 const DestinationCard = ({ image, title, description, price, rating, reviews }) => {
+  const { formatPrice, currency } = useCurrency();
+  const { language } = useLanguage();
   return (
     <div className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition transform hover:scale-105 duration-300">
       {/* Image */}
@@ -34,13 +38,13 @@ const DestinationCard = ({ image, title, description, price, rating, reviews }) 
         </div>
 
         {/* Price and Button */}
-        <div className="flex justify-between items-center pt-4 border-t border-gray-200">
+        <div className={`flex justify-between items-center pt-4 border-t border-gray-200 ${language === 'ar' ? 'flex-row-reverse' : ''}`}>
           <div>
-            <span className="text-2xl font-bold text-teal-600">${price}</span>
-            <span className="text-sm text-gray-600"> /night</span>
+            <span className="text-2xl font-bold text-teal-600">{formatPrice(price)}</span>
+            <span className="text-sm text-gray-600">{translations[language].night}</span>
           </div>
           <button className="bg-gradient-to-r from-teal-600 to-blue-600 text-white px-4 py-2 rounded-lg hover:shadow-lg transition font-medium">
-            Book Now
+            {translations[language].bookNow}
           </button>
         </div>
       </div>

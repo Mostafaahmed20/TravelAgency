@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Mail, Phone, MapPin, Send } from 'lucide-react';
+import { useLanguage, translations } from '../context/LanguageContext';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -58,15 +59,15 @@ const Contact = () => {
     },
   ];
 
+  const { language } = useLanguage();
+
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
       <section className="bg-gradient-to-r from-teal-600 to-blue-600 text-white py-16 px-4">
         <div className="max-w-7xl mx-auto text-center">
-          <h1 className="text-5xl font-bold mb-4">Get In Touch</h1>
-          <p className="text-xl text-gray-100">
-            We'd love to hear from you. Contact us for any inquiries.
-          </p>
+          <h1 className="text-5xl font-bold mb-4">{translations[language].getInTouch}</h1>
+          <p className="text-xl text-gray-100">{translations[language].contactInformation}</p>
         </div>
       </section>
 
@@ -75,7 +76,7 @@ const Contact = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             {/* Contact Information */}
             <div>
-              <h2 className="text-3xl font-bold mb-8">Contact Information</h2>
+              <h2 className="text-3xl font-bold mb-8">{translations[language].contactInformation}</h2>
 
               <div className="space-y-6 mb-12">
                 {contactInfo.map((info, idx) => (
@@ -97,7 +98,7 @@ const Contact = () => {
 
               {/* FAQ */}
               <div className="bg-white rounded-lg p-8 shadow-lg">
-                <h3 className="text-xl font-bold mb-4">Frequently Asked Questions</h3>
+                <h3 className="text-xl font-bold mb-4">{translations[language].frequentlyAskedQuestions}</h3>
                 <div className="space-y-4 text-sm text-gray-600">
                   <div>
                     <p className="font-bold text-gray-800 mb-1">Q: What are your business hours?</p>
@@ -117,7 +118,7 @@ const Contact = () => {
 
             {/* Contact Form */}
             <div className="bg-white rounded-xl shadow-lg p-8">
-              <h2 className="text-3xl font-bold mb-8">Send us a Message</h2>
+              <h2 className="text-3xl font-bold mb-8">{translations[language].sendMessage}</h2>
 
               {submitted ? (
                 <div className="bg-green-50 border border-green-200 rounded-lg p-6 text-center">
@@ -129,7 +130,7 @@ const Contact = () => {
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-2">
-                      Full Name
+                      {translations[language].fullName}
                     </label>
                     <input
                       type="text"
@@ -145,7 +146,7 @@ const Contact = () => {
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
                       <label className="block text-sm font-medium text-gray-700 mb-2">
-                        Email
+                        {translations[language].emailAddress}
                       </label>
                       <input
                         type="email"
@@ -159,7 +160,7 @@ const Contact = () => {
                     </div>
                     <div>
                       <label className="block text-sm font-medium text-gray-700 mb-2">
-                        Phone
+                        {translations[language].phoneNumber}
                       </label>
                       <input
                         type="tel"
@@ -174,7 +175,7 @@ const Contact = () => {
 
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-2">
-                      Subject
+                      {translations[language].subject}
                     </label>
                     <input
                       type="text"
@@ -189,7 +190,7 @@ const Contact = () => {
 
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-2">
-                      Message
+                      {translations[language].message}
                     </label>
                     <textarea
                       name="message"
@@ -202,13 +203,13 @@ const Contact = () => {
                     />
                   </div>
 
-                  <button
-                    type="submit"
-                    className="w-full bg-gradient-to-r from-teal-600 to-blue-600 text-white font-bold py-3 px-6 rounded-lg hover:shadow-lg transition flex items-center justify-center gap-2"
-                  >
-                    <Send size={20} />
-                    Send Message
-                  </button>
+                    <button
+                      type="submit"
+                      className="w-full bg-gradient-to-r from-teal-600 to-blue-600 text-white font-bold py-3 px-6 rounded-lg hover:shadow-lg transition flex items-center justify-center gap-2"
+                    >
+                      <Send size={20} />
+                      {translations[language].sendMessage}
+                    </button>
                 </form>
               )}
             </div>

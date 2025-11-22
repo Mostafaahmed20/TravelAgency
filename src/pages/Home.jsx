@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useLanguage, translations } from '../context/LanguageContext';
 import { Link } from 'react-router-dom';
 import FlightSearch from '../components/SearchBox/FlightSearch';
 import HotelSearch from '../components/SearchBox/HotelSearch';
@@ -101,6 +102,8 @@ const Home = () => {
     },
   ];
 
+  const { language } = useLanguage();
+
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
@@ -111,10 +114,10 @@ const Home = () => {
 
         <div className="relative max-w-7xl mx-auto text-center z-10">
           <h1 className="text-5xl md:text-6xl font-bold mb-4 animate-slideUp">
-            Explore the World
+            {translations[language].exploreTheWorld}
           </h1>
           <p className="text-xl md:text-2xl mb-8 text-gray-100 animate-slideUp">
-            Find amazing deals on flights, hotels, and travel packages
+            {translations[language].findAmazingDeals}
           </p>
         </div>
 
@@ -129,7 +132,7 @@ const Home = () => {
                   : 'bg-white bg-opacity-20 text-white hover:bg-opacity-30'
               }`}
             >
-              <Plane size={20} /> Flights
+              <Plane size={20} /> {translations[language].flights}
             </button>
             <button
               onClick={() => setActiveTab('hotels')}
@@ -139,7 +142,7 @@ const Home = () => {
                   : 'bg-white bg-opacity-20 text-white hover:bg-opacity-30'
               }`}
             >
-              <Hotel size={20} /> Hotels
+              <Hotel size={20} /> {translations[language].hotels}
             </button>
           </div>
 

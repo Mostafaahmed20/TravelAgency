@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import { sendWhatsAppMessage } from '../../utils/whatsappRedirect';
+import { useLanguage, translations } from '../../context/LanguageContext';
 
 const HotelSearch = () => {
+  const { language } = useLanguage();
   const [formData, setFormData] = useState({
     destination: '',
     checkIn: '',
@@ -21,7 +23,7 @@ const HotelSearch = () => {
   const handleSearch = (e) => {
     e.preventDefault();
     if (!formData.destination || !formData.checkIn || !formData.checkOut) {
-      alert('Please fill in all required fields');
+      alert(translations[language].findTheHotelDeals);
       return;
     }
     sendWhatsAppMessage(formData, 'hotel');
@@ -29,26 +31,26 @@ const HotelSearch = () => {
 
   return (
     <div className="bg-white rounded-xl shadow-2xl p-8 -mt-12 relative z-20 max-w-4xl mx-auto">
-      <h2 className="text-2xl font-bold mb-6 text-gray-800">Book Your Hotel</h2>
+      <h2 className="text-2xl font-bold mb-6 text-gray-800">{translations[language].bookYourHotel}</h2>
       
       <form onSubmit={handleSearch} className="space-y-6">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
           {/* Destination */}
           <div className="lg:col-span-1">
-            <label className="block text-sm font-medium text-gray-700 mb-2">Destination</label>
+            <label className="block text-sm font-medium text-gray-700 mb-2">{translations[language].destination}</label>
             <input
               type="text"
               name="destination"
               value={formData.destination}
               onChange={handleChange}
-              placeholder="City or Hotel"
+              placeholder={translations[language].destination}
               className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent transition"
             />
           </div>
 
           {/* Check-in Date */}
           <div className="lg:col-span-1">
-            <label className="block text-sm font-medium text-gray-700 mb-2">Check-in</label>
+            <label className="block text-sm font-medium text-gray-700 mb-2">{translations[language].checkIn}</label>
             <input
               type="date"
               name="checkIn"
@@ -60,7 +62,7 @@ const HotelSearch = () => {
 
           {/* Check-out Date */}
           <div className="lg:col-span-1">
-            <label className="block text-sm font-medium text-gray-700 mb-2">Check-out</label>
+            <label className="block text-sm font-medium text-gray-700 mb-2">{translations[language].checkOut}</label>
             <input
               type="date"
               name="checkOut"
@@ -72,7 +74,7 @@ const HotelSearch = () => {
 
           {/* Rooms */}
           <div className="lg:col-span-1">
-            <label className="block text-sm font-medium text-gray-700 mb-2">Rooms</label>
+            <label className="block text-sm font-medium text-gray-700 mb-2">{translations[language].rooms}</label>
             <select
               name="rooms"
               value={formData.rooms}
@@ -87,7 +89,7 @@ const HotelSearch = () => {
 
           {/* Guests */}
           <div className="lg:col-span-1">
-            <label className="block text-sm font-medium text-gray-700 mb-2">Guests</label>
+            <label className="block text-sm font-medium text-gray-700 mb-2">{translations[language].guests}</label>
             <select
               name="guests"
               value={formData.guests}
@@ -107,7 +109,7 @@ const HotelSearch = () => {
             type="submit"
             className="w-full md:w-48 bg-gradient-to-r from-teal-600 to-blue-600 text-white font-bold py-3 px-6 rounded-lg hover:shadow-lg transition transform hover:scale-105"
           >
-            🔍 Search Hotels
+            🔍 {translations[language].searchHotels}
           </button>
         </div>
       </form>

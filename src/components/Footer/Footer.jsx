@@ -1,22 +1,24 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Facebook, Twitter, Instagram, Mail, Phone, MapPin } from 'lucide-react';
+import { useLanguage, translations } from '../../context/LanguageContext';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
+  const { language } = useLanguage();
 
   return (
     <footer className="bg-gray-900 text-gray-300 mt-20">
-      <div className="max-w-7xl mx-auto px-4 py-16">
+      <div className={`max-w-7xl mx-auto px-4 py-16 ${language === 'ar' ? 'text-right' : ''}`}>
         {/* Footer Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+        <div className={`grid grid-cols-1 md:grid-cols-4 gap-8 mb-12 ${language === 'ar' ? 'text-right' : ''}`}>
           {/* About */}
           <div>
-            <h3 className="text-white font-bold text-lg mb-4">About TravelHub</h3>
+            <h3 className="text-white font-bold text-lg mb-4">{translations[language].aboutMilesTravel}</h3>
             <p className="text-sm leading-relaxed">
-              Discover the world with TravelHub. We provide the best travel deals, flight bookings, and unforgettable experiences.
+              {translations[language].discoverTheWorld}
             </p>
-            <div className="flex gap-4 mt-4">
+            <div className={`flex gap-4 mt-4 ${language === 'ar' ? 'flex-row-reverse justify-end' : ''}`}>
               <a href="#" className="hover:text-teal-400 transition"><Facebook size={20} /></a>
               <a href="#" className="hover:text-teal-400 transition"><Twitter size={20} /></a>
               <a href="#" className="hover:text-teal-400 transition"><Instagram size={20} /></a>
@@ -25,43 +27,43 @@ const Footer = () => {
 
           {/* Quick Links */}
           <div>
-            <h3 className="text-white font-bold text-lg mb-4">Quick Links</h3>
+            <h3 className="text-white font-bold text-lg mb-4">{translations[language].quickLinks}</h3>
             <ul className="space-y-2 text-sm">
-              <li><Link to="/" className="hover:text-teal-400 transition">Home</Link></li>
-              <li><Link to="/flights" className="hover:text-teal-400 transition">Flights</Link></li>
-              <li><Link to="/hotels" className="hover:text-teal-400 transition">Hotels</Link></li>
-              <li><Link to="/offers" className="hover:text-teal-400 transition">Offers</Link></li>
-              <li><Link to="/about" className="hover:text-teal-400 transition">About</Link></li>
+              <li><Link to="/" className="hover:text-teal-400 transition">{translations[language].home}</Link></li>
+              <li><Link to="/flights" className="hover:text-teal-400 transition">{translations[language].flights}</Link></li>
+              <li><Link to="/hotels" className="hover:text-teal-400 transition">{translations[language].hotels}</Link></li>
+              <li><Link to="/offers" className="hover:text-teal-400 transition">{translations[language].offers}</Link></li>
+              <li><Link to="/about" className="hover:text-teal-400 transition">{translations[language].about}</Link></li>
             </ul>
           </div>
 
           {/* Services */}
           <div>
-            <h3 className="text-white font-bold text-lg mb-4">Services</h3>
+            <h3 className="text-white font-bold text-lg mb-4">{translations[language].services}</h3>
             <ul className="space-y-2 text-sm">
-              <li><a href="#" className="hover:text-teal-400 transition">Flight Booking</a></li>
-              <li><a href="#" className="hover:text-teal-400 transition">Hotel Reservations</a></li>
-              <li><a href="#" className="hover:text-teal-400 transition">Tour Packages</a></li>
-              <li><a href="#" className="hover:text-teal-400 transition">Visa Assistance</a></li>
-              <li><a href="#" className="hover:text-teal-400 transition">Car Rentals</a></li>
+              <li><a href="#" className="hover:text-teal-400 transition">{translations[language].flightBooking}</a></li>
+              <li><a href="#" className="hover:text-teal-400 transition">{translations[language].hotelReservations}</a></li>
+              <li><a href="#" className="hover:text-teal-400 transition">{translations[language].tourPackages}</a></li>
+              <li><a href="#" className="hover:text-teal-400 transition">{translations[language].visaAssistance}</a></li>
+              <li><a href="#" className="hover:text-teal-400 transition">{translations[language].carRentals}</a></li>
             </ul>
           </div>
 
           {/* Contact */}
           <div>
-            <h3 className="text-white font-bold text-lg mb-4">Contact Us</h3>
+            <h3 className="text-white font-bold text-lg mb-4">{translations[language].contactUs}</h3>
             <ul className="space-y-3 text-sm">
-              <li className="flex items-center gap-2">
-                <Phone size={16} className="text-teal-400" />
-                <span>+966 50 1234567</span>
+              <li className={`flex items-center gap-2 ${language === 'ar' ? 'flex-row-reverse justify-end' : ''}`}>
+                <Phone size={16} className="text-teal-400 flex-shrink-0" />
+                <span>+20 15 15196284</span>
               </li>
-              <li className="flex items-center gap-2">
-                <Mail size={16} className="text-teal-400" />
-                <span>info@travelhub.com</span>
+              <li className={`flex items-center gap-2 ${language === 'ar' ? 'flex-row-reverse justify-end' : ''}`}>
+                <Mail size={16} className="text-teal-400 flex-shrink-0" />
+                <span>info@milestravel.com</span>
               </li>
-              <li className="flex items-start gap-2">
+              <li className={`flex items-start gap-2 ${language === 'ar' ? 'flex-row-reverse justify-end' : ''}`}>
                 <MapPin size={16} className="text-teal-400 mt-1 flex-shrink-0" />
-                <span>123 Travel Street, Dubai, UAE</span>
+                <span>Cairo, Egypt</span>
               </li>
             </ul>
           </div>
@@ -70,15 +72,15 @@ const Footer = () => {
         {/* Divider */}
         <div className="border-t border-gray-700 py-8">
           {/* Bottom Info */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm mb-4">
-            <div>
-              <a href="#" className="hover:text-teal-400 transition">Privacy Policy</a>
+          <div className={`grid grid-cols-1 md:grid-cols-3 gap-4 text-sm mb-4 ${language === 'ar' ? 'text-right' : ''}`}>
+            <div className={language === 'ar' ? 'md:text-right' : ''}>
+              <a href="#" className="hover:text-teal-400 transition">{translations[language].privacyPolicy}</a>
             </div>
             <div className="text-center">
-              <p>&copy; {currentYear} TravelHub. All Rights Reserved.</p>
+              <p>&copy; {currentYear} MILES TRAVEL. {translations[language].allRightsReserved}</p>
             </div>
-            <div className="text-right">
-              <a href="#" className="hover:text-teal-400 transition">Terms & Conditions</a>
+            <div className={language === 'ar' ? 'md:text-left' : 'md:text-right'}>
+              <a href="#" className="hover:text-teal-400 transition">{translations[language].termsConditions}</a>
             </div>
           </div>
         </div>

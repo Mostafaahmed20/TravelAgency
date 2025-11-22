@@ -1,6 +1,7 @@
 import React from 'react';
 import HotelSearch from '../components/SearchBox/HotelSearch';
 import DestinationCard from '../components/Cards/DestinationCard';
+import { useLanguage, translations } from '../context/LanguageContext';
 
 const Hotels = () => {
   const hotelDeals = Array.from({ length: 8 }, (_, i) => ({
@@ -13,13 +14,15 @@ const Hotels = () => {
     reviews: Math.floor(Math.random() * 2000) + 300
   }));
 
+  const { language } = useLanguage();
+
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
       <section className="bg-gradient-to-r from-teal-600 to-blue-600 text-white py-12 px-4">
         <div className="max-w-7xl mx-auto">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">Find Your Hotel</h1>
-          <p className="text-lg text-gray-100">Search through thousands of hotels and book your stay</p>
+          <h1 className="text-4xl md:text-5xl font-bold mb-4">{translations[language].findYourHotel}</h1>
+          <p className="text-lg text-gray-100">{translations[language].findTheHotelDeals}</p>
         </div>
       </section>
 
