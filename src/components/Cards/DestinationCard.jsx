@@ -1,11 +1,19 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Star, MapPin } from 'lucide-react';
 import { useCurrency } from '../../context/CurrencyContext';
 import { useLanguage, translations } from '../../context/LanguageContext';
 
-const DestinationCard = ({ image, title, description, price, rating, reviews }) => {
+const DestinationCard = ({ id, image, title, description, price, rating, reviews }) => {
+  const navigate = useNavigate();
   const { formatPrice, currency } = useCurrency();
   const { language } = useLanguage();
+
+  const handleBookNow = () => {
+    if (id) {
+      navigate(`/hotel/${id}`);
+    }
+  };
   return (
     <div className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition transform hover:scale-105 duration-300">
       {/* Image */}
@@ -43,7 +51,9 @@ const DestinationCard = ({ image, title, description, price, rating, reviews }) 
             <span className="text-2xl font-bold text-teal-600">{formatPrice(price)}</span>
             <span className="text-sm text-gray-600">{translations[language].night}</span>
           </div>
-          <button className="bg-gradient-to-r from-teal-600 to-blue-600 text-white px-4 py-2 rounded-lg hover:shadow-lg transition font-medium">
+          <button 
+            onClick={handleBookNow}
+            className="bg-gradient-to-r from-teal-600 to-blue-600 text-white px-4 py-2 rounded-lg hover:shadow-lg transition font-medium">
             {translations[language].bookNow}
           </button>
         </div>

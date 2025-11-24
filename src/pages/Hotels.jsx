@@ -2,18 +2,9 @@ import React from 'react';
 import HotelSearch from '../components/SearchBox/HotelSearch';
 import DestinationCard from '../components/Cards/DestinationCard';
 import { useLanguage, translations } from '../context/LanguageContext';
+import { hotelsData } from '../data/hotelData';
 
 const Hotels = () => {
-  const hotelDeals = Array.from({ length: 8 }, (_, i) => ({
-    id: i + 1,
-    image: `https://picsum.photos/400/300?random=${i + 20}`,
-    title: `Hotel ${i + 1}`,
-    description: `Premium accommodation with world-class amenities and service`,
-    price: Math.floor(Math.random() * 300) + 50,
-    rating: (Math.random() * 2 + 3).toFixed(1),
-    reviews: Math.floor(Math.random() * 2000) + 300
-  }));
-
   const { language } = useLanguage();
 
   return (
@@ -38,8 +29,17 @@ const Hotels = () => {
         <div className="max-w-7xl mx-auto">
           <h2 className="text-3xl font-bold mb-12">Featured Hotels</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {hotelDeals.map((deal) => (
-              <DestinationCard key={deal.id} {...deal} />
+            {hotelsData.map((deal) => (
+              <DestinationCard 
+                key={deal.id} 
+                id={deal.id}
+                image={deal.image}
+                title={deal.title}
+                description={deal.description}
+                price={deal.baseprice}
+                rating={deal.rating}
+                reviews={deal.reviews}
+              />
             ))}
           </div>
         </div>
