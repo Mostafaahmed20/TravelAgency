@@ -26,3 +26,10 @@ export const sendWhatsAppMessage = (formData, type) => {
   const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodedMessage}`;
   window.open(whatsappUrl, '_blank');
 };
+
+// New function for quick booking messages
+export const openWhatsApp = (message) => {
+  const encodedMessage = encodeURIComponent(message);
+  const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodedMessage}`;
+  window.open(whatsappUrl, '_blank');
+};

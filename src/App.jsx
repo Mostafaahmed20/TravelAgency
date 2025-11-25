@@ -8,6 +8,9 @@ import Home from './pages/Home';
 import Flights from './pages/Flights';
 import Hotels from './pages/Hotels';
 import HotelDetails from './pages/HotelDetails';
+import DestinationDetails from './pages/DestinationDetails';
+import HotelDetailsPage from './pages/HotelDetailsPage';
+import PackageDetails from './pages/PackageDetails';
 import Offers from './pages/Offers';
 import About from './pages/About';
 import Contact from './pages/Contact';
@@ -74,6 +77,10 @@ function AppContent() {
           <Route path="/flights" element={<Flights />} />
           <Route path="/hotels" element={<Hotels />} />
           <Route path="/hotel/:id" element={<HotelDetails />} />
+          <Route path="/destinations/:id" element={<DestinationDetails />} />
+          <Route path="/hotels-eg/:id" element={<HotelDetailsPage />} />
+          <Route path="/hotels-sa/:id" element={<HotelDetailsPage />} />
+          <Route path="/packages/:id" element={<PackageDetails />} />
           <Route path="/offers" element={<Offers />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />

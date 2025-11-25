@@ -1,228 +1,156 @@
-import React, { useState } from 'react';
-import { useLanguage, translations } from '../context/LanguageContext';
-import { Link } from 'react-router-dom';
-import FlightSearch from '../components/SearchBox/FlightSearch';
-import HotelSearch from '../components/SearchBox/HotelSearch';
-import DestinationCard from '../components/Cards/DestinationCard';
-import PackageCard from '../components/Cards/PackageCard';
-import { Plane, Hotel, MapPin, Users } from 'lucide-react';
+import { useState } from 'react';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { DestinationCardHome } from '../components/Cards/DestinationCardHome';
+import { HotelCardHome } from '../components/Cards/HotelCardHome';
+import { PackageCardHome } from '../components/Cards/PackageCardHome';
+import { SectionTitle } from '../components/Common/SectionTitle';
+import { destinationsData, hotelsEgyptData, hotelsSaudiData, packagesData } from '../data/destinationsData';
 
 const Home = () => {
-  const [activeTab, setActiveTab] = useState('flights');
+  const [destinationScroll, setDestinationScroll] = useState(0);
+  const [egyptHotelScroll, setEgyptHotelScroll] = useState(0);
+  const [saudiHotelScroll, setSaudiHotelScroll] = useState(0);
+  const [packagesScroll, setPackagesScroll] = useState(0);
 
-  const featuredDestinations = [
-    {
-      id: 1,
-      image: 'https://picsum.photos/400/300?random=1',
-      title: 'Dubai, UAE',
-      description: 'Experience the magic of modern architecture and luxury shopping.',
-      price: '89',
-      rating: 4.8,
-      reviews: 2847
-    },
-    {
-      id: 2,
-      image: 'https://picsum.photos/400/300?random=2',
-      title: 'Paris, France',
-      description: 'Fall in love with the City of Light and iconic landmarks.',
-      price: '120',
-      rating: 4.9,
-      reviews: 3521
-    },
-    {
-      id: 3,
-      image: 'https://picsum.photos/400/300?random=3',
-      title: 'Tokyo, Japan',
-      description: 'Discover ancient temples and cutting-edge technology.',
-      price: '99',
-      rating: 4.7,
-      reviews: 2156
-    },
-    {
-      id: 4,
-      image: 'https://picsum.photos/400/300?random=4',
-      title: 'Barcelona, Spain',
-      description: 'Explore stunning beaches and vibrant Mediterranean culture.',
-      price: '75',
-      rating: 4.6,
-      reviews: 1890
-    },
-  ];
+  const scroll = (section, direction, setter) => {
+    const scrollAmount = 360;
+    if (direction === 'left') {
+      setter(prev => Math.max(0, prev - scrollAmount));
+    } else {
+      setter(prev => prev + scrollAmount);
+    }
+  };
 
-  const specialOffers = [
-    {
-      id: 1,
-      image: 'https://picsum.photos/400/300?random=5',
-      title: 'Tropical Paradise Package',
-      duration: '5 Days / 4 Nights',
-      price: '599',
-      rating: 4.9,
-      includes: 'All-inclusive resort with flights and meals'
-    },
-    {
-      id: 2,
-      image: 'https://picsum.photos/400/300?random=6',
-      title: 'European Adventure',
-      duration: '7 Days / 6 Nights',
-      price: '899',
-      rating: 4.8,
-      includes: 'Multi-city tour with 5-star hotels'
-    },
-    {
-      id: 3,
-      image: 'https://picsum.photos/400/300?random=7',
-      title: 'Mountain Retreat',
-      duration: '4 Days / 3 Nights',
-      price: '449',
-      rating: 4.7,
-      includes: 'Mountain lodge with guided hikes'
-    },
-  ];
+  const renderScrollableSection = (title, subtitle, data, CardComponent, scrollValue, setter, sectionName, cardProps = {}) => {
+    return (
+      <section className="py-12 sm:py-16 px-4 sm:px-8">
+        <SectionTitle title={title} subtitle={subtitle} />
 
-  const features = [
-    {
-      icon: <Plane className="w-8 h-8" />,
-      title: 'Best Flight Deals',
-      description: 'Find the lowest prices on flights worldwide'
-    },
-    {
-      icon: <Hotel className="w-8 h-8" />,
-      title: 'Premium Hotels',
-      description: 'Stay in luxury accommodations at great rates'
-    },
-    {
-      icon: <MapPin className="w-8 h-8" />,
-      title: 'Unique Experiences',
-      description: 'Discover unforgettable destinations'
-    },
-    {
-      icon: <Users className="w-8 h-8" />,
-      title: '24/7 Support',
-      description: 'Get help whenever you need it'
-    },
-  ];
-
-  const { language } = useLanguage();
-
-  return (
-    <div className="min-h-screen bg-gray-50">
-      {/* Hero Section */}
-      <section className="relative bg-gradient-to-r from-teal-600 via-blue-500 to-purple-600 text-white py-20 px-4">
-        <div className="absolute inset-0 opacity-20">
-          <div className="absolute inset-0 bg-black opacity-30"></div>
-        </div>
-
-        <div className="relative max-w-7xl mx-auto text-center z-10">
-          <h1 className="text-5xl md:text-6xl font-bold mb-4 animate-slideUp">
-            {translations[language].exploreTheWorld}
-          </h1>
-          <p className="text-xl md:text-2xl mb-8 text-gray-100 animate-slideUp">
-            {translations[language].findAmazingDeals}
-          </p>
-        </div>
-
-        {/* Search Tabs */}
-        <div className="relative z-10 max-w-7xl mx-auto mt-12">
-          <div className="flex justify-center gap-4 mb-8">
+        <div className="relative">
+          {/* Scroll Buttons */}
+          {scrollValue > 0 && (
             <button
-              onClick={() => setActiveTab('flights')}
-              className={`flex items-center gap-2 px-6 py-3 rounded-lg font-bold transition ${
-                activeTab === 'flights'
-                  ? 'bg-white text-teal-600 shadow-lg'
-                  : 'bg-white bg-opacity-20 text-white hover:bg-opacity-30'
-              }`}
+              onClick={() => scroll(sectionName, 'left', setter)}
+              className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-12 z-10 bg-gradient-to-r from-blue-500 to-cyan-500 text-white p-2 rounded-full hover:shadow-lg transition-all duration-300"
+              aria-label="Scroll left"
             >
-              <Plane size={20} /> {translations[language].flights}
+              <ChevronLeft className="w-6 h-6" />
             </button>
-            <button
-              onClick={() => setActiveTab('hotels')}
-              className={`flex items-center gap-2 px-6 py-3 rounded-lg font-bold transition ${
-                activeTab === 'hotels'
-                  ? 'bg-white text-teal-600 shadow-lg'
-                  : 'bg-white bg-opacity-20 text-white hover:bg-opacity-30'
-              }`}
-            >
-              <Hotel size={20} /> {translations[language].hotels}
-            </button>
-          </div>
+          )}
 
-          {/* Search Components */}
-          <div className="pb-12">
-            {activeTab === 'flights' && <FlightSearch />}
-            {activeTab === 'hotels' && <HotelSearch />}
+          <button
+            onClick={() => scroll(sectionName, 'right', setter)}
+            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-12 z-10 bg-gradient-to-r from-blue-500 to-cyan-500 text-white p-2 rounded-full hover:shadow-lg transition-all duration-300"
+            aria-label="Scroll right"
+          >
+            <ChevronRight className="w-6 h-6" />
+          </button>
+
+          {/* Cards Container */}
+          <div className="overflow-hidden rounded-2xl">
+            <div
+              className="flex gap-6 transition-transform duration-500 ease-out"
+              style={{ transform: `translateX(-${scrollValue}px)` }}
+            >
+              {data.map((item) => (
+                <div key={item.id} className="flex-shrink-0">
+                  <CardComponent {...item} {...cardProps} />
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
+    );
+  };
 
-      {/* Features Section */}
-      <section className="py-16 px-4 bg-white">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">Why Choose TravelHub</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {features.map((feature, idx) => (
-              <div key={idx} className="text-center p-6 rounded-xl bg-gray-50 hover:bg-teal-50 transition">
-                <div className="flex justify-center mb-4 text-teal-600">
-                  {feature.icon}
-                </div>
-                <h3 className="text-lg font-bold mb-2">{feature.title}</h3>
-                <p className="text-gray-600">{feature.description}</p>
-              </div>
-            ))}
-          </div>
+  return (
+    <div className="bg-gradient-to-b from-gray-50 to-white min-h-screen pt-20">
+      {/* Hero Section */}
+      <section className="bg-gradient-to-r from-blue-600 via-cyan-500 to-blue-600 text-white py-20 px-4 sm:px-8 relative overflow-hidden">
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute top-10 left-10 w-40 h-40 bg-white rounded-full blur-3xl"></div>
+          <div className="absolute bottom-10 right-10 w-60 h-60 bg-white rounded-full blur-3xl"></div>
+        </div>
+
+        <div className="relative z-10 max-w-6xl mx-auto text-center">
+          <h1 className="text-4xl sm:text-6xl font-bold mb-4 leading-tight">
+            Discover Your Next Adventure
+          </h1>
+          <p className="text-xl sm:text-2xl mb-8 text-blue-100">
+            Explore breathtaking destinations and book your dream trip today
+          </p>
+          <button className="bg-white text-blue-600 px-8 py-4 rounded-lg font-bold text-lg hover:bg-gray-100 transition-all duration-300 transform hover:scale-105">
+            Start Exploring
+          </button>
         </div>
       </section>
 
       {/* Featured Destinations */}
-      <section className="py-16 px-4">
-        <div className="max-w-7xl mx-auto">
-          <div className="flex justify-between items-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold">Featured Destinations</h2>
-            <Link to="/offers" className="text-teal-600 hover:text-teal-700 font-bold">
-              View All →
-            </Link>
-          </div>
+      {renderScrollableSection(
+        'Featured Destinations',
+        'Explore the most popular and breathtaking destinations',
+        destinationsData,
+        DestinationCardHome,
+        destinationScroll,
+        setDestinationScroll,
+        'destination'
+      )}
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {featuredDestinations.map((destination) => (
-              <DestinationCard key={destination.id} {...destination} />
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* Hotels in Egypt */}
+      {renderScrollableSection(
+        'Hotels in Egypt',
+        'Experience luxury and comfort in Egypt\'s finest hotels',
+        hotelsEgyptData,
+        HotelCardHome,
+        egyptHotelScroll,
+        setEgyptHotelScroll,
+        'egyptHotel',
+        { hotelType: 'egypt' }
+      )}
 
-      {/* Special Offers */}
-      <section className="py-16 px-4 bg-gray-50">
-        <div className="max-w-7xl mx-auto">
-          <div className="flex justify-between items-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold">Special Offers</h2>
-            <Link to="/offers" className="text-teal-600 hover:text-teal-700 font-bold">
-              Explore More →
-            </Link>
-          </div>
+      {/* Hotels in Saudi Arabia */}
+      {renderScrollableSection(
+        'Hotels in Saudi Arabia',
+        'Discover premium hospitality in Saudi Arabia\'s major cities',
+        hotelsSaudiData,
+        HotelCardHome,
+        saudiHotelScroll,
+        setSaudiHotelScroll,
+        'saudiHotel',
+        { hotelType: 'saudi' }
+      )}
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {specialOffers.map((offer) => (
-              <PackageCard key={offer.id} {...offer} />
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* Packages */}
+      {renderScrollableSection(
+        'Travel Packages',
+        'All-inclusive packages for unforgettable journeys',
+        packagesData,
+        PackageCardHome,
+        packagesScroll,
+        setPackagesScroll,
+        'packages'
+      )}
 
       {/* CTA Section */}
-      <section className="py-16 px-4 bg-gradient-to-r from-teal-600 to-blue-600 text-white">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Ready to Book Your Next Adventure?</h2>
-          <p className="text-lg mb-8">Get exclusive deals and special offers delivered to your inbox</p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <input
-              type="email"
-              placeholder="Enter your email"
-              className="px-6 py-3 rounded-lg text-gray-800 flex-1 max-w-xs focus:outline-none focus:ring-2 focus:ring-white"
-            />
-            <button className="bg-white text-teal-600 px-8 py-3 rounded-lg font-bold hover:bg-gray-100 transition">
-              Subscribe
-            </button>
-          </div>
+      <section className="bg-gradient-to-r from-blue-500 to-cyan-500 text-white py-16 px-4 sm:px-8 relative overflow-hidden">
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute -top-20 -right-20 w-80 h-80 bg-white rounded-full blur-3xl"></div>
+        </div>
+
+        <div className="relative z-10 max-w-4xl mx-auto text-center">
+          <h2 className="text-3xl sm:text-4xl font-bold mb-4">Ready to Explore?</h2>
+          <p className="text-lg mb-8 text-blue-100">
+            Contact us via WhatsApp for personalized travel recommendations
+          </p>
+          <a
+            href="https://wa.me/20100000000?text=Hello%20I%20want%20to%20explore%20travel%20packages"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block bg-white text-blue-600 px-8 py-4 rounded-lg font-bold text-lg hover:bg-gray-100 transition-all duration-300 transform hover:scale-105"
+          >
+            Contact via WhatsApp
+          </a>
         </div>
       </section>
     </div>
