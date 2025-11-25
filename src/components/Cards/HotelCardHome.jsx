@@ -3,10 +3,12 @@ import { MapPin, Star, DollarSign } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { openWhatsApp } from '../../utils/whatsappRedirect';
 
+import { useLanguage, translations } from '../../context/LanguageContext';
 export const HotelCardHome = ({ id, name, city, country, image, rating, stars, price, description, features, reviews, hotelType = 'egypt', ...props }) => {
   const navigate = useNavigate();
   const [isHovered, setIsHovered] = useState(false);
 
+  const { language } = useLanguage();
   const hotel = { id, name, city, country, image, rating, stars, price, description, features, reviews };
 
   const handleImageClick = () => {
@@ -36,7 +38,7 @@ export const HotelCardHome = ({ id, name, city, country, image, rating, stars, p
           }`}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
-          <p className="text-white text-sm">Click for details</p>
+          <p className="text-white text-sm">{language === 'ar' ? 'انقر للتفاصيل' : 'Click for details'}</p>
         </div>
         {/* Star Rating Badge */}
         <div className="absolute top-3 right-3 bg-white rounded-full px-3 py-1 flex items-center gap-1 shadow-md">
@@ -89,7 +91,7 @@ export const HotelCardHome = ({ id, name, city, country, image, rating, stars, p
           onClick={handleBookNow}
           className="w-full bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white font-semibold py-3 rounded-lg transition-all duration-300 transform hover:scale-105"
         >
-          Book Now
+          {translations[language].bookNow}
         </button>
       </div>
     </div>

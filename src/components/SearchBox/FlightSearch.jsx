@@ -110,9 +110,9 @@ const FlightSearch = () => {
               onChange={handleChange}
               className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent transition"
             >
-              <option value="economy">Economy</option>
-              <option value="business">Business</option>
-              <option value="first">First</option>
+              <option value="economy">{translations[language].economy}</option>
+              <option value="business">{translations[language].business}</option>
+              <option value="first">{translations[language].first}</option>
             </select>
           </div>
         </div>

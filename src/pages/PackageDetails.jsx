@@ -4,21 +4,23 @@ import { packagesData } from '../data/destinationsData';
 import { RatingStars } from '../components/Common/RatingStars';
 import { openWhatsApp } from '../utils/whatsappRedirect';
 
+import { useLanguage, translations } from '../context/LanguageContext';
 const PackageDetails = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   const pkg = packagesData.find(p => p.id === parseInt(id));
 
+  const { language } = useLanguage();
   if (!pkg) {
     return (
       <div className="min-h-screen flex items-center justify-center pt-20">
         <div className="text-center">
-          <h1 className="text-4xl font-bold text-gray-800 mb-4">Package Not Found</h1>
+          <h1 className="text-4xl font-bold text-gray-800 mb-4">{language === 'ar' ? 'الحزمة غير موجودة' : 'Package Not Found'}</h1>
           <button
             onClick={() => navigate('/')}
             className="bg-blue-500 text-white px-8 py-3 rounded-lg hover:bg-blue-600 transition"
           >
-            Back to Home
+            {language === 'ar' ? 'العودة للرئيسية' : 'Back to Home'}
           </button>
         </div>
       </div>
@@ -40,7 +42,7 @@ const PackageDetails = () => {
             className="flex items-center gap-2 text-blue-600 hover:text-blue-700 font-semibold transition"
           >
             <ArrowLeft className="w-5 h-5" />
-            Back to Packages
+            {language === 'ar' ? 'العودة للحزم' : 'Back to Packages'}
           </button>
         </div>
       </div>
@@ -93,7 +95,7 @@ const PackageDetails = () => {
 
             {/* What's Included */}
             <div className="mb-10">
-              <h2 className="text-2xl font-bold text-gray-800 mb-6">What's Included</h2>
+              <h2 className="text-2xl font-bold text-gray-800 mb-6">{language === 'ar' ? 'ما يتضمنه الحزمة' : "What's Included"}</h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {pkg.includes.map((item, idx) => (
                   <div
@@ -109,36 +111,36 @@ const PackageDetails = () => {
 
             {/* Package Details */}
             <div className="mb-10 bg-gradient-to-r from-blue-50 to-cyan-50 p-8 rounded-xl">
-              <h2 className="text-2xl font-bold text-gray-800 mb-6">Package Details</h2>
+              <h2 className="text-2xl font-bold text-gray-800 mb-6">{language === 'ar' ? 'تفاصيل الحزمة' : 'Package Details'}</h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
-                  <p className="text-sm text-gray-600 mb-2">Duration</p>
+                  <p className="text-sm text-gray-600 mb-2">{language === 'ar' ? 'المدة' : 'Duration'}</p>
                   <p className="text-2xl font-bold text-blue-600">{pkg.duration}</p>
                 </div>
                 <div>
-                  <p className="text-sm text-gray-600 mb-2">Destination</p>
+                  <p className="text-sm text-gray-600 mb-2">{language === 'ar' ? 'الوجهة' : 'Destination'}</p>
                   <p className="text-2xl font-bold text-blue-600">{pkg.country}</p>
                 </div>
                 <div>
-                  <p className="text-sm text-gray-600 mb-2">Departure</p>
+                  <p className="text-sm text-gray-600 mb-2">{language === 'ar' ? 'الانطلاق' : 'Departure'}</p>
                   <p className="text-lg font-semibold text-gray-800">{pkg.departure}</p>
                 </div>
                 <div>
-                  <p className="text-sm text-gray-600 mb-2">Best For</p>
-                  <p className="text-lg font-semibold text-gray-800">Groups & Families</p>
+                  <p className="text-sm text-gray-600 mb-2">{language === 'ar' ? 'الأنسب لـ' : 'Best For'}</p>
+                  <p className="text-lg font-semibold text-gray-800">{language === 'ar' ? 'المجموعات والعائلات' : 'Groups & Families'}</p>
                 </div>
               </div>
             </div>
 
             {/* Itinerary Highlight */}
             <div className="mb-10">
-              <h2 className="text-2xl font-bold text-gray-800 mb-6">Trip Highlights</h2>
+              <h2 className="text-2xl font-bold text-gray-800 mb-6">{language === 'ar' ? 'أهم معالم الرحلة' : 'Trip Highlights'}</h2>
               <div className="space-y-4">
                 {pkg.includes.slice(0, 3).map((item, idx) => (
                   <div key={idx} className="flex items-start gap-4 p-4 border-l-4 border-blue-500 bg-white rounded-r-lg shadow-sm">
                     <MapPin className="w-5 h-5 text-blue-600 flex-shrink-0 mt-1" />
                     <div>
-                      <p className="font-bold text-gray-800">Day {idx + 1}</p>
+                      <p className="font-bold text-gray-800">{language === 'ar' ? `اليوم ${idx + 1}` : `Day ${idx + 1}`}</p>
                       <p className="text-gray-600">{item}</p>
                     </div>
                   </div>
@@ -148,27 +150,27 @@ const PackageDetails = () => {
 
             {/* Why Choose */}
             <div className="bg-gradient-to-r from-purple-50 to-pink-50 p-8 rounded-xl">
-              <h2 className="text-2xl font-bold text-gray-800 mb-4">Why Choose This Package?</h2>
+              <h2 className="text-2xl font-bold text-gray-800 mb-4">{language === 'ar' ? 'لماذا اختيار هذه الحزمة؟' : 'Why Choose This Package?'}</h2>
               <ul className="space-y-3 text-gray-700">
                 <li className="flex items-center gap-3">
                   <span className="w-2 h-2 bg-blue-500 rounded-full"></span>
-                  Professional and experienced tour guides
+                  {language === 'ar' ? 'مرشدون سياحيون محترفون وذوو خبرة' : 'Professional and experienced tour guides'}
                 </li>
                 <li className="flex items-center gap-3">
                   <span className="w-2 h-2 bg-blue-500 rounded-full"></span>
-                  All-inclusive package with no hidden costs
+                  {language === 'ar' ? 'حزمة شاملة بدون تكاليف مخفية' : 'All-inclusive package with no hidden costs'}
                 </li>
                 <li className="flex items-center gap-3">
                   <span className="w-2 h-2 bg-blue-500 rounded-full"></span>
-                  Comfortable accommodation and transportation
+                  {language === 'ar' ? 'إقامة وسفر مريح' : 'Comfortable accommodation and transportation'}
                 </li>
                 <li className="flex items-center gap-3">
                   <span className="w-2 h-2 bg-blue-500 rounded-full"></span>
-                  24/7 customer support during your trip
+                  {language === 'ar' ? 'دعم العملاء على مدار الساعة طوال فترة رحلتك' : '24/7 customer support during your trip'}
                 </li>
                 <li className="flex items-center gap-3">
                   <span className="w-2 h-2 bg-blue-500 rounded-full"></span>
-                  Flexible booking and cancellation policy
+                  {language === 'ar' ? 'سياسة حجز وإلغاء مرنة' : 'Flexible booking and cancellation policy'}
                 </li>
               </ul>
             </div>
@@ -179,22 +181,22 @@ const PackageDetails = () => {
             {/* Booking Card */}
             <div className="bg-gradient-to-b from-blue-50 to-cyan-50 rounded-2xl p-8 shadow-lg sticky top-32">
               <div className="mb-6">
-                <p className="text-gray-600 text-sm mb-2">Package Price</p>
+                <p className="text-gray-600 text-sm mb-2">{language === 'ar' ? 'سعر الحزمة' : 'Package Price'}</p>
                 <div className="text-4xl font-bold text-blue-600 mb-2">{pkg.price}</div>
-                <p className="text-gray-700 text-sm">per person (all-inclusive)</p>
+                <p className="text-gray-700 text-sm">{language === 'ar' ? 'لكل شخص (شامل كل شيء)' : 'per person (all-inclusive)'}</p>
               </div>
 
               <div className="space-y-4 mb-8 pb-8 border-b border-gray-300">
                 <div className="flex justify-between">
-                  <span className="text-gray-700">Duration:</span>
+                  <span className="text-gray-700">{language === 'ar' ? 'المدة:' : 'Duration:'}</span>
                   <span className="font-semibold text-gray-800">{pkg.duration}</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-gray-700">Destination:</span>
+                  <span className="text-gray-700">{language === 'ar' ? 'الوجهة:' : 'Destination:'}</span>
                   <span className="font-semibold text-gray-800">{pkg.country}</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-gray-700">Rating:</span>
+                  <span className="text-gray-700">{language === 'ar' ? 'التقييم:' : 'Rating:'}</span>
                   <span className="font-semibold text-gray-800">{pkg.rating}/5.0</span>
                 </div>
               </div>
@@ -203,20 +205,20 @@ const PackageDetails = () => {
               <div className="mb-6 p-4 bg-white rounded-lg">
                 <div className="flex items-center gap-2 mb-2">
                   <Users className="w-5 h-5 text-blue-600" />
-                  <span className="font-semibold text-gray-800">Group Size</span>
+                  <span className="font-semibold text-gray-800">{language === 'ar' ? 'حجم المجموعة' : 'Group Size'}</span>
                 </div>
-                <p className="text-sm text-gray-600">Perfect for groups of 2-20 people</p>
+                <p className="text-sm text-gray-600">{language === 'ar' ? 'مناسب للمجموعات من 2 إلى 20 شخص' : 'Perfect for groups of 2-20 people'}</p>
               </div>
 
               <button
                 onClick={handleBookNow}
                 className="w-full bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white font-bold py-4 rounded-xl transition-all duration-300 transform hover:scale-105 mb-4"
               >
-                Book Now via WhatsApp
+                {language === 'ar' ? 'احجز الآن عبر WhatsApp' : 'Book Now via WhatsApp'}
               </button>
 
               <p className="text-xs text-gray-600 text-center">
-                Click to contact us for availability and special group discounts
+                {language === 'ar' ? 'انقر للتواصل معنا لمعرفة التوفر والخصومات الجماعية الخاصة' : 'Click to contact us for availability and special group discounts'}
               </p>
             </div>
           </div>

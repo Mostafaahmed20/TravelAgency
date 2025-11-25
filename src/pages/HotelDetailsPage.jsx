@@ -3,9 +3,11 @@ import { ArrowLeft, MapPin, Star, Phone, Wifi, Utensils, Dumbbell, ChevronRight 
 import { hotelsEgyptData, hotelsSaudiData } from '../data/destinationsData';
 import { openWhatsApp } from '../utils/whatsappRedirect';
 
+import { useLanguage, translations } from '../context/LanguageContext';
 const HotelDetails = () => {
   const { id } = useParams();
   const navigate = useNavigate();
+    const { language } = useLanguage();
   
   // Try to find hotel in both Egypt and Saudi Arabia data
   let hotel = hotelsEgyptData.find(h => h.id === parseInt(id));
@@ -20,12 +22,12 @@ const HotelDetails = () => {
     return (
       <div className="min-h-screen flex items-center justify-center pt-20">
         <div className="text-center">
-          <h1 className="text-4xl font-bold text-gray-800 mb-4">Hotel Not Found</h1>
+          <h1 className="text-4xl font-bold text-gray-800 mb-4">{language === 'ar' ? 'الفندق غير موجود' : 'Hotel Not Found'}</h1>
           <button
             onClick={() => navigate('/')}
             className="bg-blue-500 text-white px-8 py-3 rounded-lg hover:bg-blue-600 transition"
           >
-            Back to Home
+            {language === 'ar' ? 'العودة للرئيسية' : 'Back to Home'}
           </button>
         </div>
       </div>
@@ -58,7 +60,7 @@ const HotelDetails = () => {
             className="flex items-center gap-2 text-blue-600 hover:text-blue-700 font-semibold transition"
           >
             <ArrowLeft className="w-5 h-5" />
-            Back to Hotels
+            {language === 'ar' ? 'العودة للفنادق' : 'Back to Hotels'}
           </button>
         </div>
       </div>
@@ -120,7 +122,7 @@ const HotelDetails = () => {
 
             {/* Description */}
             <div className="mb-10">
-              <h2 className="text-2xl font-bold text-gray-800 mb-4">About</h2>
+              <h2 className="text-2xl font-bold text-gray-800 mb-4">{language === 'ar' ? 'عن الفندق' : 'About'}</h2>
               <p className="text-gray-700 text-lg leading-relaxed">
                 {hotel.description}
               </p>
@@ -128,7 +130,7 @@ const HotelDetails = () => {
 
             {/* Features */}
             <div className="mb-10">
-              <h2 className="text-2xl font-bold text-gray-800 mb-6">Amenities & Features</h2>
+              <h2 className="text-2xl font-bold text-gray-800 mb-6">{language === 'ar' ? 'المرافق والميزات' : 'Amenities & Features'}</h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {hotel.features.map((feature, idx) => (
                   <div
@@ -144,25 +146,25 @@ const HotelDetails = () => {
 
             {/* Room Info */}
             <div className="mb-10 bg-gradient-to-r from-blue-50 to-cyan-50 p-8 rounded-xl">
-              <h2 className="text-2xl font-bold text-gray-800 mb-4">Room Information</h2>
+              <h2 className="text-2xl font-bold text-gray-800 mb-4">{language === 'ar' ? 'معلومات الغرفة' : 'Room Information'}</h2>
               <p className="text-gray-700 text-lg mb-4">
-                Our carefully designed rooms offer the perfect blend of comfort and luxury. Each room is equipped with modern amenities to ensure your stay is unforgettable.
+                {language === 'ar' ? 'غرفنا المصممة بعناية توفر مزيجًا مثاليًا من الراحة والفخامة. كل غرفة مجهزة بأحدث وسائل الراحة لضمان إقامة لا تُنسى.' : 'Our carefully designed rooms offer the perfect blend of comfort and luxury. Each room is equipped with modern amenities to ensure your stay is unforgettable.'}
               </p>
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                 <div className="bg-white p-4 rounded-lg">
-                  <p className="text-sm text-gray-600 mb-1">Room Types</p>
+                  <p className="text-sm text-gray-600 mb-1">{language === 'ar' ? 'أنواع الغرف' : 'Room Types'}</p>
                   <p className="font-bold text-gray-800">Standard to Deluxe</p>
                 </div>
                 <div className="bg-white p-4 rounded-lg">
-                  <p className="text-sm text-gray-600 mb-1">Occupancy</p>
+                  <p className="text-sm text-gray-600 mb-1">{language === 'ar' ? 'السعة' : 'Occupancy'}</p>
                   <p className="font-bold text-gray-800">1-4 Persons</p>
                 </div>
                 <div className="bg-white p-4 rounded-lg">
-                  <p className="text-sm text-gray-600 mb-1">Amenities</p>
+                  <p className="text-sm text-gray-600 mb-1">{language === 'ar' ? 'المرافق' : 'Amenities'}</p>
                   <p className="font-bold text-gray-800">Air Conditioning</p>
                 </div>
                 <div className="bg-white p-4 rounded-lg">
-                  <p className="text-sm text-gray-600 mb-1">Check-in</p>
+                  <p className="text-sm text-gray-600 mb-1">{language === 'ar' ? 'تسجيل الدخول' : 'Check-in'}</p>
                   <p className="font-bold text-gray-800">2:00 PM</p>
                 </div>
               </div>
@@ -174,13 +176,13 @@ const HotelDetails = () => {
             {/* Booking Card */}
             <div className="bg-gradient-to-b from-blue-50 to-cyan-50 rounded-2xl p-8 shadow-lg sticky top-32">
               <div className="mb-6">
-                <p className="text-gray-600 text-sm mb-2">Price per Night</p>
+                <p className="text-gray-600 text-sm mb-2">{language === 'ar' ? 'السعر في الليلة' : 'Price per Night'}</p>
                 <div className="text-3xl font-bold text-blue-600 mb-2">{hotel.price}</div>
               </div>
 
               <div className="space-y-3 mb-8 pb-8 border-b border-gray-300">
                 <div className="flex justify-between">
-                  <span className="text-gray-700">Stars:</span>
+                  <span className="text-gray-700">{language === 'ar' ? 'النجوم:' : 'Stars:'}</span>
                   <div className="flex">
                     {[...Array(hotel.stars)].map((_, i) => (
                       <Star
@@ -191,11 +193,11 @@ const HotelDetails = () => {
                   </div>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-gray-700">Rating:</span>
+                  <span className="text-gray-700">{language === 'ar' ? 'التقييم:' : 'Rating:'}</span>
                   <span className="font-semibold text-gray-800">{hotel.rating}/5.0</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-gray-700">Location:</span>
+                  <span className="text-gray-700">{language === 'ar' ? 'الموقع:' : 'Location:'}</span>
                   <span className="font-semibold text-gray-800">{hotel.city}</span>
                 </div>
               </div>
@@ -204,11 +206,11 @@ const HotelDetails = () => {
                 onClick={handleBookNow}
                 className="w-full bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white font-bold py-4 rounded-xl transition-all duration-300 transform hover:scale-105 mb-4"
               >
-                Book Now via WhatsApp
+                {language === 'ar' ? 'احجز الآن عبر WhatsApp' : 'Book Now via WhatsApp'}
               </button>
 
               <p className="text-xs text-gray-600 text-center">
-                Click to contact us for room availability and special offers
+                {language === 'ar' ? 'انقر للتواصل معنا لمعرفة توفر الغرف والعروض الخاصة' : 'Click to contact us for room availability and special offers'}
               </p>
             </div>
           </div>
