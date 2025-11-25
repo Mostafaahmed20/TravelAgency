@@ -5,12 +5,15 @@ import { HotelCardHome } from '../components/Cards/HotelCardHome';
 import { PackageCardHome } from '../components/Cards/PackageCardHome';
 import { SectionTitle } from '../components/Common/SectionTitle';
 import { destinationsData, hotelsEgyptData, hotelsSaudiData, packagesData } from '../data/destinationsData';
+import FlightSearch from '../components/SearchBox/FlightSearch';
+import HotelSearch from '../components/SearchBox/HotelSearch';
 
 const Home = () => {
   const [destinationScroll, setDestinationScroll] = useState(0);
   const [egyptHotelScroll, setEgyptHotelScroll] = useState(0);
   const [saudiHotelScroll, setSaudiHotelScroll] = useState(0);
   const [packagesScroll, setPackagesScroll] = useState(0);
+  const [activeTab, setActiveTab] = useState('flights');
 
   const scroll = (section, direction, setter) => {
     const scrollAmount = 360;
