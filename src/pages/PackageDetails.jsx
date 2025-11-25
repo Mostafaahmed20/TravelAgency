@@ -1,5 +1,5 @@
 import { useParams, useNavigate } from 'react-router-dom';
-import { ArrowLeft, MapPin, Clock, DollarSign, Plane, MapPinned, ChevronRight, Users } from 'lucide-react';
+import { ArrowLeft, MapPin, Clock, DollarSign, Plane, ChevronRight, Users } from 'lucide-react';
 import { packagesData } from '../data/destinationsData';
 import { RatingStars } from '../components/Common/RatingStars';
 import { openWhatsApp } from '../utils/whatsappRedirect';
@@ -136,7 +136,7 @@ const PackageDetails = () => {
               <div className="space-y-4">
                 {pkg.includes.slice(0, 3).map((item, idx) => (
                   <div key={idx} className="flex items-start gap-4 p-4 border-l-4 border-blue-500 bg-white rounded-r-lg shadow-sm">
-                    <MapPinned className="w-5 h-5 text-blue-600 flex-shrink-0 mt-1" />
+                    <MapPin className="w-5 h-5 text-blue-600 flex-shrink-0 mt-1" />
                     <div>
                       <p className="font-bold text-gray-800">Day {idx + 1}</p>
                       <p className="text-gray-600">{item}</p>

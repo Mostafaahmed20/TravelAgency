@@ -3,7 +3,7 @@ import { MapPin, Star, DollarSign } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { openWhatsApp } from '../../utils/whatsappRedirect';
 
-export const HotelCard = ({ hotel, hotelType = 'egypt' }) => {
+export const HotelCardHome = ({ hotel, hotelType = 'egypt' }) => {
   const navigate = useNavigate();
   const [isHovered, setIsHovered] = useState(false);
 

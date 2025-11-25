@@ -1,10 +1,10 @@
 import { useState } from 'react';
 import { MapPin, Clock, DollarSign } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
-import { RatingStars } from './RatingStars';
+import { RatingStars } from '../Common/RatingStars';
 import { openWhatsApp } from '../../utils/whatsappRedirect';
 
-export const DestinationCard = ({ destination, onNavigate }) => {
+export const DestinationCardHome = ({ destination, onNavigate }) => {
   const navigate = useNavigate();
   const [isHovered, setIsHovered] = useState(false);
 
