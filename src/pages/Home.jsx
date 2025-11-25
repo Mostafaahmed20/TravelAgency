@@ -86,6 +86,24 @@ const Home = () => {
         </div>
       </section>
 
+      {/* Search Section (Flights / Hotels) */}
+      <section className="-mt-20 mb-12 px-4 sm:px-8">
+        <div className="max-w-6xl mx-auto">
+          <div className="bg-transparent rounded-lg">
+            <div className="flex justify-center mb-6">
+              <div className="inline-flex bg-white rounded-full p-1 shadow-lg">
+                <button id="tab-flights" className="px-5 py-2 rounded-full bg-gradient-to-r from-teal-600 to-blue-600 text-white font-semibold" onClick={() => setActiveTab('flights')}>Flights</button>
+                <button id="tab-hotels" className="px-5 py-2 rounded-full text-gray-700 font-semibold ml-2" onClick={() => setActiveTab('hotels')}>Hotels</button>
+              </div>
+            </div>
+
+            <div>
+              {activeTab === 'flights' ? <FlightSearch /> : <HotelSearch />}
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Featured Destinations */}
       {renderScrollableSection(
         'Featured Destinations',
