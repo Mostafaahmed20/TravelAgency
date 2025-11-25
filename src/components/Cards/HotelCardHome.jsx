@@ -3,9 +3,11 @@ import { MapPin, Star, DollarSign } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { openWhatsApp } from '../../utils/whatsappRedirect';
 
-export const HotelCardHome = ({ hotel, hotelType = 'egypt' }) => {
+export const HotelCardHome = ({ id, name, city, country, image, rating, stars, price, description, features, reviews, hotelType = 'egypt', ...props }) => {
   const navigate = useNavigate();
   const [isHovered, setIsHovered] = useState(false);
+
+  const hotel = { id, name, city, country, image, rating, stars, price, description, features, reviews };
 
   const handleImageClick = () => {
     const route = hotelType === 'egypt' ? `/hotels-eg/${hotel.id}` : `/hotels-sa/${hotel.id}`;

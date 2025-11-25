@@ -4,9 +4,11 @@ import { useNavigate } from 'react-router-dom';
 import { RatingStars } from '../Common/RatingStars';
 import { openWhatsApp } from '../../utils/whatsappRedirect';
 
-export const DestinationCardHome = ({ destination, onNavigate }) => {
+export const DestinationCardHome = ({ id, city, country, image, description, rating, days, price, activities, highlights, ...props }) => {
   const navigate = useNavigate();
   const [isHovered, setIsHovered] = useState(false);
+
+  const destination = { id, city, country, image, description, rating, days, price, activities, highlights };
 
   const handleImageClick = () => {
     navigate(`/destinations/${destination.id}`);
