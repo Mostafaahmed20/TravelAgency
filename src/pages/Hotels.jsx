@@ -36,7 +36,6 @@ const Hotels = () => {
                 image={deal.image}
                 title={deal.title}
                 description={deal.description}
-                price={deal.baseprice}
                 rating={deal.rating}
                 reviews={deal.reviews}
               />

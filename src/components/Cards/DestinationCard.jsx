@@ -4,20 +4,26 @@ import { Star, MapPin } from 'lucide-react';
 import { useCurrency } from '../../context/CurrencyContext';
 import { useLanguage, translations } from '../../context/LanguageContext';
 
-const DestinationCard = ({ id, image, title, description, price, rating, reviews }) => {
+const DestinationCard = ({ id, image, title, description, rating, reviews }) => {
   const navigate = useNavigate();
-  const { formatPrice, currency } = useCurrency();
   const { language } = useLanguage();
 
-  const handleBookNow = () => {
+  const handleImageClick = () => {
     if (id) {
       navigate(`/hotel/${id}`);
     }
   };
+
+  const handleBookNow = () => {
+    const message = `🏨 Hotel Interest: ${title}\n\nI am interested in this hotel and need support to book it. Please assist me.`;
+    const encodedMessage = encodeURIComponent(message);
+    const whatsappUrl = `https://wa.me/201515196284?text=${encodedMessage}`;
+    window.open(whatsappUrl, '_blank');
+  };
   return (
     <div className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition transform hover:scale-105 duration-300">
       {/* Image */}
-      <div className="relative h-48 bg-gradient-to-br from-teal-400 to-blue-500 overflow-hidden group">
+      <div className="relative h-48 bg-gradient-to-br from-teal-400 to-blue-500 overflow-hidden group cursor-pointer" onClick={handleImageClick}>
         <img
           src={image}
           alt={title}
@@ -45,12 +51,8 @@ const DestinationCard = ({ id, image, title, description, price, rating, reviews
           <span className="text-sm text-gray-600">({reviews} reviews)</span>
         </div>
 
-        {/* Price and Button */}
-        <div className={`flex justify-between items-center pt-4 border-t border-gray-200 ${language === 'ar' ? 'flex-row-reverse' : ''}`}>
-          <div>
-            <span className="text-2xl font-bold text-teal-600">{formatPrice(price)}</span>
-            <span className="text-sm text-gray-600">{translations[language].night}</span>
-          </div>
+        {/* Button */}
+        <div className={`flex justify-end pt-4 border-t border-gray-200`}>
           <button 
             onClick={handleBookNow}
             className="bg-gradient-to-r from-teal-600 to-blue-600 text-white px-4 py-2 rounded-lg hover:shadow-lg transition font-medium">

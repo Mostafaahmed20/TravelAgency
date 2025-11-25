@@ -1,17 +1,14 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { Star, MapPin, ChevronLeft, Check, X } from 'lucide-react';
+import { Star, MapPin, ChevronLeft, Check } from 'lucide-react';
 import { getHotelById } from '../data/hotelData';
-import { useCurrency } from '../context/CurrencyContext';
 import { useLanguage, translations } from '../context/LanguageContext';
 
 const HotelDetails = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   const hotel = getHotelById(id);
-  const { formatPrice } = useCurrency();
   const { language } = useLanguage();
-  const [selectedRooms, setSelectedRooms] = useState({});
   const displayTitle = language === 'ar' && hotel?.title_ar ? hotel.title_ar : hotel?.title;
 
   if (!hotel) {
@@ -29,23 +26,6 @@ const HotelDetails = () => {
       </div>
     );
   }
-
-  const handleSelectRoom = (roomId) => {
-    setSelectedRooms(prev => ({
-      ...prev,
-      [roomId]: !prev[roomId]
-    }));
-  };
-
-  const handleBooking = () => {
-    const selected = Object.keys(selectedRooms).filter(roomId => selectedRooms[roomId]);
-    if (selected.length === 0) {
-      alert('Please select at least one room');
-      return;
-    }
-    // TODO: Implement booking logic
-    alert(`Booking ${selected.length} room(s) for ${hotel.title}`);
-  };
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -121,11 +101,6 @@ const HotelDetails = () => {
               <h3 className="text-lg font-bold text-gray-800 mb-4">Quick Info</h3>
               <div className="space-y-4">
                 <div>
-                  <p className="text-sm text-gray-600 mb-1">Starting Price</p>
-                  <p className="text-2xl font-bold text-teal-600">{formatPrice(hotel.baseprice)}</p>
-                  <p className="text-xs text-gray-500">{translations[language].night}</p>
-                </div>
-                <div className="border-t border-gray-300 pt-4">
                   <p className="text-sm text-gray-600 mb-2">Rating</p>
                   <div className="flex items-center gap-2">
                     <span className="text-xl font-bold text-gray-800">{hotel.rating}</span>
@@ -140,114 +115,62 @@ const HotelDetails = () => {
                     </div>
                   </div>
                 </div>
+                <div className="border-t border-gray-300 pt-4">
+                  <p className="text-sm text-gray-600 mb-2">Reviews</p>
+                  <p className="text-lg font-semibold text-gray-800">{hotel.reviews} guest reviews</p>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Room Types Section */}
+      {/* Hotel Gallery Section */}
       <section className="py-16 px-4">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl font-bold text-gray-800 mb-12">Available Rooms</h2>
+          <h2 className="text-3xl font-bold text-gray-800 mb-12">Hotel Gallery</h2>
           
-          <div className="space-y-6">
-            {hotel.rooms.map((room) => (
-              <div
-                key={room.id}
-                className="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-200 hover:shadow-xl transition"
-              >
-                <div className="p-6">
-                  <div className="grid grid-cols-1 md:grid-cols-4 gap-6 items-center">
-                    {/* Room Type and Details */}
-                    <div>
-                      <h3 className="text-xl font-bold text-gray-800 mb-3">{room.type}</h3>
-                      <div className="space-y-2 text-sm text-gray-600">
-                        <p><strong>Bed:</strong> {room.bed}</p>
-                        <p><strong>Guests:</strong> Up to {room.maxGuests}</p>
-                      </div>
-                    </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {/* Main hotel image */}
+            <div className="lg:col-span-2 lg:row-span-2 rounded-xl overflow-hidden shadow-lg h-96">
+              <img
+                src={hotel.image}
+                alt={hotel.title}
+                className="w-full h-full object-cover hover:scale-105 transition duration-300"
+              />
+            </div>
 
-                    {/* Refundable Status */}
-                    <div>
-                      <div className={`inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-semibold ${
-                        room.refundable 
-                          ? 'bg-green-100 text-green-800' 
-                          : 'bg-red-100 text-red-800'
-                      }`}>
-                        {room.refundable ? (
-                          <>
-                            <Check size={16} />
-                            Refundable
-                          </>
-                        ) : (
-                          <>
-                            <X size={16} />
-                            Non-Refundable
-                          </>
-                        )}
-                      </div>
-                      
-                      {/* Room Amenities */}
-                      <div className="mt-4">
-                        <p className="text-xs text-gray-600 mb-2 font-semibold">Amenities:</p>
-                        <div className="flex flex-wrap gap-2">
-                          {room.amenities.slice(0, 3).map((amenity, idx) => (
-                            <span key={idx} className="text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded">
-                              {amenity}
-                            </span>
-                          ))}
-                          {room.amenities.length > 3 && (
-                            <span className="text-xs text-gray-500 px-2 py-1">
-                              +{room.amenities.length - 3} more
-                            </span>
-                          )}
-                        </div>
-                      </div>
-                    </div>
+            {/* Additional hotel images - using placeholder images for now */}
+            <div className="rounded-xl overflow-hidden shadow-lg h-44">
+              <img
+                src="https://images.unsplash.com/photo-1631049307038-da0ec9d70304?w=400&h=300&fit=crop"
+                alt="Hotel Interior"
+                className="w-full h-full object-cover hover:scale-105 transition duration-300"
+              />
+            </div>
 
-                    {/* Price */}
-                    <div className="md:text-center">
-                      <p className="text-sm text-gray-600 mb-1">Per Night</p>
-                      <p className="text-3xl font-bold text-teal-600">{formatPrice(room.price)}</p>
-                    </div>
+            <div className="rounded-xl overflow-hidden shadow-lg h-44">
+              <img
+                src="https://images.unsplash.com/photo-1566163566359-90f06ba7c364?w=400&h=300&fit=crop"
+                alt="Hotel Amenities"
+                className="w-full h-full object-cover hover:scale-105 transition duration-300"
+              />
+            </div>
 
-                    {/* Select Button */}
-                    <div>
-                      <button
-                        onClick={() => handleSelectRoom(room.id)}
-                        className={`w-full py-3 px-4 rounded-lg font-semibold transition ${
-                          selectedRooms[room.id]
-                            ? 'bg-teal-600 text-white hover:bg-teal-700'
-                            : 'bg-gray-200 text-gray-800 hover:bg-gray-300'
-                        }`}
-                      >
-                        {selectedRooms[room.id] ? 'Selected ✓' : 'Select Room'}
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
+            <div className="rounded-xl overflow-hidden shadow-lg h-44">
+              <img
+                src="https://images.unsplash.com/photo-1582719471384-894fbb16e074?w=400&h=300&fit=crop"
+                alt="Hotel Room"
+                className="w-full h-full object-cover hover:scale-105 transition duration-300"
+              />
+            </div>
 
-          {/* Booking Summary and Button */}
-          <div className="mt-12 bg-gradient-to-r from-teal-600 to-blue-600 rounded-xl p-8 text-white">
-            <div className="flex flex-col md:flex-row justify-between items-center gap-6">
-              <div>
-                <h3 className="text-2xl font-bold mb-2">Ready to Book?</h3>
-                <p className="text-teal-100">
-                  {Object.values(selectedRooms).filter(Boolean).length > 0 
-                    ? `${Object.values(selectedRooms).filter(Boolean).length} room(s) selected` 
-                    : 'Select rooms to proceed with booking'}
-                </p>
-              </div>
-              <button
-                onClick={handleBooking}
-                className="bg-white text-teal-600 px-8 py-4 rounded-lg font-bold text-lg hover:bg-gray-100 transition hover:shadow-xl"
-              >
-                Proceed to Booking
-              </button>
+            <div className="rounded-xl overflow-hidden shadow-lg h-44">
+              <img
+                src="https://images.unsplash.com/photo-1512453076900-730b63b2c189?w=400&h=300&fit=crop"
+                alt="Hotel Restaurant"
+                className="w-full h-full object-cover hover:scale-105 transition duration-300"
+              />
             </div>
           </div>
         </div>
