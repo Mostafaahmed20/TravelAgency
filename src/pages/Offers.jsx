@@ -4,35 +4,41 @@ import { TrendingUp, Award, Gift } from 'lucide-react';
 import { useLanguage, translations } from '../context/LanguageContext';
 
 const Offers = () => {
-  const allOffers = Array.from({ length: 12 }, (_, i) => ({
-    id: i + 1,
-    image: `https://picsum.photos/400/300?random=${i + 30}`,
-    title: `Travel Package ${i + 1}`,
-    duration: `${Math.floor(Math.random() * 5) + 3} Days / ${Math.floor(Math.random() * 4) + 2} Nights`,
-    price: Math.floor(Math.random() * 1000) + 300,
-    rating: (Math.random() * 1.5 + 3.5).toFixed(1),
-    includes: 'Flights, hotels, meals, and guided tours included'
-  }));
-
   const offerCategories = [
     {
       icon: <TrendingUp className="w-8 h-8" />,
-      title: 'Hot Deals',
-      description: 'Limited time offers on popular destinations'
+      titleKey: 'hotDeals',
+      descKey: 'hotDealsDesc'
     },
     {
       icon: <Award className="w-8 h-8" />,
-      title: 'Premium Packages',
-      description: 'Luxury experiences for discerning travelers'
+      titleKey: 'premiumPackages',
+      descKey: 'premiumPackagesDesc'
     },
     {
       icon: <Gift className="w-8 h-8" />,
-      title: 'Special Promotions',
-      description: 'Exclusive deals for our valued members'
+      titleKey: 'specialPromotions',
+      descKey: 'specialPromotionsDesc'
     },
   ];
 
   const { language } = useLanguage();
+  const allOffers = Array.from({ length: 12 }, (_, i) => {
+    const days = Math.floor(Math.random() * 5) + 3;
+    const nights = Math.floor(Math.random() * 4) + 2;
+    return {
+      id: i + 1,
+      image: `https://picsum.photos/400/300?random=${i + 30}`,
+      title: `${translations[language].travelPackagePrefix} ${i + 1}`,
+      title_ar: `${translations[language].travelPackagePrefix} ${i + 1}`,
+      duration: `${days} ${translations[language].daysWord} / ${nights} ${translations[language].nightsWord}`,
+      duration_ar: `${days} ${translations[language].daysWord} / ${nights} ${translations[language].nightsWord}`,
+      price: Math.floor(Math.random() * 1000) + 300,
+      rating: (Math.random() * 1.5 + 3.5).toFixed(1),
+      includes: translations[language].offerIncludesGeneric,
+      includes_ar: translations[language].offerIncludesGeneric,
+    };
+  });
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -56,8 +62,8 @@ const Offers = () => {
                 <div className="flex justify-center mb-4 text-teal-600">
                   {category.icon}
                 </div>
-                <h3 className="text-xl font-bold mb-2">{category.title}</h3>
-                <p className="text-gray-600">{category.description}</p>
+                <h3 className="text-xl font-bold mb-2">{translations[language][category.titleKey]}</h3>
+                <p className="text-gray-600">{translations[language][category.descKey]}</p>
               </div>
             ))}
           </div>

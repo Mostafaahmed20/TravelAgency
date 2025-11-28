@@ -4,7 +4,7 @@ import { Star, MapPin } from 'lucide-react';
 import { useCurrency } from '../../context/CurrencyContext';
 import { useLanguage, translations } from '../../context/LanguageContext';
 
-const DestinationCard = ({ id, image, title, description, rating, reviews }) => {
+const DestinationCard = ({ id, image, title, title_ar, description, description_ar, rating, reviews }) => {
   const navigate = useNavigate();
   const { language } = useLanguage();
 
@@ -26,7 +26,7 @@ const DestinationCard = ({ id, image, title, description, rating, reviews }) => 
       <div className="relative h-48 bg-gradient-to-br from-teal-400 to-blue-500 overflow-hidden group cursor-pointer" onClick={handleImageClick}>
         <img
           src={image}
-          alt={title}
+          alt={language === 'ar' && title_ar ? title_ar : title}
           className="w-full h-full object-cover group-hover:scale-110 transition duration-300"
         />
         <div className="absolute inset-0 bg-black bg-opacity-20 group-hover:bg-opacity-0 transition duration-300"></div>
@@ -34,8 +34,8 @@ const DestinationCard = ({ id, image, title, description, rating, reviews }) => 
 
       {/* Content */}
       <div className="p-5">
-        <h3 className="text-lg font-bold text-gray-800 mb-2">{title}</h3>
-        <p className="text-gray-600 text-sm mb-3 line-clamp-2">{description}</p>
+        <h3 className="text-lg font-bold text-gray-800 mb-2">{language === 'ar' && title_ar ? title_ar : title}</h3>
+        <p className="text-gray-600 text-sm mb-3 line-clamp-2">{language === 'ar' && description_ar ? description_ar : description}</p>
 
         {/* Rating */}
         <div className="flex items-center gap-2 mb-4">
@@ -48,7 +48,7 @@ const DestinationCard = ({ id, image, title, description, rating, reviews }) => 
               />
             ))}
           </div>
-          <span className="text-sm text-gray-600">({reviews} reviews)</span>
+          <span className="text-sm text-gray-600">({reviews} {translations[language].reviews})</span>
         </div>
 
         {/* Button */}

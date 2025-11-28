@@ -19,9 +19,9 @@ const Footer = () => {
               {translations[language].discoverTheWorld}
             </p>
             <div className={`flex gap-4 mt-4 ${language === 'ar' ? 'flex-row-reverse justify-end' : ''}`}>
-              <a href="#" className="hover:text-teal-400 transition"><Facebook size={20} /></a>
-              <a href="#" className="hover:text-teal-400 transition"><Twitter size={20} /></a>
-              <a href="#" className="hover:text-teal-400 transition"><Instagram size={20} /></a>
+              <a href="https://www.facebook.com/profile.php?id=61583944513951" target="_blank" rel="noopener noreferrer" className="hover:text-teal-400 transition"><Facebook size={20} /></a>
+              <a href="https://www.miles-travel.com" target="_blank" rel="noopener noreferrer" className="hover:text-teal-400 transition"><Twitter size={20} /></a>
+              <a href="https://www.miles-travel.com" target="_blank" rel="noopener noreferrer" className="hover:text-teal-400 transition"><Instagram size={20} /></a>
             </div>
           </div>
 
@@ -55,15 +55,15 @@ const Footer = () => {
             <ul className="space-y-3 text-sm">
               <li className={`flex items-center gap-2 ${language === 'ar' ? 'flex-row-reverse justify-end' : ''}`}>
                 <Phone size={16} className="text-teal-400 flex-shrink-0" />
-                <span>+20 15 15196284</span>
+                <a href="https://wa.me/201515196284" className="hover:text-teal-400 transition">015 1519628</a>
               </li>
               <li className={`flex items-center gap-2 ${language === 'ar' ? 'flex-row-reverse justify-end' : ''}`}>
                 <Mail size={16} className="text-teal-400 flex-shrink-0" />
-                <span>info@milestravel.com</span>
+                <a href="mailto:Reservations@miles-travel.com" className="hover:text-teal-400 transition">Reservations@miles-travel.com</a>
               </li>
               <li className={`flex items-start gap-2 ${language === 'ar' ? 'flex-row-reverse justify-end' : ''}`}>
                 <MapPin size={16} className="text-teal-400 mt-1 flex-shrink-0" />
-                <span>Cairo, Egypt</span>
+                <span>1 Moustafa El Nahas, Nasr City, Cairo, Egypt</span>
               </li>
             </ul>
           </div>
@@ -74,13 +74,14 @@ const Footer = () => {
           {/* Bottom Info */}
           <div className={`grid grid-cols-1 md:grid-cols-3 gap-4 text-sm mb-4 ${language === 'ar' ? 'text-right' : ''}`}>
             <div className={language === 'ar' ? 'md:text-right' : ''}>
-              <a href="#" className="hover:text-teal-400 transition">{translations[language].privacyPolicy}</a>
+              <a href="https://www.miles-travel.com" target="_blank" rel="noopener noreferrer" className="hover:text-teal-400 transition">{translations[language].privacyPolicy}</a>
             </div>
             <div className="text-center">
               <p>&copy; {currentYear} MILES TRAVEL. {translations[language].allRightsReserved}</p>
+              <a href="https://www.miles-travel.com" target="_blank" rel="noopener noreferrer" className="hover:text-teal-400 transition text-xs">www.miles-travel.com</a>
             </div>
             <div className={language === 'ar' ? 'md:text-left' : 'md:text-right'}>
-              <a href="#" className="hover:text-teal-400 transition">{translations[language].termsConditions}</a>
+              <a href="https://www.miles-travel.com" target="_blank" rel="noopener noreferrer" className="hover:text-teal-400 transition">{translations[language].termsConditions}</a>
             </div>
           </div>
         </div>

@@ -38,7 +38,7 @@ export const HotelCardHome = ({ id, name, city, country, image, rating, stars, p
           }`}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
-          <p className="text-white text-sm">{language === 'ar' ? 'انقر للتفاصيل' : 'Click for details'}</p>
+          <p className="text-white text-sm">{translations[language].clickForDetails}</p>
         </div>
         {/* Star Rating Badge */}
         <div className="absolute top-3 right-3 bg-white rounded-full px-3 py-1 flex items-center gap-1 shadow-md">
@@ -51,11 +51,11 @@ export const HotelCardHome = ({ id, name, city, country, image, rating, stars, p
       <div className="flex flex-col flex-grow p-4 sm:p-5">
         {/* Title */}
         <h3 className="text-lg sm:text-xl font-bold text-gray-800 mb-1">
-          {hotel.name}
+          {language === 'ar' && props.name_ar ? props.name_ar : hotel.name}
         </h3>
         <div className="flex items-center gap-2 text-blue-600 text-sm mb-3">
           <MapPin className="w-4 h-4" />
-          <span>{hotel.city}</span>
+          <span>{language === 'ar' && props.city_ar ? props.city_ar : hotel.city}</span>
         </div>
 
         {/* Rating */}
@@ -77,13 +77,13 @@ export const HotelCardHome = ({ id, name, city, country, image, rating, stars, p
 
         {/* Description */}
         <p className="text-gray-600 text-sm mb-4 flex-grow">
-          {hotel.description}
+          {language === 'ar' && props.description_ar ? props.description_ar : hotel.description}
         </p>
 
         {/* Price */}
         <div className="flex items-center gap-2 text-gray-800 font-bold mb-4 pb-4 border-b border-gray-200">
           <DollarSign className="w-4 h-4 text-green-600" />
-          <span>{hotel.price}</span>
+          <span>{language === 'ar' && props.price_ar ? props.price_ar : hotel.price}</span>
         </div>
 
         {/* Button */}

@@ -72,21 +72,31 @@ const Home = () => {
   return (
     <div className="bg-gradient-to-b from-gray-50 to-white min-h-screen pt-20">
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-blue-600 via-cyan-500 to-blue-600 text-white py-20 px-4 sm:px-8 relative overflow-hidden">
+      <section className="text-white relative overflow-hidden px-4 sm:px-8 h-[420px] sm:h-[520px] md:h-[560px]">
+        {/* Background image */}
+        <img
+          src="images/8f27feb9-9821-4b40-8796-6c6aa176ee46.jpeg"
+          alt="Travel Agency hero banner"
+          className="absolute inset-0 w-full h-full object-cover object-center"
+        />
+        {/* Gradient overlay for readability */}
+        <div className="absolute inset-0 bg-gradient-to-r from-blue-900/70 via-cyan-800/40 to-blue-900/70" />
+
+        {/* Decorative soft lights */}
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-10 left-10 w-40 h-40 bg-white rounded-full blur-3xl"></div>
           <div className="absolute bottom-10 right-10 w-60 h-60 bg-white rounded-full blur-3xl"></div>
         </div>
 
-        <div className="relative z-10 max-w-6xl mx-auto text-center">
-          <h1 className="text-4xl sm:text-6xl font-bold mb-4 leading-tight">
-            {language === 'ar' ? 'اكتشف مغامرتك القادمة' : 'Discover Your Next Adventure'}
+        <div className="relative z-10 max-w-6xl mx-auto text-center flex flex-col items-center justify-center h-full">
+          <h1 className="text-3xl sm:text-5xl md:text-6xl font-bold mb-3 sm:mb-4 leading-tight drop-shadow-md">
+            {translations[language].discoverYourNextAdventure}
           </h1>
-          <p className="text-xl sm:text-2xl mb-8 text-blue-100">
-            {language === 'ar' ? 'استكشف الوجهات الخلابة واحجز رحلة أحلامك اليوم' : 'Explore breathtaking destinations and book your dream trip today'}
+          <p className="text-base sm:text-xl md:text-2xl mb-6 sm:mb-8 text-blue-100 max-w-3xl">
+            {translations[language].exploreBreathtakingDestinations}
           </p>
-          <button className="bg-white text-blue-600 px-8 py-4 rounded-lg font-bold text-lg hover:bg-gray-100 transition-all duration-300 transform hover:scale-105">
-            {language === 'ar' ? 'ابدأ الاستكشاف' : 'Start Exploring'}
+          <button className="bg-white/95 text-blue-700 px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-bold text-base sm:text-lg hover:bg-white transition-all duration-300 transform hover:scale-105 shadow-md">
+            {translations[language].startExploring}
           </button>
         </div>
       </section>
@@ -112,7 +122,7 @@ const Home = () => {
       {/* Featured Destinations */}
       {renderScrollableSection(
         translations[language].featuredDestinations,
-        language === 'ar' ? 'استكشف أشهر الوجهات الخلابة' : 'Explore the most popular and breathtaking destinations',
+        translations[language].exploreMostPopularDestinations,
         destinationsData,
         DestinationCardHome,
         destinationScroll,
@@ -122,8 +132,8 @@ const Home = () => {
 
       {/* Hotels in Egypt */}
       {renderScrollableSection(
-        language === 'ar' ? 'الفنادق في مصر' : 'Hotels in Egypt',
-        language === 'ar' ? 'استمتع بالفخامة والراحة في أفضل فنادق مصر' : 'Experience luxury and comfort in Egypt\'s finest hotels',
+        translations[language].hotelsInEgypt,
+        translations[language].hotelsInEgyptDesc,
         hotelsEgyptData,
         HotelCardHome,
         egyptHotelScroll,
@@ -134,8 +144,8 @@ const Home = () => {
 
       {/* Hotels in Saudi Arabia */}
       {renderScrollableSection(
-        language === 'ar' ? 'الفنادق في المملكة العربية السعودية' : 'Hotels in Saudi Arabia',
-        language === 'ar' ? 'اكتشف الضيافة الفاخرة في مدن المملكة العربية السعودية الرئيسية' : 'Discover premium hospitality in Saudi Arabia\'s major cities',
+        translations[language].hotelsInSaudiArabia,
+        translations[language].hotelsInSaudiDesc,
         hotelsSaudiData,
         HotelCardHome,
         saudiHotelScroll,
@@ -146,8 +156,8 @@ const Home = () => {
 
       {/* Packages */}
       {renderScrollableSection(
-        language === 'ar' ? 'حزم السفر' : 'Travel Packages',
-        language === 'ar' ? 'حزم شاملة لرحلات لا تُنسى' : 'All-inclusive packages for unforgettable journeys',
+        translations[language].travelPackages,
+        translations[language].allInclusivePackages,
         packagesData,
         PackageCardHome,
         packagesScroll,
@@ -162,17 +172,17 @@ const Home = () => {
         </div>
 
         <div className="relative z-10 max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl sm:text-4xl font-bold mb-4">Ready to Explore?</h2>
+          <h2 className="text-3xl sm:text-4xl font-bold mb-4">{translations[language].readyToExplore}</h2>
           <p className="text-lg mb-8 text-blue-100">
-            {language === 'ar' ? 'اتصل بنا عبر WhatsApp للحصول على توصيات سفر مخصصة' : 'Contact us via WhatsApp for personalized travel recommendations'}
+            {translations[language].whatsappCtaDescription}
           </p>
           <a
-            href="https://wa.me/20100000000?text=Hello%20I%20want%20to%20explore%20travel%20packages"
+            href="https://wa.me/201515196284?text=Hello%20I%20want%20to%20explore%20travel%20packages"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-block bg-white text-blue-600 px-8 py-4 rounded-lg font-bold text-lg hover:bg-gray-100 transition-all duration-300 transform hover:scale-105"
           >
-            {language === 'ar' ? 'اتصل عبر WhatsApp' : 'Contact via WhatsApp'}
+            {translations[language].contactViaWhatsApp}
           </a>
         </div>
       </section>

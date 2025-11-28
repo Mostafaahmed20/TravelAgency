@@ -3,24 +3,25 @@ import { ArrowLeft, MapPin, Clock, DollarSign, Plane, ChevronRight, Users } from
 import { packagesData } from '../data/destinationsData';
 import { RatingStars } from '../components/Common/RatingStars';
 import { openWhatsApp } from '../utils/whatsappRedirect';
-
+import { useCurrency } from '../context/CurrencyContext';
 import { useLanguage, translations } from '../context/LanguageContext';
+
 const PackageDetails = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   const pkg = packagesData.find(p => p.id === parseInt(id));
-
+  const { formatPrice } = useCurrency();
   const { language } = useLanguage();
   if (!pkg) {
     return (
       <div className="min-h-screen flex items-center justify-center pt-20">
         <div className="text-center">
-          <h1 className="text-4xl font-bold text-gray-800 mb-4">{language === 'ar' ? 'الحزمة غير موجودة' : 'Package Not Found'}</h1>
+          <h1 className="text-4xl font-bold text-gray-800 mb-4">{translations[language].packageNotFound}</h1>
           <button
             onClick={() => navigate('/')}
             className="bg-blue-500 text-white px-8 py-3 rounded-lg hover:bg-blue-600 transition"
           >
-            {language === 'ar' ? 'العودة للرئيسية' : 'Back to Home'}
+            {translations[language].backToHome}
           </button>
         </div>
       </div>
@@ -42,7 +43,7 @@ const PackageDetails = () => {
             className="flex items-center gap-2 text-blue-600 hover:text-blue-700 font-semibold transition"
           >
             <ArrowLeft className="w-5 h-5" />
-            {language === 'ar' ? 'العودة للحزم' : 'Back to Packages'}
+            {translations[language].backToPackages}
           </button>
         </div>
       </div>
@@ -52,11 +53,11 @@ const PackageDetails = () => {
         <div className="rounded-2xl overflow-hidden shadow-2xl h-96 md:h-[500px] relative">
           <img
             src={pkg.image}
-            alt={pkg.name}
+            alt={language === 'ar' && pkg.name_ar ? pkg.name_ar : pkg.name}
             className="w-full h-full object-cover"
           />
           <div className="absolute top-4 left-4 bg-gradient-to-r from-blue-500 to-cyan-500 text-white px-4 py-2 rounded-full font-semibold">
-            {pkg.country}
+            {language === 'ar' && pkg.country_ar ? pkg.country_ar : pkg.country}
           </div>
         </div>
       </div>
@@ -69,7 +70,7 @@ const PackageDetails = () => {
             {/* Header Info */}
             <div className="mb-8">
               <h1 className="text-4xl md:text-5xl font-bold text-gray-800 mb-4">
-                {pkg.name}
+                {language === 'ar' && pkg.name_ar ? pkg.name_ar : pkg.name}
               </h1>
               <div className="flex items-center gap-6 flex-wrap mb-6">
                 <div className="flex items-center gap-2 text-gray-700 text-lg">
@@ -89,7 +90,7 @@ const PackageDetails = () => {
 
               {/* Description */}
               <p className="text-gray-700 text-lg leading-relaxed">
-                {pkg.description}
+                {language === 'ar' && pkg.description_ar ? pkg.description_ar : pkg.description}
               </p>
             </div>
 
@@ -97,7 +98,7 @@ const PackageDetails = () => {
             <div className="mb-10">
               <h2 className="text-2xl font-bold text-gray-800 mb-6">{language === 'ar' ? 'ما يتضمنه الحزمة' : "What's Included"}</h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                {pkg.includes.map((item, idx) => (
+                {(language === 'ar' && pkg.includes_ar ? pkg.includes_ar : pkg.includes).map((item, idx) => (
                   <div
                     key={idx}
                     className="flex items-center gap-4 p-4 bg-green-50 rounded-lg hover:bg-green-100 transition"
@@ -114,16 +115,16 @@ const PackageDetails = () => {
               <h2 className="text-2xl font-bold text-gray-800 mb-6">{language === 'ar' ? 'تفاصيل الحزمة' : 'Package Details'}</h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
-                  <p className="text-sm text-gray-600 mb-2">{language === 'ar' ? 'المدة' : 'Duration'}</p>
-                  <p className="text-2xl font-bold text-blue-600">{pkg.duration}</p>
+                  <p className="text-sm text-gray-600 mb-2">{translations[language].duration}</p>
+                  <p className="text-2xl font-bold text-blue-600">{language === 'ar' && pkg.duration_ar ? pkg.duration_ar : pkg.duration}</p>
                 </div>
                 <div>
                   <p className="text-sm text-gray-600 mb-2">{language === 'ar' ? 'الوجهة' : 'Destination'}</p>
-                  <p className="text-2xl font-bold text-blue-600">{pkg.country}</p>
+                  <p className="text-2xl font-bold text-blue-600">{language === 'ar' && pkg.country_ar ? pkg.country_ar : pkg.country}</p>
                 </div>
                 <div>
                   <p className="text-sm text-gray-600 mb-2">{language === 'ar' ? 'الانطلاق' : 'Departure'}</p>
-                  <p className="text-lg font-semibold text-gray-800">{pkg.departure}</p>
+                  <p className="text-lg font-semibold text-gray-800">{language === 'ar' && pkg.departure_ar ? pkg.departure_ar : pkg.departure}</p>
                 </div>
                 <div>
                   <p className="text-sm text-gray-600 mb-2">{language === 'ar' ? 'الأنسب لـ' : 'Best For'}</p>
@@ -134,7 +135,7 @@ const PackageDetails = () => {
 
             {/* Itinerary Highlight */}
             <div className="mb-10">
-              <h2 className="text-2xl font-bold text-gray-800 mb-6">{language === 'ar' ? 'أهم معالم الرحلة' : 'Trip Highlights'}</h2>
+              <h2 className="text-2xl font-bold text-gray-800 mb-6">{translations[language].tripHighlights}</h2>
               <div className="space-y-4">
                 {pkg.includes.slice(0, 3).map((item, idx) => (
                   <div key={idx} className="flex items-start gap-4 p-4 border-l-4 border-blue-500 bg-white rounded-r-lg shadow-sm">
@@ -182,7 +183,7 @@ const PackageDetails = () => {
             <div className="bg-gradient-to-b from-blue-50 to-cyan-50 rounded-2xl p-8 shadow-lg sticky top-32">
               <div className="mb-6">
                 <p className="text-gray-600 text-sm mb-2">{language === 'ar' ? 'سعر الحزمة' : 'Package Price'}</p>
-                <div className="text-4xl font-bold text-blue-600 mb-2">{pkg.price}</div>
+                <div className="text-4xl font-bold text-blue-600 mb-2">{formatPrice(pkg.priceUSD)}</div>
                 <p className="text-gray-700 text-sm">{language === 'ar' ? 'لكل شخص (شامل كل شيء)' : 'per person (all-inclusive)'}</p>
               </div>
 
@@ -214,7 +215,7 @@ const PackageDetails = () => {
                 onClick={handleBookNow}
                 className="w-full bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white font-bold py-4 rounded-xl transition-all duration-300 transform hover:scale-105 mb-4"
               >
-                {language === 'ar' ? 'احجز الآن عبر WhatsApp' : 'Book Now via WhatsApp'}
+                {translations[language].bookNowWhatsApp}
               </button>
 
               <p className="text-xs text-gray-600 text-center">

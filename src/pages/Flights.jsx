@@ -4,17 +4,18 @@ import DestinationCard from '../components/Cards/DestinationCard';
 import { useLanguage, translations } from '../context/LanguageContext';
 
 const Flights = () => {
+  const { language } = useLanguage();
   const flightDeals = Array.from({ length: 8 }, (_, i) => ({
     id: i + 1,
     image: `https://picsum.photos/400/300?random=${i + 10}`,
-    title: `Route ${i + 1}`,
-    description: `Popular flight route with great deals and premium service`,
+    title: `${translations[language].routePrefix} ${i + 1}`,
+    title_ar: `${translations[language].routePrefix} ${i + 1}`,
+    description: translations[language].popularFlightRouteCardDesc,
+    description_ar: translations[language].popularFlightRouteCardDesc,
     price: Math.floor(Math.random() * 500) + 100,
     rating: (Math.random() * 2 + 3).toFixed(1),
     reviews: Math.floor(Math.random() * 3000) + 500
   }));
-
-  const { language } = useLanguage();
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -36,7 +37,7 @@ const Flights = () => {
       {/* Flight Deals */}
       <section className="py-16 px-4">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl font-bold mb-12">Popular Flight Routes</h2>
+          <h2 className="text-3xl font-bold mb-12">{translations[language].popularFlightRoutes}</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {flightDeals.map((deal) => (
               <DestinationCard key={deal.id} {...deal} />

@@ -96,6 +96,14 @@ npm run build
 
 Generated files will be in the `dist/` directory.
 
+### 5. Hero Banner Image (Landing Page)
+
+To show your custom hero banner on the Home page, place your image file at:
+
+`public/images/landing-banner.jpg`
+
+Recommended size: 1920×400–600px. WebP preferred (you can keep the name `.jpg` even if the file is WebP). After adding the file, the banner will automatically appear behind the hero text.
+
 ## Pages & Routes
 
 | Route | Description |

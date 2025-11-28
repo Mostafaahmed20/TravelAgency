@@ -15,12 +15,12 @@ const HotelDetails = () => {
     return (
       <div className="min-h-screen bg-gray-50 flex items-center justify-center">
         <div className="text-center">
-          <h1 className="text-3xl font-bold text-gray-800 mb-4">Hotel Not Found</h1>
+          <h1 className="text-3xl font-bold text-gray-800 mb-4">{translations[language].hotelNotFound}</h1>
           <button
             onClick={() => navigate('/hotels')}
             className="bg-teal-600 text-white px-6 py-2 rounded-lg hover:bg-teal-700"
           >
-            Back to Hotels
+            {translations[language].backToHotels}
           </button>
         </div>
       </div>
@@ -37,7 +37,7 @@ const HotelDetails = () => {
             className="flex items-center gap-2 text-teal-600 hover:text-teal-700 font-medium"
           >
             <ChevronLeft size={20} />
-            Back to Hotels
+            {translations[language].backToHotels}
           </button>
         </div>
       </div>
@@ -81,11 +81,11 @@ const HotelDetails = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {/* Description */}
             <div className="md:col-span-2">
-              <h2 className="text-2xl font-bold text-gray-800 mb-4">About This Hotel</h2>
-              <p className="text-gray-600 leading-relaxed mb-6">{hotel.description}</p>
+              <h2 className="text-2xl font-bold text-gray-800 mb-4">{translations[language].aboutThisHotel}</h2>
+              <p className="text-gray-600 leading-relaxed mb-6">{language === 'ar' && hotel.description_ar ? hotel.description_ar : hotel.description}</p>
               
               {/* Amenities */}
-              <h3 className="text-xl font-bold text-gray-800 mb-4">Hotel Amenities</h3>
+              <h3 className="text-xl font-bold text-gray-800 mb-4">{translations[language].hotelAmenities}</h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                 {hotel.amenities.map((amenity, idx) => (
                   <div key={idx} className="flex items-center gap-2 text-gray-700">
@@ -98,10 +98,10 @@ const HotelDetails = () => {
 
             {/* Quick Info Card */}
             <div className="bg-gray-50 rounded-xl p-6 h-fit border border-gray-200">
-              <h3 className="text-lg font-bold text-gray-800 mb-4">Quick Info</h3>
+              <h3 className="text-lg font-bold text-gray-800 mb-4">{translations[language].quickInfo}</h3>
               <div className="space-y-4">
                 <div>
-                  <p className="text-sm text-gray-600 mb-2">Rating</p>
+                  <p className="text-sm text-gray-600 mb-2">{translations[language].ratingLabel}</p>
                   <div className="flex items-center gap-2">
                     <span className="text-xl font-bold text-gray-800">{hotel.rating}</span>
                     <div className="flex gap-1">
@@ -116,8 +116,8 @@ const HotelDetails = () => {
                   </div>
                 </div>
                 <div className="border-t border-gray-300 pt-4">
-                  <p className="text-sm text-gray-600 mb-2">Reviews</p>
-                  <p className="text-lg font-semibold text-gray-800">{hotel.reviews} guest reviews</p>
+                  <p className="text-sm text-gray-600 mb-2">{translations[language].reviews}</p>
+                  <p className="text-lg font-semibold text-gray-800">{hotel.reviews} {translations[language].reviews}</p>
                 </div>
               </div>
             </div>
@@ -128,7 +128,7 @@ const HotelDetails = () => {
       {/* Hotel Gallery Section */}
       <section className="py-16 px-4">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl font-bold text-gray-800 mb-12">Hotel Gallery</h2>
+          <h2 className="text-3xl font-bold text-gray-800 mb-12">{translations[language].hotelGallery}</h2>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {/* Main hotel image */}

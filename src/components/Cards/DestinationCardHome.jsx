@@ -38,7 +38,7 @@ export const DestinationCardHome = ({ id, city, country, image, description, rat
           }`}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
-          <p className="text-white text-sm">{language === 'ar' ? 'انقر للاستكشاف' : 'Click to explore'}</p>
+          <p className="text-white text-sm">{translations[language].clickToExplore}</p>
         </div>
       </div>
 
@@ -46,11 +46,11 @@ export const DestinationCardHome = ({ id, city, country, image, description, rat
       <div className="flex flex-col flex-grow p-4 sm:p-5">
         {/* Title */}
         <h3 className="text-lg sm:text-xl font-bold text-gray-800 mb-1">
-          {destination.city}
+          {language === 'ar' && props.city_ar ? props.city_ar : destination.city}
         </h3>
         <div className="flex items-center gap-2 text-blue-600 text-sm mb-3">
           <MapPin className="w-4 h-4" />
-          <span>{destination.country}</span>
+          <span>{language === 'ar' && props.country_ar ? props.country_ar : destination.country}</span>
         </div>
 
         {/* Rating */}
@@ -60,18 +60,18 @@ export const DestinationCardHome = ({ id, city, country, image, description, rat
 
         {/* Description */}
         <p className="text-gray-600 text-sm mb-4 flex-grow">
-          {destination.description}
+          {language === 'ar' && props.description_ar ? props.description_ar : destination.description}
         </p>
 
         {/* Meta Info */}
         <div className="flex items-center gap-4 text-sm text-gray-600 mb-4 pb-4 border-b border-gray-200">
           <div className="flex items-center gap-1">
             <Clock className="w-4 h-4" />
-            <span>{destination.days}</span>
+            <span>{language === 'ar' && props.days_ar ? props.days_ar : destination.days}</span>
           </div>
           <div className="flex items-center gap-1">
             <DollarSign className="w-4 h-4" />
-            <span>{destination.price}</span>
+            <span>{language === 'ar' && props.price_ar ? props.price_ar : destination.price}</span>
           </div>
         </div>
 

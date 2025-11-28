@@ -23,8 +23,22 @@ const Contact = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Simulate form submission
-    console.log('Form submitted:', formData);
+    
+    // Create WhatsApp message
+    const whatsappMessage = `📧 CONTACT FORM SUBMISSION\n\n` +
+      `Name: ${formData.name}\n` +
+      `Email: ${formData.email}\n` +
+      `Phone: ${formData.phone || 'Not provided'}\n` +
+      `Subject: ${formData.subject}\n\n` +
+      `Message:\n${formData.message}`;
+    
+    const encodedMessage = encodeURIComponent(whatsappMessage);
+    const whatsappUrl = `https://wa.me/201515196284?text=${encodedMessage}`;
+    
+    // Open WhatsApp
+    window.open(whatsappUrl, '_blank');
+    
+    // Show success message
     setSubmitted(true);
     setTimeout(() => {
       setSubmitted(false);
@@ -41,21 +55,21 @@ const Contact = () => {
   const contactInfo = [
     {
       icon: <Phone className="w-6 h-6" />,
-      title: 'Phone',
-      details: '+966 50 1234567',
-      link: 'tel:+966501234567'
+      titleKey: 'phone',
+      details: '015 1519628',
+      link: 'https://wa.me/201515196284'
     },
     {
       icon: <Mail className="w-6 h-6" />,
-      title: 'Email',
-      details: 'info@travelhub.com',
-      link: 'mailto:info@travelhub.com'
+      titleKey: 'email',
+      details: 'Reservations@miles-travel.com',
+      link: 'mailto:Reservations@miles-travel.com'
     },
     {
       icon: <MapPin className="w-6 h-6" />,
-      title: 'Address',
-      details: '123 Travel Street, Dubai, UAE',
-      link: '#'
+      titleKey: 'address',
+      details: '1 Moustafa El Nahas, Nasr City, Cairo, Egypt',
+      link: 'https://maps.google.com/?q=1+Moustafa+El+Nahas+Nasr+City+Cairo+Egypt'
     },
   ];
 
@@ -89,7 +103,7 @@ const Contact = () => {
                       {info.icon}
                     </div>
                     <div>
-                      <h3 className="font-bold text-lg text-gray-800">{info.title}</h3>
+                      <h3 className="font-bold text-lg text-gray-800">{translations[language][info.titleKey]}</h3>
                       <p className="text-gray-600">{info.details}</p>
                     </div>
                   </a>
@@ -101,16 +115,16 @@ const Contact = () => {
                 <h3 className="text-xl font-bold mb-4">{translations[language].frequentlyAskedQuestions}</h3>
                 <div className="space-y-4 text-sm text-gray-600">
                   <div>
-                    <p className="font-bold text-gray-800 mb-1">Q: What are your business hours?</p>
-                    <p>A: We're available 24/7 to assist you with your travel needs.</p>
+                    <p className="font-bold text-gray-800 mb-1">{translations[language].businessHoursQ}</p>
+                    <p>{translations[language].businessHoursA}</p>
                   </div>
                   <div>
-                    <p className="font-bold text-gray-800 mb-1">Q: Do you offer refunds?</p>
-                    <p>A: Yes, refunds are available subject to our cancellation policy.</p>
+                    <p className="font-bold text-gray-800 mb-1">{translations[language].refundsQ}</p>
+                    <p>{translations[language].refundsA}</p>
                   </div>
                   <div>
-                    <p className="font-bold text-gray-800 mb-1">Q: How do I modify my booking?</p>
-                    <p>A: Contact our support team for assistance with modifications.</p>
+                    <p className="font-bold text-gray-800 mb-1">{translations[language].modifyBookingQ}</p>
+                    <p>{translations[language].modifyBookingA}</p>
                   </div>
                 </div>
               </div>
@@ -123,8 +137,8 @@ const Contact = () => {
               {submitted ? (
                 <div className="bg-green-50 border border-green-200 rounded-lg p-6 text-center">
                   <div className="text-green-600 text-4xl mb-3">✓</div>
-                  <h3 className="text-lg font-bold text-green-800 mb-2">Message Sent!</h3>
-                  <p className="text-green-700">Thank you for reaching out. We'll get back to you soon.</p>
+                  <h3 className="text-lg font-bold text-green-800 mb-2">{translations[language].messageSentTitle}</h3>
+                  <p className="text-green-700">{translations[language].messageSentBody}</p>
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-6">
@@ -184,7 +198,7 @@ const Contact = () => {
                       onChange={handleChange}
                       required
                       className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent transition"
-                      placeholder="How can we help?"
+                      placeholder={language === 'ar' ? 'كيف يمكننا مساعدتك؟' : 'How can we help?'}
                     />
                   </div>
 
@@ -199,7 +213,7 @@ const Contact = () => {
                       required
                       rows="5"
                       className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent transition resize-none"
-                      placeholder="Tell us more about your inquiry..."
+                      placeholder={language === 'ar' ? 'أخبرنا المزيد عن استفسارك...' : 'Tell us more about your inquiry...'}
                     />
                   </div>
 
@@ -220,7 +234,7 @@ const Contact = () => {
       {/* Map Section */}
       <section className="py-16 px-4 bg-white">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl font-bold mb-8 text-center">Find Us On The Map</h2>
+          <h2 className="text-3xl font-bold mb-8 text-center">{translations[language].findUsOnMap}</h2>
           <div className="w-full h-96 bg-gray-200 rounded-lg overflow-hidden shadow-lg">
             <iframe
               width="100%"

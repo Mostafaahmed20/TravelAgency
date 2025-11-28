@@ -27,7 +27,7 @@ const Hotels = () => {
       {/* Hotel Deals */}
       <section className="py-16 px-4">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl font-bold mb-12">Featured Hotels</h2>
+          <h2 className="text-3xl font-bold mb-12">{translations[language].featuredHotelsHeading}</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {hotelsData.map((deal) => (
               <DestinationCard 
@@ -35,7 +35,9 @@ const Hotels = () => {
                 id={deal.id}
                 image={deal.image}
                 title={deal.title}
+                title_ar={deal.title_ar}
                 description={deal.description}
+                description_ar={deal.description_ar}
                 rating={deal.rating}
                 reviews={deal.reviews}
               />
