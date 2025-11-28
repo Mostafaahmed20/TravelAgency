@@ -2,13 +2,15 @@ import { useState } from 'react';
 import { MapPin, Star, DollarSign } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { openWhatsApp } from '../../utils/whatsappRedirect';
+import { useCurrency } from '../../context/CurrencyContext';
 
 import { useLanguage, translations } from '../../context/LanguageContext';
-export const HotelCardHome = ({ id, name, city, country, image, rating, stars, price, description, features, reviews, hotelType = 'egypt', ...props }) => {
+export const HotelCardHome = ({ id, name, city, country, image, rating, stars, price, priceUSD, description, features, reviews, hotelType = 'egypt', ...props }) => {
   const navigate = useNavigate();
   const [isHovered, setIsHovered] = useState(false);
 
   const { language } = useLanguage();
+  const { formatPrice } = useCurrency();
   const hotel = { id, name, city, country, image, rating, stars, price, description, features, reviews };
 
   const handleImageClick = () => {
@@ -83,7 +85,7 @@ export const HotelCardHome = ({ id, name, city, country, image, rating, stars, p
         {/* Price */}
         <div className="flex items-center gap-2 text-gray-800 font-bold mb-4 pb-4 border-b border-gray-200">
           <DollarSign className="w-4 h-4 text-green-600" />
-          <span>{language === 'ar' && props.price_ar ? props.price_ar : hotel.price}</span>
+          <span>{priceUSD ? formatPrice(priceUSD) : (language === 'ar' && props.price_ar ? props.price_ar : hotel.price)}</span>
         </div>
 
         {/* Button */}

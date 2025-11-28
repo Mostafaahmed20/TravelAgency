@@ -1,15 +1,17 @@
 import { useState } from 'react';
-import { MapPin, Clock, DollarSign } from 'lucide-react';
+import { MapPin, Users, Clock, DollarSign } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { RatingStars } from '../Common/RatingStars';
 import { openWhatsApp } from '../../utils/whatsappRedirect';
+import { useCurrency } from '../../context/CurrencyContext';
 
 import { useLanguage, translations } from '../../context/LanguageContext';
-export const PackageCardHome = ({ id, name, duration, country, image, price, rating, description, includes, departure, ...props }) => {
+export const PackageCardHome = ({ id, title, destination, duration, maxPeople, price, priceUSD, image, includes, rating, ...props }) => {
   const navigate = useNavigate();
   const [isHovered, setIsHovered] = useState(false);
 
   const { language } = useLanguage();
+  const { formatPrice } = useCurrency();
   const pkg = { id, name, duration, country, image, price, rating, description, includes, departure };
 
   const handleImageClick = () => {
@@ -75,7 +77,7 @@ export const PackageCardHome = ({ id, name, duration, country, image, price, rat
           </div>
           <div className="flex items-center gap-2 text-lg font-bold text-green-600">
             <DollarSign className="w-5 h-5" />
-            <span>{language === 'ar' && props.price_ar ? props.price_ar : pkg.price}</span>
+            <span>{priceUSD ? formatPrice(priceUSD) : (language === 'ar' && props.price_ar ? props.price_ar : pkg.price)}</span>
           </div>
         </div>
 

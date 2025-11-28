@@ -3,13 +3,15 @@ import { MapPin, Clock, DollarSign } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { RatingStars } from '../Common/RatingStars';
 import { openWhatsApp } from '../../utils/whatsappRedirect';
+import { useCurrency } from '../../context/CurrencyContext';
 
 import { useLanguage, translations } from '../../context/LanguageContext';
-export const DestinationCardHome = ({ id, city, country, image, description, rating, days, price, activities, highlights, ...props }) => {
+export const DestinationCardHome = ({ id, city, country, image, description, rating, days, price, priceUSD, activities, highlights, ...props }) => {
   const navigate = useNavigate();
   const [isHovered, setIsHovered] = useState(false);
 
   const { language } = useLanguage();
+  const { formatPrice } = useCurrency();
   const destination = { id, city, country, image, description, rating, days, price, activities, highlights };
 
   const handleImageClick = () => {
@@ -71,7 +73,7 @@ export const DestinationCardHome = ({ id, city, country, image, description, rat
           </div>
           <div className="flex items-center gap-1">
             <DollarSign className="w-4 h-4" />
-            <span>{language === 'ar' && props.price_ar ? props.price_ar : destination.price}</span>
+            <span>{priceUSD ? formatPrice(priceUSD) : (language === 'ar' && props.price_ar ? props.price_ar : destination.price)}</span>
           </div>
         </div>
 
