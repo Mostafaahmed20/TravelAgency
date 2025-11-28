@@ -140,9 +140,9 @@ export const hotelsEgyptData = [
     city_ar: "القاهرة",
     country: "Egypt",
     country_ar: "مصر",
-    image: "https://cf.bstatic.com/xdata/images/hotel/max1024x768/29997016.jpg?k=e21da2e390c5772e46dd23e0c5fc76e56e22a6e5d3c5e9f9a5e1c6a5c1e2c5a5&o=&hp=1",
+    image: "images/four_seasons_cairo_nile_plaza.png",
     images: [
-      "https://cf.bstatic.com/xdata/images/hotel/max1024x768/29997016.jpg?k=e21da2e390c5772e46dd23e0c5fc76e56e22a6e5d3c5e9f9a5e1c6a5c1e2c5a5&o=&hp=1",
+      "images/four_seasons_cairo_nile_plaza.png",
       "https://cf.bstatic.com/xdata/images/hotel/max1024x768/29997018.jpg?k=f1b5f2e1c6a5c1e2c5a5e21da2e390c5772e46dd23e0c5fc76e56e22a6e5d3c5&o=&hp=1",
       "https://cf.bstatic.com/xdata/images/hotel/max1024x768/29997020.jpg?k=a5e1c6a5c1e2c5a5e21da2e390c5772e46dd23e0c5fc76e56e22a6e5d3c5e9f9&o=&hp=1",
       "https://cf.bstatic.com/xdata/images/hotel/max1024x768/29997022.jpg?k=e9f9a5e1c6a5c1e2c5a5e21da2e390c5772e46dd23e0c5fc76e56e22a6e5d3c5&o=&hp=1",
@@ -189,9 +189,9 @@ export const hotelsEgyptData = [
     city_ar: "القاهرة",
     country: "Egypt",
     country_ar: "مصر",
-    image: "https://cf.bstatic.com/xdata/images/hotel/max1024x768/235266322.jpg?k=b9f3e8f9a5e1c6a5c1e2c5a5e21da2e390c5772e46dd23e0c5fc76e56e22a6e5&o=&hp=1",
+    image: "images/intercontinental-semiramis.jpeg",
     images: [
-      "https://cf.bstatic.com/xdata/images/hotel/max1024x768/235266322.jpg?k=b9f3e8f9a5e1c6a5c1e2c5a5e21da2e390c5772e46dd23e0c5fc76e56e22a6e5&o=&hp=1",
+      "images/intercontinental-semiramis.jpeg",
       "https://cf.bstatic.com/xdata/images/hotel/max1024x768/235266324.jpg?k=c1e2c5a5e21da2e390c5772e46dd23e0c5fc76e56e22a6e5d3c5e9f9a5e1c6a5&o=&hp=1",
       "https://cf.bstatic.com/xdata/images/hotel/max1024x768/235266326.jpg?k=e21da2e390c5772e46dd23e0c5fc76e56e22a6e5d3c5e9f9a5e1c6a5c1e2c5a5&o=&hp=1",
       "https://cf.bstatic.com/xdata/images/hotel/max1024x768/235266328.jpg?k=a5e1c6a5c1e2c5a5e21da2e390c5772e46dd23e0c5fc76e56e22a6e5d3c5e9f9&o=&hp=1",
