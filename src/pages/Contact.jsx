@@ -240,11 +240,11 @@ const Contact = () => {
               width="100%"
               height="100%"
               frameBorder="0"
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3610.9542418411637!2d55.2708!3d25.2048!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f43cf0ad3c821%3A0xb00edb89acf12f0!2sDubai%20UAE!5e0!3m2!1sen!2s!4v1234567890"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3453.2635289936!2d31.32845!3d30.05891!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14583f4d1e2a8d0f%3A0x7e9b9e9e8e8e8e8e!2s1%20Moustafa%20El%20Nahas%2C%20Nasr%20City%2C%20Cairo%20Governorate%2C%20Egypt!5e0!3m2!1sen!2s!4v1732800000000!5m2!1sen!2s"
               allowFullScreen=""
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
-              title="TravelHub Location"
+              title="Miles Travel Location - 1 Moustafa El Nahas, Nasr City, Cairo, Egypt"
             ></iframe>
           </div>
         </div>
