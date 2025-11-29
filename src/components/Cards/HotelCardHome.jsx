@@ -14,7 +14,7 @@ export const HotelCardHome = ({ id, name, city, country, image, rating, stars, p
   const hotel = { id, name, city, country, image, rating, stars, price, priceUSD, description, features, reviews };
 
   const handleImageClick = () => {
-    const route = hotelType === 'egypt' ? `/hotels-eg/${hotel.id}` : `/hotels-sa/${hotel.id}`;
+    const route = hotelType === 'saudi' ? `/hotels-sa/${hotel.id}` : `/hotels-eg/${hotel.id}`;
     navigate(route);
   };
 
@@ -26,7 +26,7 @@ export const HotelCardHome = ({ id, name, city, country, image, rating, stars, p
 
   return (
     <div
-      className="min-w-full sm:min-w-80 bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 flex flex-col h-full group"
+      className="min-w-[280px] sm:min-w-[320px] max-w-[320px] bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 flex flex-col h-full group"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
