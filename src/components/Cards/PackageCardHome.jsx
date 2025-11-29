@@ -12,7 +12,7 @@ export const PackageCardHome = ({ id, title, destination, duration, maxPeople, p
 
   const { language } = useLanguage();
   const { formatPrice } = useCurrency();
-  const pkg = { id, name, duration, country, image, price, rating, description, includes, departure };
+  const pkg = { id, title, destination, duration, maxPeople, price, priceUSD, image, includes, rating };
 
   const handleImageClick = () => {
     navigate(`/packages/${pkg.id}`);
@@ -20,7 +20,7 @@ export const PackageCardHome = ({ id, title, destination, duration, maxPeople, p
 
   const handleBookNow = (e) => {
     e.stopPropagation();
-    const message = `Hello, I want to book ${pkg.name} package (${pkg.duration}).`;
+    const message = `Hello, I want to book ${pkg.title} package (${pkg.duration}).`;
     openWhatsApp(message);
   };
 
@@ -34,7 +34,7 @@ export const PackageCardHome = ({ id, title, destination, duration, maxPeople, p
       <div className="relative overflow-hidden h-48 sm:h-56 cursor-pointer" onClick={handleImageClick}>
         <img
           src={pkg.image}
-          alt={pkg.name}
+          alt={pkg.title}
           className={`w-full h-full object-cover transition-transform duration-300 ${
             isHovered ? 'scale-110' : 'scale-100'
           }`}
@@ -42,9 +42,9 @@ export const PackageCardHome = ({ id, title, destination, duration, maxPeople, p
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
           <p className="text-white text-sm">{translations[language].clickToViewDetails}</p>
         </div>
-        {/* Country Badge */}
+        {/* Destination Badge */}
         <div className="absolute top-3 left-3 bg-gradient-to-r from-blue-500 to-cyan-500 text-white rounded-full px-3 py-1 text-sm font-semibold shadow-md">
-          {language === 'ar' && props.country_ar ? props.country_ar : pkg.country}
+          {language === 'ar' && props.destination_ar ? props.destination_ar : pkg.destination}
         </div>
       </div>
 
@@ -52,7 +52,7 @@ export const PackageCardHome = ({ id, title, destination, duration, maxPeople, p
       <div className="flex flex-col flex-grow p-4 sm:p-5">
         {/* Title */}
         <h3 className="text-lg sm:text-xl font-bold text-gray-800 mb-1">
-          {language === 'ar' && props.name_ar ? props.name_ar : pkg.name}
+          {language === 'ar' && props.title_ar ? props.title_ar : pkg.title}
         </h3>
 
         {/* Rating */}
@@ -60,20 +60,11 @@ export const PackageCardHome = ({ id, title, destination, duration, maxPeople, p
           <RatingStars rating={pkg.rating} size="sm" />
         </div>
 
-        {/* Description */}
-        <p className="text-gray-600 text-sm mb-4 flex-grow">
-          {language === 'ar' && props.description_ar ? props.description_ar : pkg.description}
-        </p>
-
         {/* Meta Info */}
         <div className="space-y-2 mb-4 pb-4 border-b border-gray-200">
           <div className="flex items-center gap-2 text-sm text-gray-600">
             <Clock className="w-4 h-4" />
             <span>{language === 'ar' && props.duration_ar ? props.duration_ar : pkg.duration}</span>
-          </div>
-          <div className="flex items-center gap-2 text-sm text-gray-600">
-            <MapPin className="w-4 h-4" />
-            <span>{language === 'ar' && props.departure_ar ? props.departure_ar : pkg.departure}</span>
           </div>
           <div className="flex items-center gap-2 text-lg font-bold text-green-600">
             <DollarSign className="w-5 h-5" />

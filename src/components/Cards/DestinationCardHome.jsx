@@ -12,7 +12,7 @@ export const DestinationCardHome = ({ id, city, country, image, description, rat
 
   const { language } = useLanguage();
   const { formatPrice } = useCurrency();
-  const destination = { id, city, country, image, description, rating, days, price, activities, highlights };
+  const destination = { id, city, country, image, description, rating, days, price, priceUSD, activities, highlights };
 
   const handleImageClick = () => {
     navigate(`/destinations/${destination.id}`);

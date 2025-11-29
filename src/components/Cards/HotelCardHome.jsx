@@ -11,7 +11,7 @@ export const HotelCardHome = ({ id, name, city, country, image, rating, stars, p
 
   const { language } = useLanguage();
   const { formatPrice } = useCurrency();
-  const hotel = { id, name, city, country, image, rating, stars, price, description, features, reviews };
+  const hotel = { id, name, city, country, image, rating, stars, price, priceUSD, description, features, reviews };
 
   const handleImageClick = () => {
     const route = hotelType === 'egypt' ? `/hotels-eg/${hotel.id}` : `/hotels-sa/${hotel.id}`;
