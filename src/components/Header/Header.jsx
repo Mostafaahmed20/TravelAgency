@@ -74,11 +74,6 @@ const Header = () => {
               />
             </div>
           </div>
-          <div className={`hidden md:flex gap-4 ${language === 'ar' ? 'flex-row-reverse' : ''}`}>
-            <a href="#" className="hover:text-teal-200 transition">{translations[language].myBookings}</a>
-            <a href="#" className="hover:text-teal-200 transition">{translations[language].help}</a>
-            <a href="#" className="hover:text-teal-200 transition">{translations[language].signIn}</a>
-          </div>
         </div>
       </div>
 
@@ -102,7 +97,10 @@ const Header = () => {
 
         {/* CTA Button + Mobile Menu */}
         <div className={`flex items-center gap-4 ${language === 'ar' ? 'flex-row-reverse' : ''}`}>
-          <button className="hidden md:block bg-gradient-to-r from-teal-600 to-blue-600 text-white px-6 py-2 rounded-lg hover:shadow-lg transition">
+          <button 
+            onClick={() => window.open('https://wa.me/201515196284', '_blank')}
+            className="hidden md:block bg-gradient-to-r from-teal-600 to-blue-600 text-white px-6 py-2 rounded-lg hover:shadow-lg transition"
+          >
             {translations[language].bookNow}
           </button>
 
@@ -129,7 +127,10 @@ const Header = () => {
               {item.name}
             </Link>
           ))}
-          <button className="w-full bg-gradient-to-r from-teal-600 to-blue-600 text-white px-6 py-2 rounded-lg hover:shadow-lg transition">
+          <button 
+            onClick={() => window.open('https://wa.me/201515196284', '_blank')}
+            className="w-full bg-gradient-to-r from-teal-600 to-blue-600 text-white px-6 py-2 rounded-lg hover:shadow-lg transition"
+          >
             {translations[language].bookNow}
           </button>
         </div>
