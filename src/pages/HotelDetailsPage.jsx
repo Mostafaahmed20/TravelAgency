@@ -1,4 +1,4 @@
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams, useNavigate, useLocation } from 'react-router-dom';
 import { ArrowLeft, MapPin, Star, Phone, Wifi, Utensils, Dumbbell, ChevronRight } from 'lucide-react';
 import { hotelsEgyptData, hotelsSaudiData } from '../data/destinationsData';
 import { openWhatsApp } from '../utils/whatsappRedirect';
@@ -7,16 +7,17 @@ import { useLanguage, translations } from '../context/LanguageContext';
 const HotelDetails = () => {
   const { id } = useParams();
   const navigate = useNavigate();
-    const { language } = useLanguage();
+  const location = useLocation();
+  const { language } = useLanguage();
   
-  // Try to find hotel in both Egypt and Saudi Arabia data
-  let hotel = hotelsEgyptData.find(h => h.id === parseInt(id));
-  let hotelType = 'egypt';
+  // Determine hotel type based on URL path
+  const isSaudiRoute = location.pathname.includes('/hotels-sa/');
+  const hotelType = isSaudiRoute ? 'saudi' : 'egypt';
   
-  if (!hotel) {
-    hotel = hotelsSaudiData.find(h => h.id === parseInt(id));
-    hotelType = 'saudi';
-  }
+  // Find hotel in the correct data source based on route
+  const hotel = isSaudiRoute
+    ? hotelsSaudiData.find(h => h.id === parseInt(id))
+    : hotelsEgyptData.find(h => h.id === parseInt(id));
 
   if (!hotel) {
     return (
