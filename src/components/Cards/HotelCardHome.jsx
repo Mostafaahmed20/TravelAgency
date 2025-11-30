@@ -3,15 +3,28 @@ import { MapPin, Star, DollarSign } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { openWhatsApp } from '../../utils/whatsappRedirect';
 import { useCurrency } from '../../context/CurrencyContext';
+import { useSwipe } from '../../hooks/useSwipe';
 
 import { useLanguage, translations } from '../../context/LanguageContext';
 export const HotelCardHome = ({ id, name, city, country, image, rating, stars, price, priceUSD, description, features, reviews, hotelType = 'egypt', ...props }) => {
   const navigate = useNavigate();
   const [isHovered, setIsHovered] = useState(false);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   const { language } = useLanguage();
   const { formatPrice } = useCurrency();
   const hotel = { id, name, city, country, image, rating, stars, price, priceUSD, description, features, reviews };
+  const images = Array.isArray(image) ? image : [image];
+
+  const handleSwipeLeft = () => {
+    setCurrentImageIndex((prev) => (prev + 1) % images.length);
+  };
+
+  const handleSwipeRight = () => {
+    setCurrentImageIndex((prev) => (prev - 1 + images.length) % images.length);
+  };
+
+  const swipeHandlers = useSwipe(handleSwipeLeft, handleSwipeRight);
 
   const handleImageClick = () => {
     const route = hotelType === 'saudi' ? `/hotels-sa/${hotel.id}` : `/hotels-eg/${hotel.id}`;
@@ -31,9 +44,9 @@ export const HotelCardHome = ({ id, name, city, country, image, rating, stars, p
       onMouseLeave={() => setIsHovered(false)}
     >
       {/* Image Container */}
-      <div className="relative overflow-hidden h-48 sm:h-56 cursor-pointer" onClick={handleImageClick}>
+      <div className="relative overflow-hidden h-48 sm:h-56 cursor-pointer" onClick={handleImageClick} {...swipeHandlers}>
         <img
-          src={hotel.image}
+          src={images[currentImageIndex]}
           alt={hotel.name}
           className={`w-full h-full object-cover transition-transform duration-300 ${
             isHovered ? 'scale-110' : 'scale-100'
@@ -47,6 +60,18 @@ export const HotelCardHome = ({ id, name, city, country, image, rating, stars, p
           <Star className="w-4 h-4 fill-yellow-400 text-yellow-400" />
           <span className="text-sm font-semibold text-gray-800">{hotel.stars}</span>
         </div>
+        {images.length > 1 && (
+          <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2 flex gap-1 z-10">
+            {images.map((_, idx) => (
+              <div
+                key={idx}
+                className={`w-2 h-2 rounded-full transition-all ${
+                  idx === currentImageIndex ? 'bg-white w-4' : 'bg-white/50'
+                }`}
+              />
+            ))}
+          </div>
+        )}
       </div>
 
       {/* Content */}

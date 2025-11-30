@@ -1,17 +1,31 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Star, MapPin, Calendar } from 'lucide-react';
 import { useCurrency } from '../../context/CurrencyContext';
 import { useLanguage, translations } from '../../context/LanguageContext';
+import { useSwipe } from '../../hooks/useSwipe';
 
 const PackageCard = ({ image, title, duration, price, rating, includes }) => {
   const { formatPrice, currency } = useCurrency();
   const { language } = useLanguage();
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const images = Array.isArray(image) ? image : [image];
+
+  const handleSwipeLeft = () => {
+    setCurrentImageIndex((prev) => (prev + 1) % images.length);
+  };
+
+  const handleSwipeRight = () => {
+    setCurrentImageIndex((prev) => (prev - 1 + images.length) % images.length);
+  };
+
+  const swipeHandlers = useSwipe(handleSwipeLeft, handleSwipeRight);
+
   return (
     <div className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition transform hover:scale-105 duration-300">
       {/* Image */}
-      <div className="relative h-52 bg-gradient-to-br from-teal-400 to-blue-500 overflow-hidden group">
+      <div className="relative h-52 bg-gradient-to-br from-teal-400 to-blue-500 overflow-hidden group" {...swipeHandlers}>{...swipeHandlers}>
         <img
-          src={image}
+          src={images[currentImageIndex]}
           alt={title}
           className="w-full h-full object-cover group-hover:scale-110 transition duration-300"
         />
@@ -19,6 +33,18 @@ const PackageCard = ({ image, title, duration, price, rating, includes }) => {
           <Star size={16} className="fill-yellow-400 text-yellow-400" />
           <span className="text-sm font-bold">{rating}</span>
         </div>
+        {images.length > 1 && (
+          <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2 flex gap-1">
+            {images.map((_, idx) => (
+              <div
+                key={idx}
+                className={`w-2 h-2 rounded-full transition-all ${
+                  idx === currentImageIndex ? 'bg-white w-4' : 'bg-white/50'
+                }`}
+              />
+            ))}
+          </div>
+        )}
       </div>
 
       {/* Content */}

@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Star, MapPin, Users, Wifi, Coffee, Waves } from 'lucide-react';
 import { useLanguage } from '../../context/LanguageContext';
 import { useCurrency } from '../../context/CurrencyContext';
+import { useSwipe } from '../../hooks/useSwipe';
 
 const HotelCard = ({ 
   id, 
@@ -19,9 +20,21 @@ const HotelCard = ({
   const navigate = useNavigate();
   const { language } = useLanguage();
   const { formatPrice } = useCurrency();
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const images = Array.isArray(image) ? image : [image];
   
   const displayTitle = language === 'ar' ? title_ar : title;
   const displayLocation = language === 'ar' ? location_ar : location;
+
+  const handleSwipeLeft = () => {
+    setCurrentImageIndex((prev) => (prev + 1) % images.length);
+  };
+
+  const handleSwipeRight = () => {
+    setCurrentImageIndex((prev) => (prev - 1 + images.length) % images.length);
+  };
+
+  const swipeHandlers = useSwipe(handleSwipeLeft, handleSwipeRight);
   
   const handleClick = () => {
     navigate(`/hotel/${id}`);
@@ -44,9 +57,9 @@ const HotelCard = ({
       className="bg-white rounded-xl shadow-md hover:shadow-2xl transition-all duration-300 cursor-pointer overflow-hidden group"
     >
       {/* Image Section */}
-      <div className="relative h-56 overflow-hidden">
+      <div className="relative h-56 overflow-hidden" {...swipeHandlers}>
         <img 
-          src={image} 
+          src={images[currentImageIndex]} 
           alt={displayTitle}
           className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
           onError={(e) => {
@@ -58,6 +71,18 @@ const HotelCard = ({
           <Star size={16} fill="#FFC107" color="#FFC107" />
           <span className="font-bold text-gray-800">{rating}</span>
         </div>
+        {images.length > 1 && (
+          <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2 flex gap-1">
+            {images.map((_, idx) => (
+              <div
+                key={idx}
+                className={`w-2 h-2 rounded-full transition-all ${
+                  idx === currentImageIndex ? 'bg-white w-4' : 'bg-white/50'
+                }`}
+              />
+            ))}
+          </div>
+        )}
       </div>
 
       {/* Content Section */}

@@ -4,15 +4,28 @@ import { useNavigate } from 'react-router-dom';
 import { RatingStars } from '../Common/RatingStars';
 import { openWhatsApp } from '../../utils/whatsappRedirect';
 import { useCurrency } from '../../context/CurrencyContext';
+import { useSwipe } from '../../hooks/useSwipe';
 
 import { useLanguage, translations } from '../../context/LanguageContext';
 export const DestinationCardHome = ({ id, city, country, image, description, rating, days, price, priceUSD, activities, highlights, ...props }) => {
   const navigate = useNavigate();
   const [isHovered, setIsHovered] = useState(false);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   const { language } = useLanguage();
   const { formatPrice } = useCurrency();
   const destination = { id, city, country, image, description, rating, days, price, priceUSD, activities, highlights };
+  const images = Array.isArray(image) ? image : [image];
+
+  const handleSwipeLeft = () => {
+    setCurrentImageIndex((prev) => (prev + 1) % images.length);
+  };
+
+  const handleSwipeRight = () => {
+    setCurrentImageIndex((prev) => (prev - 1 + images.length) % images.length);
+  };
+
+  const swipeHandlers = useSwipe(handleSwipeLeft, handleSwipeRight);
 
   const handleImageClick = () => {
     navigate(`/destinations/${destination.id}`);
@@ -31,9 +44,9 @@ export const DestinationCardHome = ({ id, city, country, image, description, rat
       onMouseLeave={() => setIsHovered(false)}
     >
       {/* Image Container */}
-      <div className="relative overflow-hidden h-48 sm:h-56 cursor-pointer" onClick={handleImageClick}>
+      <div className="relative overflow-hidden h-48 sm:h-56 cursor-pointer" onClick={handleImageClick} {...swipeHandlers}>
         <img
-          src={destination.image}
+          src={images[currentImageIndex]}
           alt={destination.city}
           className={`w-full h-full object-cover transition-transform duration-300 ${
             isHovered ? 'scale-110' : 'scale-100'
@@ -42,6 +55,18 @@ export const DestinationCardHome = ({ id, city, country, image, description, rat
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
           <p className="text-white text-sm">{translations[language].clickToExplore}</p>
         </div>
+        {images.length > 1 && (
+          <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2 flex gap-1">
+            {images.map((_, idx) => (
+              <div
+                key={idx}
+                className={`w-2 h-2 rounded-full transition-all ${
+                  idx === currentImageIndex ? 'bg-white w-4' : 'bg-white/50'
+                }`}
+              />
+            ))}
+          </div>
+        )}
       </div>
 
       {/* Content */}
