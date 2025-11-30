@@ -5,7 +5,6 @@ import { HotelCardHome } from '../components/Cards/HotelCardHome';
 import { PackageCardHome } from '../components/Cards/PackageCardHome';
 import { SectionTitle } from '../components/Common/SectionTitle';
 import { destinationsData, hotelsEgyptData, hotelsSaudiData, packagesData } from '../data/destinationsData';
-import FlightSearch from '../components/SearchBox/FlightSearch';
 import HotelSearch from '../components/SearchBox/HotelSearch';
 
 import { useLanguage, translations } from '../context/LanguageContext';
@@ -14,7 +13,6 @@ const Home = () => {
   const [egyptHotelScroll, setEgyptHotelScroll] = useState(0);
   const [saudiHotelScroll, setSaudiHotelScroll] = useState(0);
   const [packagesScroll, setPackagesScroll] = useState(0);
-  const [activeTab, setActiveTab] = useState('flights');
 
   const { language } = useLanguage();
   const scroll = (section, direction, setter) => {
@@ -101,20 +99,11 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Search Section (Flights / Hotels) */}
+      {/* Search Section (Hotels) */}
       <section className="-mt-20 mb-12 px-4 sm:px-8">
         <div className="max-w-6xl mx-auto">
           <div className="bg-transparent rounded-lg">
-            <div className="flex justify-center mb-6">
-              <div className="inline-flex bg-white rounded-full p-1 shadow-lg">
-                <button id="tab-flights" className={`px-5 py-2 rounded-full font-semibold ${activeTab === 'flights' ? 'bg-gradient-to-r from-teal-600 to-blue-600 text-white' : 'text-gray-700'}`} onClick={() => setActiveTab('flights')}>{translations[language].flights}</button>
-                <button id="tab-hotels" className={`px-5 py-2 rounded-full font-semibold ${activeTab === 'hotels' ? 'bg-gradient-to-r from-teal-600 to-blue-600 text-white' : 'text-gray-700'}`} onClick={() => setActiveTab('hotels')}>{translations[language].hotels}</button>
-              </div>
-            </div>
-
-            <div>
-              {activeTab === 'flights' ? <FlightSearch /> : <HotelSearch />}
-            </div>
+            <HotelSearch />
           </div>
         </div>
       </section>

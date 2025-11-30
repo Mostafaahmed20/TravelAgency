@@ -47,9 +47,8 @@ const Header = () => {
 
   const navItems = [
     { name: translations[language].home, path: '/' },
-    { name: translations[language].flights, path: '/flights' },
     { name: translations[language].hotels, path: '/hotels' },
-    { name: translations[language].offers, path: '/offers' },
+    { name: translations[language].packages, path: '/offers' },
     { name: translations[language].about, path: '/about' },
     { name: translations[language].contact, path: '/contact' },
   ];

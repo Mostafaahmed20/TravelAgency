@@ -5,7 +5,6 @@ import { CurrencyProvider } from './context/CurrencyContext';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 import Home from './pages/Home';
-import Flights from './pages/Flights';
 import Hotels from './pages/Hotels';
 import HotelDetails from './pages/HotelDetails';
 import DestinationDetails from './pages/DestinationDetails';
@@ -33,10 +32,7 @@ function usePageMetadata(language) {
     let titleKey = 'exploreTheWorld';
     let desc = translations[language]?.findAmazingDeals || '';
 
-    if (path.startsWith('/flights')) {
-      titleKey = 'bookYourFlight';
-      desc = translations[language]?.findTheFlightDeals;
-    } else if (path.startsWith('/hotels')) {
+    if (path.startsWith('/hotels')) {
       titleKey = 'findYourHotel';
       desc = translations[language]?.findTheHotelDeals;
     } else if (path.startsWith('/offers')) {
@@ -74,7 +70,6 @@ function AppContent() {
       <main className="flex-grow">
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/flights" element={<Flights />} />
           <Route path="/hotels" element={<Hotels />} />
           <Route path="/hotel/:id" element={<HotelDetails />} />
           <Route path="/destinations/:id" element={<DestinationDetails />} />
