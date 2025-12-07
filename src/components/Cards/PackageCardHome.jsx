@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { MapPin, Users, Clock, DollarSign } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { RatingStars } from '../Common/RatingStars';
@@ -7,7 +7,7 @@ import { useCurrency } from '../../context/CurrencyContext';
 import { useSwipe } from '../../hooks/useSwipe';
 
 import { useLanguage, translations } from '../../context/LanguageContext';
-export const PackageCardHome = ({ id, title, destination, duration, maxPeople, price, priceUSD, image, includes, rating, ...props }) => {
+export const PackageCardHome = ({ id, name, title, destination, duration, maxPeople, price, priceUSD, image, includes, rating, country, country_ar, ...props }) => {
   const navigate = useNavigate();
   const [isHovered, setIsHovered] = useState(false);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -39,33 +39,61 @@ export const PackageCardHome = ({ id, title, destination, duration, maxPeople, p
 
   return (
     <div
-      className="min-w-full sm:min-w-80 bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 flex flex-col h-full group"
+      className="min-w-full sm:min-w-80 bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col h-full group border border-gray-200"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
       {/* Image Container */}
-      <div className="relative overflow-hidden h-48 sm:h-56 cursor-pointer" onClick={handleImageClick} {...swipeHandlers}>
+      <div className="relative overflow-hidden h-64 cursor-pointer" onClick={handleImageClick} {...swipeHandlers}>
         <img
           src={images[currentImageIndex]}
           alt={pkg.title}
-          className={`w-full h-full object-cover transition-transform duration-300 ${
-            isHovered ? 'scale-110' : 'scale-100'
+          className={`w-full h-full object-cover transition-transform duration-500 ${
+            isHovered ? 'scale-105' : 'scale-100'
           }`}
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
-          <p className="text-white text-sm">{translations[language].clickToViewDetails}</p>
+        {/* Gradient Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
+        
+        {/* Destination Badge - Top Left */}
+        <div className="absolute top-4 left-4 z-10">
+          <div className="bg-gradient-to-r from-teal-600 to-blue-600 text-white px-4 py-2 rounded-lg shadow-xl backdrop-blur-sm border border-white/20">
+            <div className="flex items-center gap-2">
+              <span className="text-xs font-semibold uppercase tracking-wide">
+                {language === 'ar' && props.country_ar ? props.country_ar : (props.country || 'Package')}
+              </span>
+              <span className="text-xs">•</span>
+              <span className="text-xs font-medium">
+                {language === 'ar' ? 'الأعلى تقييماً' : 'Top Rated'}
+              </span>
+            </div>
+          </div>
         </div>
-        {/* Destination Badge */}
-        <div className="absolute top-3 left-3 bg-gradient-to-r from-blue-500 to-cyan-500 text-white rounded-full px-3 py-1 text-sm font-semibold shadow-md">
-          {language === 'ar' && props.destination_ar ? props.destination_ar : pkg.destination}
+
+        {/* Rating Badge - Top Right */}
+        <div className="absolute top-4 right-4 bg-white/95 backdrop-blur-sm rounded-full px-3 py-1.5 flex items-center gap-1 shadow-lg z-10">
+          <span className="text-yellow-500 text-sm">★</span>
+          <span className="text-sm font-bold text-gray-800">{pkg.rating}</span>
         </div>
+        
+        {/* Title on Image */}
+        <div className="absolute bottom-0 left-0 right-0 p-5 text-white z-10">
+          <h3 className="text-2xl font-bold mb-1">
+            {language === 'ar' && props.name_ar ? props.name_ar : (props.name || pkg.title)}
+          </h3>
+          <div className="flex items-center gap-2 text-white/90">
+            <MapPin className="w-4 h-4" />
+            <span className="text-sm">{language === 'ar' && props.country_ar ? props.country_ar : (props.country || pkg.destination)}</span>
+          </div>
+        </div>
+
         {images.length > 1 && (
-          <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2 flex gap-1 z-10">
+          <div className="absolute bottom-20 left-1/2 transform -translate-x-1/2 flex gap-1.5 z-10">
             {images.map((_, idx) => (
               <div
                 key={idx}
-                className={`w-2 h-2 rounded-full transition-all ${
-                  idx === currentImageIndex ? 'bg-white w-4' : 'bg-white/50'
+                className={`h-1.5 rounded-full transition-all ${
+                  idx === currentImageIndex ? 'bg-white w-6' : 'bg-white/50 w-1.5'
                 }`}
               />
             ))}
@@ -74,25 +102,16 @@ export const PackageCardHome = ({ id, title, destination, duration, maxPeople, p
       </div>
 
       {/* Content */}
-      <div className="flex flex-col flex-grow p-4 sm:p-5">
-        {/* Title */}
-        <h3 className="text-lg sm:text-xl font-bold text-gray-800 mb-1">
-          {language === 'ar' && props.title_ar ? props.title_ar : pkg.title}
-        </h3>
-
-        {/* Rating */}
-        <div className="mb-3">
-          <RatingStars rating={pkg.rating} size="sm" />
-        </div>
-
+      <div className="flex flex-col flex-grow p-5">
         {/* Meta Info */}
-        <div className="space-y-2 mb-4 pb-4 border-b border-gray-200">
-          <div className="flex items-center gap-2 text-sm text-gray-600">
-            <Clock className="w-4 h-4" />
+        <div className="flex items-center gap-4 text-sm text-gray-500 mb-4">
+          <div className="flex items-center gap-1.5">
+            <Clock className="w-4 h-4 text-teal-600" />
             <span>{language === 'ar' && props.duration_ar ? props.duration_ar : pkg.duration}</span>
           </div>
-          <div className="flex items-center gap-2 text-lg font-bold text-green-600">
-            <DollarSign className="w-5 h-5" />
+          <div className="h-4 w-px bg-gray-300"></div>
+          <div className="flex items-center gap-1.5 font-semibold text-gray-800">
+            <DollarSign className="w-4 h-4 text-teal-600" />
             <span>{priceUSD ? formatPrice(priceUSD) : (language === 'ar' && props.price_ar ? props.price_ar : pkg.price)}</span>
           </div>
         </div>
@@ -100,7 +119,7 @@ export const PackageCardHome = ({ id, title, destination, duration, maxPeople, p
         {/* Button */}
         <button
           onClick={handleBookNow}
-          className="w-full bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white font-semibold py-3 rounded-lg transition-all duration-300 transform hover:scale-105"
+          className="w-full bg-gradient-to-r from-teal-600 to-teal-700 hover:from-teal-700 hover:to-teal-800 text-white font-semibold py-3 rounded-lg transition-all duration-200 shadow-sm hover:shadow-md"
         >
           {translations[language].bookNow}
         </button>

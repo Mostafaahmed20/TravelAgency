@@ -23,7 +23,7 @@ const PackageCard = ({ image, title, duration, price, rating, includes }) => {
   return (
     <div className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition transform hover:scale-105 duration-300">
       {/* Image */}
-      <div className="relative h-52 bg-gradient-to-br from-teal-400 to-blue-500 overflow-hidden group" {...swipeHandlers}>{...swipeHandlers}>
+      <div className="relative h-52 bg-gradient-to-br from-teal-400 to-blue-500 overflow-hidden group" {...swipeHandlers}>
         <img
           src={images[currentImageIndex]}
           alt={title}

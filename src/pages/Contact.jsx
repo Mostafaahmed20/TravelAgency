@@ -78,10 +78,32 @@ const Contact = () => {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-teal-600 to-blue-600 text-white py-16 px-4">
-        <div className="max-w-7xl mx-auto text-center">
-          <h1 className="text-5xl font-bold mb-4">{translations[language].getInTouch}</h1>
-          <p className="text-xl text-gray-100">{translations[language].contactInformation}</p>
+      <section className="relative bg-gradient-to-br from-teal-600 via-teal-500 to-blue-600 text-white py-20 px-4 overflow-hidden">
+        {/* Decorative background elements */}
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute top-0 left-0 w-96 h-96 bg-white rounded-full -translate-x-1/2 -translate-y-1/2"></div>
+          <div className="absolute bottom-0 right-0 w-96 h-96 bg-white rounded-full translate-x-1/2 translate-y-1/2"></div>
+        </div>
+        
+        <div className="relative z-10 max-w-7xl mx-auto text-center">
+          <div className="inline-block mb-6">
+            <span className="inline-block px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-sm font-semibold border border-white/30">
+              {language === 'ar' ? 'تواصل معنا' : 'Get in Touch'}
+            </span>
+          </div>
+          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
+            {translations[language].getInTouch}
+          </h1>
+          <p className="text-xl md:text-2xl text-gray-100 max-w-3xl mx-auto leading-relaxed">
+            {translations[language].contactInformation}
+          </p>
+        </div>
+        
+        {/* Bottom wave decoration */}
+        <div className="absolute bottom-0 left-0 right-0">
+          <svg className="w-full h-12 text-gray-50" fill="currentColor" viewBox="0 0 1200 120" preserveAspectRatio="none">
+            <path d="M0,0 C150,100 350,0 500,50 C650,100 850,0 1000,50 L1200,50 L1200,120 L0,120 Z"></path>
+          </svg>
         </div>
       </section>
 

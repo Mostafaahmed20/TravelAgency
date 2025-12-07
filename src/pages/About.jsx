@@ -26,41 +26,58 @@ const About = () => {
     },
   ];
 
-  const team = [
-    {
-      name: 'John Smith',
-      role: 'Founder & CEO',
-      image: 'https://picsum.photos/300/300?random=51'
-    },
-    {
-      name: 'Sarah Johnson',
-      role: 'Head of Operations',
-      image: 'https://picsum.photos/300/300?random=52'
-    },
-    {
-      name: 'Michael Chen',
-      role: 'Travel Coordinator',
-      image: 'https://picsum.photos/300/300?random=53'
-    },
-    {
-      name: 'Emma Wilson',
-      role: 'Customer Success Manager',
-      image: 'https://picsum.photos/300/300?random=54'
-    },
-  ];
-
   const { language } = useLanguage();
 
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-teal-600 to-blue-600 text-white py-20 px-4">
-        <div className="max-w-4xl mx-auto text-center">
-          <h1 className="text-5xl font-bold mb-4">{translations[language].aboutMilesTravel}</h1>
-          <p className="text-xl text-gray-100 mb-4">{translations[language].discoverTheWorld}</p>
-          <a href="https://www.miles-travel.com" target="_blank" rel="noopener noreferrer" className="text-white hover:text-teal-200 transition font-medium">
-            www.miles-travel.com
-          </a>
+      <section className="relative bg-gradient-to-br from-teal-600 via-teal-500 to-blue-600 text-white py-24 px-4 overflow-hidden">
+        {/* Decorative background elements */}
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute top-0 left-0 w-96 h-96 bg-white rounded-full -translate-x-1/2 -translate-y-1/2"></div>
+          <div className="absolute bottom-0 right-0 w-96 h-96 bg-white rounded-full translate-x-1/2 translate-y-1/2"></div>
+          <div className="absolute top-1/2 left-1/2 w-64 h-64 bg-white rounded-full -translate-x-1/2 -translate-y-1/2"></div>
+        </div>
+        
+        {/* Content */}
+        <div className="relative max-w-5xl mx-auto text-center z-10">
+          <div className="inline-block mb-6">
+            <span className="inline-block px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-sm font-semibold border border-white/30">
+              {language === 'ar' ? 'وكالة سفر رائدة' : 'Premier Travel Agency'}
+            </span>
+          </div>
+          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
+            {translations[language].aboutMilesTravel}
+          </h1>
+          <p className="text-xl md:text-2xl text-gray-100 mb-8 max-w-3xl mx-auto leading-relaxed">
+            {translations[language].discoverTheWorld}
+          </p>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <a 
+              href="https://www.miles-travel.com" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="inline-flex items-center gap-2 bg-white text-teal-600 px-8 py-4 rounded-lg font-bold hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
+            >
+              <Globe className="w-5 h-5" />
+              {language === 'ar' ? 'زر موقعنا' : 'Visit Our Website'}
+            </a>
+            <a 
+              href="https://www.miles-travel.com" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="text-white/90 hover:text-white transition font-medium text-lg underline decoration-2 underline-offset-4"
+            >
+              www.miles-travel.com
+            </a>
+          </div>
+        </div>
+        
+        {/* Bottom wave decoration */}
+        <div className="absolute bottom-0 left-0 right-0">
+          <svg className="w-full h-12 text-gray-50" fill="currentColor" viewBox="0 0 1200 120" preserveAspectRatio="none">
+            <path d="M0,0 C150,100 350,0 500,50 C650,100 850,0 1000,50 L1200,50 L1200,120 L0,120 Z"></path>
+          </svg>
         </div>
       </section>
 
@@ -88,28 +105,6 @@ const About = () => {
                 </div>
                 <h3 className="text-lg font-bold mb-2">{translations[language][value.titleKey]}</h3>
                 <p className="text-gray-600">{translations[language][value.descKey]}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Team Section */}
-      <section className="py-16 px-4">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl font-bold mb-12 text-center">{translations[language].meetOurTeam}</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {team.map((member, idx) => (
-              <div key={idx} className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition">
-                <img
-                  src={member.image}
-                  alt={member.name}
-                  className="w-full h-48 object-cover"
-                />
-                <div className="p-6 text-center">
-                  <h3 className="text-lg font-bold mb-2">{member.name}</h3>
-                  <p className="text-teal-600 font-medium">{member.role}</p>
-                </div>
               </div>
             ))}
           </div>
@@ -176,3 +171,4 @@ const About = () => {
 };
 
 export default About;
+

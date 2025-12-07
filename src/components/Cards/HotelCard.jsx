@@ -54,7 +54,7 @@ const HotelCard = ({
   return (
     <div 
       onClick={handleClick}
-      className="bg-white rounded-xl shadow-md hover:shadow-2xl transition-all duration-300 cursor-pointer overflow-hidden group"
+      className="bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 cursor-pointer overflow-hidden group border border-gray-100"
     >
       {/* Image Section */}
       <div className="relative h-56 overflow-hidden" {...swipeHandlers}>
@@ -88,38 +88,9 @@ const HotelCard = ({
       {/* Content Section */}
       <div className="p-5">
         {/* Title */}
-        <h3 className={`text-xl font-bold text-gray-800 mb-2 line-clamp-2 min-h-[3.5rem] ${language === 'ar' ? 'text-right' : 'text-left'}`}>
+        <h3 className={`text-xl font-bold text-gray-800 mb-6 line-clamp-2 min-h-[3.5rem] ${language === 'ar' ? 'text-right' : 'text-left'}`}>
           {displayTitle}
         </h3>
-
-        {/* Location */}
-        <div className={`flex items-start gap-2 mb-3 text-gray-600 ${language === 'ar' ? 'flex-row-reverse' : ''}`}>
-          <MapPin size={16} className="mt-0.5 flex-shrink-0 text-teal-600" />
-          <p className={`text-sm line-clamp-2 ${language === 'ar' ? 'text-right' : 'text-left'}`}>
-            {displayLocation}
-          </p>
-        </div>
-
-        {/* Reviews */}
-        <div className={`flex items-center gap-2 mb-4 text-sm text-gray-500 ${language === 'ar' ? 'flex-row-reverse' : ''}`}>
-          <Users size={14} />
-          <span>{reviews?.toLocaleString()} {language === 'ar' ? 'تقييم' : 'reviews'}</span>
-        </div>
-
-        {/* Amenities */}
-        {displayAmenities.length > 0 && (
-          <div className={`flex flex-wrap gap-2 mb-4 ${language === 'ar' ? 'flex-row-reverse' : ''}`}>
-            {displayAmenities.map((amenity, index) => (
-              <div 
-                key={index}
-                className="flex items-center gap-1.5 bg-gray-100 px-2.5 py-1.5 rounded-lg text-xs text-gray-700"
-              >
-                {getAmenityIcon(amenity)}
-                <span className="line-clamp-1">{amenity}</span>
-              </div>
-            ))}
-          </div>
-        )}
 
         {/* Price and CTA */}
         <div className={`flex items-center justify-between pt-4 border-t border-gray-200 ${language === 'ar' ? 'flex-row-reverse' : ''}`}>
@@ -135,7 +106,7 @@ const HotelCard = ({
             </p>
           </div>
           <button 
-            className="bg-gradient-to-r from-teal-600 to-blue-600 text-white px-6 py-2.5 rounded-lg hover:from-teal-700 hover:to-blue-700 transition-all duration-300 shadow-md hover:shadow-lg font-medium"
+            className="bg-gradient-to-r from-teal-600 to-teal-700 text-white px-6 py-2.5 rounded-lg hover:from-teal-700 hover:to-teal-800 transition-all duration-200 shadow-sm hover:shadow-md font-semibold"
           >
             {language === 'ar' ? 'احجز الآن' : 'Book Now'}
           </button>

@@ -8,8 +8,14 @@ const Footer = () => {
   const { language } = useLanguage();
 
   return (
-    <footer className="bg-gray-900 text-gray-300 mt-20">
-      <div className={`max-w-7xl mx-auto px-4 py-16 ${language === 'ar' ? 'text-right' : ''}`}>
+    <footer className="bg-gradient-to-b from-gray-900 via-gray-900 to-black text-gray-300 mt-20 relative overflow-hidden">
+      {/* Decorative elements */}
+      <div className="absolute inset-0 opacity-5">
+        <div className="absolute top-0 left-0 w-96 h-96 bg-teal-500 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-0 right-0 w-96 h-96 bg-blue-500 rounded-full blur-3xl"></div>
+      </div>
+      
+      <div className={`relative z-10 max-w-7xl mx-auto px-4 py-16 ${language === 'ar' ? 'text-right' : ''}`}>
         {/* Footer Grid */}
         <div className={`grid grid-cols-1 md:grid-cols-4 gap-8 mb-12 ${language === 'ar' ? 'text-right' : ''}`}>
           {/* About */}
@@ -19,9 +25,9 @@ const Footer = () => {
               {translations[language].discoverTheWorld}
             </p>
             <div className={`flex gap-4 mt-4 ${language === 'ar' ? 'flex-row-reverse justify-end' : ''}`}>
-              <a href="https://www.facebook.com/profile.php?id=61583944513951" target="_blank" rel="noopener noreferrer" className="hover:text-teal-400 transition"><Facebook size={20} /></a>
-              <a href="https://www.miles-travel.com" target="_blank" rel="noopener noreferrer" className="hover:text-teal-400 transition"><Twitter size={20} /></a>
-              <a href="https://www.miles-travel.com" target="_blank" rel="noopener noreferrer" className="hover:text-teal-400 transition"><Instagram size={20} /></a>
+              <a href="https://www.facebook.com/profile.php?id=61583944513951" target="_blank" rel="noopener noreferrer" className="hover:text-teal-400 transition-all duration-200 p-2 rounded-lg hover:bg-white/10 transform hover:scale-110"><Facebook size={20} /></a>
+              <a href="https://www.miles-travel.com" target="_blank" rel="noopener noreferrer" className="hover:text-teal-400 transition-all duration-200 p-2 rounded-lg hover:bg-white/10 transform hover:scale-110"><Twitter size={20} /></a>
+              <a href="https://www.miles-travel.com" target="_blank" rel="noopener noreferrer" className="hover:text-teal-400 transition-all duration-200 p-2 rounded-lg hover:bg-white/10 transform hover:scale-110"><Instagram size={20} /></a>
             </div>
           </div>
 

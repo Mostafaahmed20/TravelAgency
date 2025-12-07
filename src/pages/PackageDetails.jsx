@@ -1,3 +1,4 @@
+import React from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { ArrowLeft, MapPin, Clock, DollarSign, Plane, ChevronRight, Users } from 'lucide-react';
 import { packagesData } from '../data/destinationsData';

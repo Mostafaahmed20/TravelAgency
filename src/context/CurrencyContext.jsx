@@ -37,23 +37,22 @@ export const CurrencyProvider = ({ children }) => {
   const formatPrice = (priceInUSD, options = {}) => {
     const rate = exchangeRates[currency] || 1;
     const converted = Number(priceInUSD) * rate;
-    const currencyCodeMap = {
-      USD: 'USD',
-      EGP: 'EGP',
-      SAR: 'SAR',
-      AED: 'AED',
+    
+    // Custom currency symbols without $
+    const currencySymbols = {
+      USD: '$',
+      EGP: 'ج.م',  // Egyptian Pound
+      SAR: 'ر.س',  // Saudi Riyal
+      AED: 'د.إ',  // UAE Dirham
     };
-    const code = currencyCodeMap[currency] || 'USD';
-    try {
-      return new Intl.NumberFormat(options.locale || undefined, {
-        style: 'currency',
-        currency: code,
-        maximumFractionDigits: 2,
-      }).format(converted);
-    } catch (e) {
-      // fallback simple formatting
-      return `${converted.toFixed(2)} ${currency}`;
-    }
+    
+    const symbol = currencySymbols[currency] || currency;
+    const formattedNumber = converted.toLocaleString('en-US', {
+      minimumFractionDigits: 0,
+      maximumFractionDigits: 0,
+    });
+    
+    return `${formattedNumber} ${symbol}`;
   };
 
   return (

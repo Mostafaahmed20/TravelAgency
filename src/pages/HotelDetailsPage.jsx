@@ -1,3 +1,4 @@
+import React from 'react';
 import { useParams, useNavigate, useLocation } from 'react-router-dom';
 import { ArrowLeft, MapPin, Star, Phone, Wifi, Utensils, Dumbbell, ChevronRight } from 'lucide-react';
 import { hotelsEgyptData, hotelsSaudiData } from '../data/destinationsData';

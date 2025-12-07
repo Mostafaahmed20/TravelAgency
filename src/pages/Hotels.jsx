@@ -11,36 +11,53 @@ const Hotels = () => {
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-teal-600 via-teal-500 to-blue-600 text-white py-20 px-4 relative overflow-hidden">
-        <div className="absolute inset-0 bg-black opacity-10"></div>
-        <div className="max-w-7xl mx-auto relative z-10">
-          <div className={`max-w-3xl ${language === 'ar' ? 'mr-auto text-right' : 'ml-auto text-left'}`}>
-            <div className="flex items-center gap-3 mb-4">
-              <Building2 size={40} />
-              <h1 className="text-5xl md:text-6xl font-bold">
+      <section className="relative bg-gradient-to-br from-teal-600 via-teal-500 to-blue-600 text-white py-20 px-4 overflow-hidden">
+        {/* Decorative background elements */}
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute top-0 right-0 w-96 h-96 bg-white rounded-full translate-x-1/2 -translate-y-1/2"></div>
+          <div className="absolute bottom-0 left-0 w-96 h-96 bg-white rounded-full -translate-x-1/2 translate-y-1/2"></div>
+        </div>
+        
+        <div className="relative z-10 max-w-7xl mx-auto">
+          <div className={`max-w-4xl ${language === 'ar' ? 'mr-auto text-right' : 'ml-auto text-left'}`}>
+            <div className="inline-block mb-6">
+              <span className="inline-block px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-sm font-semibold border border-white/30">
+                {language === 'ar' ? 'فنادق فاخرة' : 'Luxury Hotels'}
+              </span>
+            </div>
+            <div className={`flex items-center gap-3 mb-4 ${language === 'ar' ? 'flex-row-reverse justify-end' : ''}`}>
+              <Building2 size={48} className="text-white/90" />
+              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight">
                 {translations[language].findYourHotel}
               </h1>
             </div>
-            <p className="text-xl text-gray-100 leading-relaxed">
+            <p className="text-xl md:text-2xl text-gray-100 leading-relaxed mb-8">
               {translations[language].findTheHotelDeals}
             </p>
             
             {/* Stats */}
             <div className={`grid grid-cols-3 gap-6 mt-8 ${language === 'ar' ? 'text-right' : 'text-left'}`}>
-              <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
-                <p className="text-3xl font-bold">5★</p>
+              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover:bg-white/15 transition-all duration-200">
+                <p className="text-4xl font-bold mb-2">5★</p>
                 <p className="text-sm text-gray-200">{language === 'ar' ? 'فنادق فاخرة' : 'Luxury Hotels'}</p>
               </div>
-              <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
-                <p className="text-3xl font-bold">4+</p>
+              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover:bg-white/15 transition-all duration-200">
+                <p className="text-4xl font-bold mb-2">4+</p>
                 <p className="text-sm text-gray-200">{language === 'ar' ? 'مواقع رائعة' : 'Top Locations'}</p>
               </div>
-              <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
-                <p className="text-3xl font-bold">24/7</p>
+              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover:bg-white/15 transition-all duration-200">
+                <p className="text-4xl font-bold mb-2">24/7</p>
                 <p className="text-sm text-gray-200">{language === 'ar' ? 'دعم العملاء' : 'Support'}</p>
               </div>
             </div>
           </div>
+        </div>
+        
+        {/* Bottom wave decoration */}
+        <div className="absolute bottom-0 left-0 right-0">
+          <svg className="w-full h-12 text-gray-50" fill="currentColor" viewBox="0 0 1200 120" preserveAspectRatio="none">
+            <path d="M0,0 C150,100 350,0 500,50 C650,100 850,0 1000,50 L1200,50 L1200,120 L0,120 Z"></path>
+          </svg>
         </div>
       </section>
 
