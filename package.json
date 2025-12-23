@@ -1,0 +1,11 @@
+{
+  "name": "travelagency",
+  "version": "1.0.0",
+  "description": "Miles Travel - Premium Travel Packages & Bookings",
+  "scripts": {
+    "dev": "serve -l 3000"
+  },
+  "devDependencies": {
+    "serve": "^14.2.4"
+  }
+}
