@@ -164,10 +164,31 @@ vercel
 
 ### Deploy to Netlify
 
+**Option 1: Connect Git Repository (Recommended)**
+1. Push your code to GitHub/GitLab/Bitbucket
+2. Go to [app.netlify.com](https://app.netlify.com)
+3. Click "Add new site" → "Import an existing project"
+4. Connect your repository
+5. Netlify will auto-detect build settings from `netlify.toml`:
+   - Build command: `npm run build`
+   - Publish directory: `dist`
+6. Click "Deploy site"
+
+**Option 2: Drag & Drop**
 ```bash
 npm run build
-# Upload the 'dist' folder to Netlify
+# Drag the 'dist' folder to https://app.netlify.com/drop
 ```
+
+**Option 3: Netlify CLI**
+```bash
+npm install -g netlify-cli
+netlify login
+netlify init
+netlify deploy --prod
+```
+
+📖 **See [NETLIFY_DEPLOY.md](./NETLIFY_DEPLOY.md) for detailed deployment guide**
 
 ### Deploy to GitHub Pages
 

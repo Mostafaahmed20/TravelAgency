@@ -7,7 +7,7 @@ import { useCurrency } from '../../context/CurrencyContext';
 import { useSwipe } from '../../hooks/useSwipe';
 
 import { useLanguage, translations } from '../../context/LanguageContext';
-export const PackageCardHome = ({ id, name, title, destination, duration, maxPeople, price, priceUSD, image, includes, rating, country, country_ar, ...props }) => {
+export const PackageCardHome = ({ id, title, destination, duration, maxPeople, price, priceUSD, image, includes, rating, ...props }) => {
   const navigate = useNavigate();
   const [isHovered, setIsHovered] = useState(false);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -55,36 +55,21 @@ export const PackageCardHome = ({ id, name, title, destination, duration, maxPeo
         {/* Gradient Overlay */}
         <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
         
-        {/* Destination Badge - Top Left */}
-        <div className="absolute top-4 left-4 z-10">
-          <div className="bg-gradient-to-r from-teal-600 to-blue-600 text-white px-4 py-2 rounded-lg shadow-xl backdrop-blur-sm border border-white/20">
-            <div className="flex items-center gap-2">
-              <span className="text-xs font-semibold uppercase tracking-wide">
-                {language === 'ar' && props.country_ar ? props.country_ar : (props.country || 'Package')}
-              </span>
-              <span className="text-xs">•</span>
-              <span className="text-xs font-medium">
-                {language === 'ar' ? 'الأعلى تقييماً' : 'Top Rated'}
-              </span>
-            </div>
-          </div>
-        </div>
-
-        {/* Rating Badge - Top Right */}
-        <div className="absolute top-4 right-4 bg-white/95 backdrop-blur-sm rounded-full px-3 py-1.5 flex items-center gap-1 shadow-lg z-10">
-          <span className="text-yellow-500 text-sm">★</span>
-          <span className="text-sm font-bold text-gray-800">{pkg.rating}</span>
-        </div>
-        
         {/* Title on Image */}
-        <div className="absolute bottom-0 left-0 right-0 p-5 text-white z-10">
+        <div className="absolute bottom-0 left-0 right-0 p-5 text-white">
           <h3 className="text-2xl font-bold mb-1">
-            {language === 'ar' && props.name_ar ? props.name_ar : (props.name || pkg.title)}
+            {language === 'ar' && props.title_ar ? props.title_ar : pkg.title}
           </h3>
           <div className="flex items-center gap-2 text-white/90">
             <MapPin className="w-4 h-4" />
-            <span className="text-sm">{language === 'ar' && props.country_ar ? props.country_ar : (props.country || pkg.destination)}</span>
+            <span className="text-sm">{language === 'ar' && props.destination_ar ? props.destination_ar : pkg.destination}</span>
           </div>
+        </div>
+
+        {/* Rating Badge */}
+        <div className="absolute top-4 right-4 bg-white/95 backdrop-blur-sm rounded-full px-3 py-1.5 flex items-center gap-1 shadow-lg">
+          <span className="text-yellow-500 text-sm">★</span>
+          <span className="text-sm font-bold text-gray-800">{pkg.rating}</span>
         </div>
 
         {images.length > 1 && (

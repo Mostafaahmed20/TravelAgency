@@ -56,7 +56,7 @@ const Contact = () => {
     {
       icon: <Phone className="w-6 h-6" />,
       titleKey: 'phone',
-      details: '015 1519628',
+      details: '0115 1519628',
       link: 'https://wa.me/201515196284'
     },
     {
@@ -126,7 +126,13 @@ const Contact = () => {
                     </div>
                     <div>
                       <h3 className="font-bold text-lg text-gray-800">{translations[language][info.titleKey]}</h3>
-                      <p className="text-gray-600">{info.details}</p>
+                      <p className="text-gray-600">
+                        {info.titleKey === 'phone' ? (
+                          <span dir="ltr" className="inline-block">{info.details}</span>
+                        ) : (
+                          info.details
+                        )}
+                      </p>
                     </div>
                   </a>
                 ))}

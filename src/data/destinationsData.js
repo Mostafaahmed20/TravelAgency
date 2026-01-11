@@ -7,11 +7,22 @@ export const destinationsData = [
     country: "Turkey",
     country_ar: "تركيا",
     image: "images/destinations/istanbul.jpg",
-    description: "Experience the magic of Istanbul with its stunning architecture and rich history",
+    description:
+      "Experience the magic of Istanbul with its stunning architecture and rich history",
     description_ar: "اختبر سحر إسطنبول بمعمارها الخلاب وتاريخها العريق",
     rating: 4.8,
-    activities: ["Sightseeing", "Cultural Tours", "Food Tours", "Historical Sites"],
-    activities_ar: ["جولات لمشاهدة المعالم", "جولات ثقافية", "جولات الطعام", "مواقع تاريخية"],
+    activities: [
+      "Sightseeing",
+      "Cultural Tours",
+      "Food Tours",
+      "Historical Sites",
+    ],
+    activities_ar: [
+      "جولات لمشاهدة المعالم",
+      "جولات ثقافية",
+      "جولات الطعام",
+      "مواقع تاريخية",
+    ],
     priceUSD: 999,
     price: "From $999",
     price_ar: "ابتداءً من $999",
@@ -22,14 +33,14 @@ export const destinationsData = [
       "Topkapi Palace exploration",
       "Bosphorus cruise",
       "Grand Bazaar shopping",
-      "Street food experience"
+      "Street food experience",
     ],
     highlights_ar: [
       "زيارة مسجد السلطان أحمد",
       "استكشاف قصر توبكابي",
       "رحلة في مضيق البوسفور",
       "التسوق في البازار الكبير",
-      "تجربة طعام الشارع"
+      "تجربة طعام الشارع",
     ],
     aboutOverview: `About Istanbul – Turkey
 
@@ -104,7 +115,7 @@ Why Choose Istanbul?
 • تراث تاريخي وثقافي غني
 • مطبخ تركي لذيذ
 • تجارب تسوق عالمية المستوى
-• ضيافة دافئة وأجواء نابضة بالحياة`
+• ضيافة دافئة وأجواء نابضة بالحياة`,
   },
   {
     id: 2,
@@ -113,11 +124,22 @@ Why Choose Istanbul?
     country: "North Turkey",
     country_ar: "شمال تركيا",
     image: "images/destinations/trabzon-uzungol.jpg",
-    description: "Discover the lush green mountains and tranquil lakes of Northern Turkey",
+    description:
+      "Discover the lush green mountains and tranquil lakes of Northern Turkey",
     description_ar: "اكتشف الجبال الخضراء والبحيرات الهادئة في شمال تركيا",
     rating: 4.7,
-    activities: ["Nature Walks", "Lake Tours", "Mountain Photography", "Local Villages"],
-    activities_ar: ["نزهات طبيعية", "جولات البحيرات", "تصوير الجبال", "قرى محلية"],
+    activities: [
+      "Nature Walks",
+      "Lake Tours",
+      "Mountain Photography",
+      "Local Villages",
+    ],
+    activities_ar: [
+      "نزهات طبيعية",
+      "جولات البحيرات",
+      "تصوير الجبال",
+      "قرى محلية",
+    ],
     priceUSD: 899,
     price: "From $899",
     price_ar: "ابتداءً من $899",
@@ -128,14 +150,14 @@ Why Choose Istanbul?
       "Sumela Monastery tour",
       "Tea plantations",
       "Mountain village exploration",
-      "Traditional crafts"
+      "Traditional crafts",
     ],
     highlights_ar: [
       "زيارة بحيرة أوزنجول",
       "جولة دير سوميلا",
       "مزارع الشاي",
       "استكشاف القرى الجبلية",
-      "الحرف التقليدية"
+      "الحرف التقليدية",
     ],
     aboutOverview: `About Trabzon & Uzungol – North Turkey
 
@@ -210,7 +232,7 @@ Why Choose Trabzon?
 • مثالية لمحبي الطبيعة والمصورين
 • هواء جبلي نقي وهدوء
 • تراث ثقافي غني
-• ضيافة تركية أصيلة`
+• ضيافة تركية أصيلة`,
   },
   {
     id: 3,
@@ -219,8 +241,10 @@ Why Choose Trabzon?
     country: "Georgia",
     country_ar: "جورجيا",
     image: "images/destinations/tbilisi-batumi.jpg",
-    description: "Explore Georgia's vibrant culture, stunning landscapes, and warm hospitality",
-    description_ar: "استكشف ثقافة جورجيا النابضة بالحياة ومناظرها الخلابة وحفاوة شعبها",
+    description:
+      "Explore Georgia's vibrant culture, stunning landscapes, and warm hospitality",
+    description_ar:
+      "استكشف ثقافة جورجيا النابضة بالحياة ومناظرها الخلابة وحفاوة شعبها",
     rating: 4.6,
     activities: ["Wine Tasting", "Mountain Hiking", "Cultural Tours", "Beach"],
     activities_ar: ["تذوق النبيذ", "التنزه في الجبال", "جولات ثقافية", "شاطئ"],
@@ -234,14 +258,14 @@ Why Choose Trabzon?
       "Metekhi Church",
       "Batumi botanical garden",
       "Black Sea beach",
-      "Traditional wine experience"
+      "Traditional wine experience",
     ],
     highlights_ar: [
       "قلعة ناريكالا",
       "كنيسة ميتيخي",
       "الحديقة النباتية في باتومي",
       "شاطئ البحر الأسود",
-      "تجربة النبيذ التقليدية"
+      "تجربة النبيذ التقليدية",
     ],
     aboutOverview: `About Tbilisi & Batumi – Georgia
 
@@ -316,7 +340,7 @@ Why Choose Georgia?
 • مناظر جبلية وساحلية خلابة
 • ضيافة جورجية دافئة
 • مطبخ تقليدي لذيذ
-• سفر فاخر بأسعار معقولة`
+• سفر فاخر بأسعار معقولة`,
   },
   {
     id: 4,
@@ -325,11 +349,22 @@ Why Choose Georgia?
     country: "Azerbaijan",
     country_ar: "أذربيجان",
     image: "images/destinations/baku-qabala.jpg",
-    description: "Marvel at Baku's modern skyline and immerse in Qabala's mountain beauty",
+    description:
+      "Marvel at Baku's modern skyline and immerse in Qabala's mountain beauty",
     description_ar: "ابهَر بأفق باكو الحديث وانغمس في جمال جبال قبالا",
     rating: 4.9,
-    activities: ["City Tours", "Mountain Exploration", "Cultural Sites", "Adventure"],
-    activities_ar: ["جولات المدينة", "استكشاف الجبال", "مواقع ثقافية", "مغامرة"],
+    activities: [
+      "City Tours",
+      "Mountain Exploration",
+      "Cultural Sites",
+      "Adventure",
+    ],
+    activities_ar: [
+      "جولات المدينة",
+      "استكشاف الجبال",
+      "مواقع ثقافية",
+      "مغامرة",
+    ],
     priceUSD: 899,
     price: "From $899",
     price_ar: "ابتداءً من $899",
@@ -340,14 +375,14 @@ Why Choose Georgia?
       "Old City exploration",
       "Qabala mountain resort",
       "Lahij village visit",
-      "Shaki Khan Palace"
+      "Shaki Khan Palace",
     ],
     highlights_ar: [
       "زيارة أبراج اللهب",
       "استكشاف المدينة القديمة",
       "منتجع قبالا الجبلي",
       "زيارة قرية لاهيج",
-      "قصر خان في شاكي"
+      "قصر خان في شاكي",
     ],
     aboutOverview: `About Baku & Qabala – Azerbaijan
 
@@ -422,7 +457,7 @@ Why Choose Azerbaijan?
 • مناظر جبلية وساحلية خلابة
 • تراث ثقافي غني
 • مطبخ أذربيجاني لذيذ
-• وجهة آمنة ومرحبة`
+• وجهة آمنة ومرحبة`,
   },
   {
     id: 5,
@@ -431,11 +466,22 @@ Why Choose Azerbaijan?
     country: "UAE",
     country_ar: "الإمارات",
     image: "images/destinations/dubai.jpg",
-    description: "Experience luxury and innovation in the world's most modern city",
+    description:
+      "Experience luxury and innovation in the world's most modern city",
     description_ar: "اختبر الفخامة والابتكار في المدينة الأكثر حداثة في العالم",
     rating: 4.9,
-    activities: ["Shopping", "Desert Safari", "Skyscraper Tours", "Beach Activities"],
-    activities_ar: ["التسوق", "سفاري الصحراء", "جولات ناطحات السحاب", "أنشطة الشاطئ"],
+    activities: [
+      "Shopping",
+      "Desert Safari",
+      "Skyscraper Tours",
+      "Beach Activities",
+    ],
+    activities_ar: [
+      "التسوق",
+      "سفاري الصحراء",
+      "جولات ناطحات السحاب",
+      "أنشطة الشاطئ",
+    ],
     priceUSD: 1299,
     price: "From $1299",
     price_ar: "ابتداءً من $1299",
@@ -446,14 +492,14 @@ Why Choose Azerbaijan?
       "Dubai Mall shopping",
       "Desert safari adventure",
       "Dubai Marina cruise",
-      "Gold Souk exploration"
+      "Gold Souk exploration",
     ],
     highlights_ar: [
       "زيارة برج خليفة",
       "التسوق في دبي مول",
       "مغامرة سفاري الصحراء",
       "رحلة في مارينا دبي",
-      "استكشاف سوق الذهب"
+      "استكشاف سوق الذهب",
     ],
     aboutOverview: `About Dubai – UAE
 
@@ -528,7 +574,7 @@ Why Choose Dubai?
 • تسوق وطعام استثنائي
 • شمس على مدار العام
 • آمنة ومناسبة للعائلات
-• تجارب ثقافية متنوعة`
+• تجارب ثقافية متنوعة`,
   },
   {
     id: 6,
@@ -537,8 +583,10 @@ Why Choose Dubai?
     country: "Egypt",
     country_ar: "مصر",
     image: "images/destinations/sharm-el-sheikh.jpg",
-    description: "Dive into the Red Sea's crystal waters and vibrant coral reefs",
-    description_ar: "اغطس في مياه البحر الأحمر الكريستالية والشعاب المرجانية النابضة بالحياة",
+    description:
+      "Dive into the Red Sea's crystal waters and vibrant coral reefs",
+    description_ar:
+      "اغطس في مياه البحر الأحمر الكريستالية والشعاب المرجانية النابضة بالحياة",
     rating: 4.7,
     activities: ["Diving", "Snorkeling", "Beach Resorts", "Water Sports"],
     activities_ar: ["الغوص", "الغطس", "منتجعات الشاطئ", "الرياضات المائية"],
@@ -552,14 +600,14 @@ Why Choose Dubai?
       "Naama Bay nightlife",
       "Desert quad biking",
       "Coral reef snorkeling",
-      "Bedouin dinner experience"
+      "Bedouin dinner experience",
     ],
     highlights_ar: [
       "الغوص في رأس محمد",
       "الحياة الليلية في خليج نعمة",
       "ركوب الدراجات الرباعية في الصحراء",
       "الغطس في الشعاب المرجانية",
-      "تجربة العشاء البدوي"
+      "تجربة العشاء البدوي",
     ],
     aboutOverview: `About Sharm El Sheikh – Egypt
 
@@ -634,7 +682,7 @@ Why Choose Sharm El Sheikh?
 • شعاب مرجانية جميلة وحياة بحرية
 • طقس دافئ على مدار العام
 • خيارات منتجعات شاملة
-• تاريخ ثقافي وديني غني`
+• تاريخ ثقافي وديني غني`,
   },
   {
     id: 7,
@@ -643,11 +691,18 @@ Why Choose Sharm El Sheikh?
     country: "Turkey",
     country_ar: "تركيا",
     image: "images/destinations/antalya.jpg",
-    description: "Enjoy the Turkish Riviera with stunning beaches and ancient ruins",
-    description_ar: "استمتع بالريفييرا التركية مع الشواطئ الخلابة والآثار القديمة",
+    description:
+      "Enjoy the Turkish Riviera with stunning beaches and ancient ruins",
+    description_ar:
+      "استمتع بالريفييرا التركية مع الشواطئ الخلابة والآثار القديمة",
     rating: 4.8,
     activities: ["Beach", "Ancient Ruins", "Water Sports", "Boat Tours"],
-    activities_ar: ["الشاطئ", "الآثار القديمة", "الرياضات المائية", "جولات بحرية"],
+    activities_ar: [
+      "الشاطئ",
+      "الآثار القديمة",
+      "الرياضات المائية",
+      "جولات بحرية",
+    ],
     priceUSD: 849,
     price: "From $849",
     price_ar: "ابتداءً من $849",
@@ -658,14 +713,14 @@ Why Choose Sharm El Sheikh?
       "Duden Waterfalls",
       "Konyaalti Beach",
       "Ancient Perge ruins",
-      "Mediterranean cruise"
+      "Mediterranean cruise",
     ],
     highlights_ar: [
       "استكشاف المدينة القديمة",
       "شلالات دودان",
       "شاطئ كونيالتي",
       "آثار بيرجي القديمة",
-      "رحلة البحر المتوسط"
+      "رحلة البحر المتوسط",
     ],
     aboutOverview: `About Antalya – Turkey
 
@@ -740,7 +795,7 @@ Why Choose Antalya?
 • مواقع تاريخية قديمة
 • مياه البحر المتوسط الصافية
 • مناخ لطيف على مدار العام
-• قيمة ممتازة مقابل المال`
+• قيمة ممتازة مقابل المال`,
   },
   {
     id: 8,
@@ -749,7 +804,8 @@ Why Choose Antalya?
     country: "Greece",
     country_ar: "اليونان",
     image: "images/destinations/santorini.jpg",
-    description: "Witness breathtaking sunsets in this iconic Greek island paradise",
+    description:
+      "Witness breathtaking sunsets in this iconic Greek island paradise",
     description_ar: "شاهد غروب الشمس الخلاب في جنة الجزيرة اليونانية الشهيرة",
     rating: 4.9,
     activities: ["Sunset Viewing", "Wine Tasting", "Beach", "Photography"],
@@ -764,14 +820,14 @@ Why Choose Antalya?
       "Blue domed churches",
       "Volcanic beach exploration",
       "Wine tasting tours",
-      "Caldera cruise"
+      "Caldera cruise",
     ],
     highlights_ar: [
       "مشاهدة الغروب في أويا",
       "الكنائس ذات القبب الزرقاء",
       "استكشاف الشاطئ البركاني",
       "جولات تذوق النبيذ",
-      "رحلة الكالديرا"
+      "رحلة الكالديرا",
     ],
     aboutOverview: `About Santorini – Greece
 
@@ -846,7 +902,7 @@ Why Choose Santorini?
 • منظر طبيعي بركاني فريد
 • جو رومانسي مثالي للأزواج
 • نبيذ ومطبخ استثنائي
-• عمارة بيضاء وزرقاء أيقونية`
+• عمارة بيضاء وزرقاء أيقونية`,
   },
   {
     id: 9,
@@ -855,11 +911,23 @@ Why Choose Santorini?
     country: "Morocco",
     country_ar: "المغرب",
     image: "images/destinations/marrakech.jpg",
-    description: "Immerse yourself in vibrant souks, palaces, and Moroccan culture",
-    description_ar: "انغمس في الأسواق النابضة بالحياة والقصور والثقافة المغربية",
+    description:
+      "Immerse yourself in vibrant souks, palaces, and Moroccan culture",
+    description_ar:
+      "انغمس في الأسواق النابضة بالحياة والقصور والثقافة المغربية",
     rating: 4.7,
-    activities: ["Souk Shopping", "Palace Tours", "Desert Trips", "Cultural Experience"],
-    activities_ar: ["التسوق في الأسواق", "جولات القصور", "رحلات الصحراء", "تجربة ثقافية"],
+    activities: [
+      "Souk Shopping",
+      "Palace Tours",
+      "Desert Trips",
+      "Cultural Experience",
+    ],
+    activities_ar: [
+      "التسوق في الأسواق",
+      "جولات القصور",
+      "رحلات الصحراء",
+      "تجربة ثقافية",
+    ],
     priceUSD: 799,
     price: "From $799",
     price_ar: "ابتداءً من $799",
@@ -870,14 +938,14 @@ Why Choose Santorini?
       "Bahia Palace visit",
       "Majorelle Garden",
       "Atlas Mountains day trip",
-      "Traditional hammam spa"
+      "Traditional hammam spa",
     ],
     highlights_ar: [
       "ساحة جامع الفنا",
       "زيارة قصر الباهية",
       "حديقة ماجوريل",
       "رحلة يومية لجبال الأطلس",
-      "حمام سبا تقليدي"
+      "حمام سبا تقليدي",
     ],
     aboutOverview: `About Marrakech – Morocco
 
@@ -952,7 +1020,7 @@ Why Choose Marrakech?
 • أسواق نابضة بالحياة وتجارب تسوق
 • عمارة إسلامية مذهلة
 • مطبخ مغربي لذيذ
-• بوابة إلى الصحراء الكبرى`
+• بوابة إلى الصحراء الكبرى`,
   },
   {
     id: 10,
@@ -961,7 +1029,8 @@ Why Choose Marrakech?
     country: "Maldives",
     country_ar: "المالديف",
     image: "images/destinations/maldives.jpg",
-    description: "Escape to paradise with pristine beaches and overwater villas",
+    description:
+      "Escape to paradise with pristine beaches and overwater villas",
     description_ar: "اهرب إلى الجنة مع الشواطئ النقية والفيلات على الماء",
     rating: 5.0,
     activities: ["Diving", "Water Sports", "Spa", "Island Hopping"],
@@ -976,14 +1045,14 @@ Why Choose Marrakech?
       "Scuba diving adventures",
       "Private island experience",
       "Sunset dolphin cruise",
-      "Underwater restaurant dining"
+      "Underwater restaurant dining",
     ],
     highlights_ar: [
       "الإقامة في فيلا على الماء",
       "مغامرات الغوص",
       "تجربة جزيرة خاصة",
       "رحلة غروب مع الدلافين",
-      "تناول الطعام في مطعم تحت الماء"
+      "تناول الطعام في مطعم تحت الماء",
     ],
     aboutOverview: `About Maldives – Paradise Islands
 
@@ -1058,7 +1127,7 @@ Why Choose Maldives?
 • أفضل غوص وغطس في العالم
 • وجهة شهر عسل مثالية
 • جمال طبيعي نقي
-• تجارب منتجعات حصرية`
+• تجارب منتجعات حصرية`,
   },
   {
     id: 11,
@@ -1067,11 +1136,22 @@ Why Choose Maldives?
     country: "Czech Republic",
     country_ar: "التشيك",
     image: "images/destinations/prague.jpg",
-    description: "Discover the fairy-tale charm of Europe's most beautiful capital",
+    description:
+      "Discover the fairy-tale charm of Europe's most beautiful capital",
     description_ar: "اكتشف سحر القصص الخيالية لأجمل عاصمة أوروبية",
     rating: 4.8,
-    activities: ["Castle Tours", "Old Town Walking", "River Cruise", "Beer Tasting"],
-    activities_ar: ["جولات القلعة", "المشي في المدينة القديمة", "رحلة نهرية", "تذوق البيرة"],
+    activities: [
+      "Castle Tours",
+      "Old Town Walking",
+      "River Cruise",
+      "Beer Tasting",
+    ],
+    activities_ar: [
+      "جولات القلعة",
+      "المشي في المدينة القديمة",
+      "رحلة نهرية",
+      "تذوق البيرة",
+    ],
     priceUSD: 899,
     price: "From $899",
     price_ar: "ابتداءً من $899",
@@ -1082,14 +1162,14 @@ Why Choose Maldives?
       "Charles Bridge walk",
       "Old Town Square",
       "Vltava River cruise",
-      "Czech beer experience"
+      "Czech beer experience",
     ],
     highlights_ar: [
       "زيارة قلعة براغ",
       "المشي على جسر تشارلز",
       "ساحة المدينة القديمة",
       "رحلة نهر فلتافا",
-      "تجربة البيرة التشيكية"
+      "تجربة البيرة التشيكية",
     ],
     aboutOverview: `About Prague – Czech Republic
 
@@ -1164,7 +1244,7 @@ Why Choose Prague?
 • تاريخ وثقافة غنية
 • قيمة ممتازة للسفر الأوروبي
 • بيرة ومطبخ عالمي المستوى
-• مركز مدينة آمن وقابل للمشي`
+• مركز مدينة آمن وقابل للمشي`,
   },
   {
     id: 12,
@@ -1173,8 +1253,10 @@ Why Choose Prague?
     country: "Malaysia",
     country_ar: "ماليزيا",
     image: "images/destinations/kuala-lumpur.jpg",
-    description: "Experience Asian fusion culture with modern skyscrapers and heritage",
-    description_ar: "اختبر مزيج الثقافة الآسيوية مع ناطحات السحاب الحديثة والتراث",
+    description:
+      "Experience Asian fusion culture with modern skyscrapers and heritage",
+    description_ar:
+      "اختبر مزيج الثقافة الآسيوية مع ناطحات السحاب الحديثة والتراث",
     rating: 4.6,
     activities: ["City Tours", "Shopping", "Food Tours", "Cultural Sites"],
     activities_ar: ["جولات المدينة", "التسوق", "جولات الطعام", "مواقع ثقافية"],
@@ -1188,14 +1270,14 @@ Why Choose Prague?
       "Batu Caves visit",
       "Street food experience",
       "Bukit Bintang shopping",
-      "KL Tower observation"
+      "KL Tower observation",
     ],
     highlights_ar: [
       "برجا بتروناس التوأم",
       "زيارة كهوف باتو",
       "تجربة طعام الشارع",
       "التسوق في بوكيت بينتانج",
-      "مراقبة برج كوالالمبور"
+      "مراقبة برج كوالالمبور",
     ],
     aboutOverview: `About Kuala Lumpur – Malaysia
 
@@ -1270,7 +1352,7 @@ Why Choose Kuala Lumpur?
 • تنوع غذائي لا يصدق
 • وجهات تسوق عالمية المستوى
 • سفر فاخر بأسعار معقولة
-• تجارب متعددة الثقافات`
+• تجارب متعددة الثقافات`,
   },
   {
     id: 13,
@@ -1279,11 +1361,25 @@ Why Choose Kuala Lumpur?
     country: "Thailand",
     country_ar: "تايلاند",
     image: "images/destinations/phuket.jpg",
-    description: "Thailand's largest island offering golden beaches, turquoise waters and vibrant nightlife",
-    description_ar: "أكبر جزيرة في تايلاند تقدم شواطئ ذهبية ومياه فيروزية وحياة ليلية نابضة بالحياة",
+    description:
+      "Thailand's largest island offering golden beaches, turquoise waters and vibrant nightlife",
+    description_ar:
+      "أكبر جزيرة في تايلاند تقدم شواطئ ذهبية ومياه فيروزية وحياة ليلية نابضة بالحياة",
     rating: 4.8,
-    activities: ["Beach Activities", "Island Hopping", "Snorkeling", "Cultural Tours", "Water Sports"],
-    activities_ar: ["أنشطة الشاطئ", "التنقل بين الجزر", "الغطس", "جولات ثقافية", "رياضات مائية"],
+    activities: [
+      "Beach Activities",
+      "Island Hopping",
+      "Snorkeling",
+      "Cultural Tours",
+      "Water Sports",
+    ],
+    activities_ar: [
+      "أنشطة الشاطئ",
+      "التنقل بين الجزر",
+      "الغطس",
+      "جولات ثقافية",
+      "رياضات مائية",
+    ],
     priceUSD: 899,
     price: "From $899",
     price_ar: "ابتداءً من $899",
@@ -1295,7 +1391,7 @@ Why Choose Kuala Lumpur?
       "Big Buddha monument",
       "Phuket Old Town exploration",
       "Phang Nga Bay cruise",
-      "FantaSea cultural show"
+      "FantaSea cultural show",
     ],
     highlights_ar: [
       "جولة جزر في في",
@@ -1303,7 +1399,7 @@ Why Choose Kuala Lumpur?
       "نصب بوذا الكبير",
       "استكشاف البلدة القديمة في بوكيت",
       "رحلة خليج بانغ نا",
-      "عرض فانتازيا الثقافي"
+      "عرض فانتازيا الثقافي",
     ],
     aboutOverview: `About Phuket – Thailand
 
@@ -1376,8 +1472,8 @@ Why Choose Phuket?
 • شواطئ خلابة وأنشطة بحرية متنوعة
 • وجهة رائعة لشهر العسل والعائلات
 • منتجعات وفنادق فاخرة بأسعار مناسبة
-• طبيعة ساحرة ومغامرات لا تنتهي`
-  }
+• طبيعة ساحرة ومغامرات لا تنتهي`,
+  },
 ];
 
 // Hotels in Egypt Data
@@ -1396,15 +1492,17 @@ export const hotelsEgyptData = [
       "https://cf.bstatic.com/xdata/images/hotel/max1024x768/29997018.jpg?k=f1b5f2e1c6a5c1e2c5a5e21da2e390c5772e46dd23e0c5fc76e56e22a6e5d3c5&o=&hp=1",
       "https://cf.bstatic.com/xdata/images/hotel/max1024x768/29997020.jpg?k=a5e1c6a5c1e2c5a5e21da2e390c5772e46dd23e0c5fc76e56e22a6e5d3c5e9f9&o=&hp=1",
       "https://cf.bstatic.com/xdata/images/hotel/max1024x768/29997022.jpg?k=e9f9a5e1c6a5c1e2c5a5e21da2e390c5772e46dd23e0c5fc76e56e22a6e5d3c5&o=&hp=1",
-      "https://cf.bstatic.com/xdata/images/hotel/max1024x768/29997024.jpg?k=d3c5e9f9a5e1c6a5c1e2c5a5e21da2e390c5772e46dd23e0c5fc76e56e22a6e5&o=&hp=1"
+      "https://cf.bstatic.com/xdata/images/hotel/max1024x768/29997024.jpg?k=d3c5e9f9a5e1c6a5c1e2c5a5e21da2e390c5772e46dd23e0c5fc76e56e22a6e5&o=&hp=1",
     ],
     rating: 4.8,
     stars: 5,
     priceUSD: 470,
     price: "From $470/night",
     price_ar: "ابتداءً من $470/الليلة",
-    description: "Luxury 5-star hotel overlooking the Nile River in the heart of Cairo, offering elegant rooms, world-class dining, and exceptional service. Located in the prestigious Garden City district with stunning views of the Nile and Cairo skyline.",
-    description_ar: "فندق فاخر 5 نجوم يطل على نهر النيل في قلب القاهرة، يوفر غرفاً أنيقة ومطاعم عالمية المستوى وخدمة استثنائية. يقع في حي جاردن سيتي المرموق مع إطلالات خلابة على النيل وأفق القاهرة.",
+    description:
+      "Luxury 5-star hotel overlooking the Nile River in the heart of Cairo, offering elegant rooms, world-class dining, and exceptional service. Located in the prestigious Garden City district with stunning views of the Nile and Cairo skyline.",
+    description_ar:
+      "فندق فاخر 5 نجوم يطل على نهر النيل في قلب القاهرة، يوفر غرفاً أنيقة ومطاعم عالمية المستوى وخدمة استثنائية. يقع في حي جاردن سيتي المرموق مع إطلالات خلابة على النيل وأفق القاهرة.",
     features: [
       "Nile River View",
       "Outdoor Pool",
@@ -1415,7 +1513,7 @@ export const hotelsEgyptData = [
       "24-Hour Room Service",
       "Business Center",
       "Airport Shuttle",
-      "Concierge Service"
+      "Concierge Service",
     ],
     features_ar: [
       "إطلالة على نهر النيل",
@@ -1427,9 +1525,9 @@ export const hotelsEgyptData = [
       "خدمة الغرف على مدار الساعة",
       "مركز أعمال",
       "خدمة نقل المطار",
-      "خدمة الكونسيرج"
+      "خدمة الكونسيرج",
     ],
-    reviews: 1842
+    reviews: 1842,
   },
   {
     id: 2,
@@ -1445,15 +1543,17 @@ export const hotelsEgyptData = [
       "https://cf.bstatic.com/xdata/images/hotel/max1024x768/235266324.jpg?k=c1e2c5a5e21da2e390c5772e46dd23e0c5fc76e56e22a6e5d3c5e9f9a5e1c6a5&o=&hp=1",
       "https://cf.bstatic.com/xdata/images/hotel/max1024x768/235266326.jpg?k=e21da2e390c5772e46dd23e0c5fc76e56e22a6e5d3c5e9f9a5e1c6a5c1e2c5a5&o=&hp=1",
       "https://cf.bstatic.com/xdata/images/hotel/max1024x768/235266328.jpg?k=a5e1c6a5c1e2c5a5e21da2e390c5772e46dd23e0c5fc76e56e22a6e5d3c5e9f9&o=&hp=1",
-      "https://cf.bstatic.com/xdata/images/hotel/max1024x768/235266330.jpg?k=d3c5e9f9a5e1c6a5c1e2c5a5e21da2e390c5772e46dd23e0c5fc76e56e22a6e5&o=&hp=1"
+      "https://cf.bstatic.com/xdata/images/hotel/max1024x768/235266330.jpg?k=d3c5e9f9a5e1c6a5c1e2c5a5e21da2e390c5772e46dd23e0c5fc76e56e22a6e5&o=&hp=1",
     ],
     rating: 4.6,
     stars: 5,
     priceUSD: 110,
     price: "From $110/night",
     price_ar: "ابتداءً من $110/الليلة",
-    description: "Iconic 5-star hotel on the Nile River in the heart of Cairo, offering legendary luxury and service since 1987. Located at Tahrir Square with easy access to Egyptian Museum and major attractions.",
-    description_ar: "فندق شهير 5 نجوم على نهر النيل في قلب القاهرة، يقدم الفخامة والخدمة الأسطورية منذ عام 1987. يقع في ميدان التحرير مع سهولة الوصول إلى المتحف المصري والمعالم الرئيسية.",
+    description:
+      "Iconic 5-star hotel on the Nile River in the heart of Cairo, offering legendary luxury and service since 1987. Located at Tahrir Square with easy access to Egyptian Museum and major attractions.",
+    description_ar:
+      "فندق شهير 5 نجوم على نهر النيل في قلب القاهرة، يقدم الفخامة والخدمة الأسطورية منذ عام 1987. يقع في ميدان التحرير مع سهولة الوصول إلى المتحف المصري والمعالم الرئيسية.",
     features: [
       "Nile River View",
       "Outdoor Swimming Pool",
@@ -1466,7 +1566,7 @@ export const hotelsEgyptData = [
       "Casino",
       "Shopping Arcade",
       "Meeting Facilities",
-      "Airport Shuttle"
+      "Airport Shuttle",
     ],
     features_ar: [
       "إطلالة على نهر النيل",
@@ -1480,9 +1580,190 @@ export const hotelsEgyptData = [
       "كازينو",
       "مركز تسوق",
       "مرافق الاجتماعات",
-      "خدمة نقل المطار"
+      "خدمة نقل المطار",
     ],
-    reviews: 2145
+    reviews: 2145,
+    bookingInfo: {
+      chain: {
+        name: "InterContinental Hotels Group",
+        name_ar: "مجموعة فنادق إنتركونتيننتال",
+      },
+      sustainability: {
+        name: "Sustainability Certificate",
+        name_ar: "شهادة الاستدامة",
+      },
+      accommodationFeatures: {
+        location: {
+          description:
+            "Excellent location: high ratings from recent guests (9.0)",
+          description_ar: "موقع ممتاز: تقييمات عالية من الضيوف الأخيرين (9.0)",
+        },
+        comfort: {
+          description:
+            "Want a good night's sleep? This hotel received a high rating for its comfortable beds.",
+          description_ar:
+            "تريد ليلة نوم جيدة؟ حصل هذا الفندق على تقييم عالٍ لأسِرَّته المريحة.",
+        },
+        breakfast: {
+          description:
+            "Information about breakfast: Continental, American, and Buffet",
+          description_ar: "معلومات عن الإفطار: قاري، أمريكي، وبوفيه",
+        },
+        parking: {
+          description: "Private parking available at the hotel",
+          description_ar: "موقف سيارات خاص متوفر في الفندق",
+        },
+        loyalty: {
+          description:
+            "Most loyal customers: Guests frequent this accommodation more than most other accommodations",
+          description_ar:
+            "أكثر العملاء ولاءً: الضيوف يترددون على هذا المكان أكثر من معظم أماكن الإقامة الأخرى",
+        },
+      },
+      areaAround: {
+        description:
+          "Guests love walking and strolling in this neighborhood! Excellent location - Show map",
+        description_ar:
+          "الضيوف يحبون المشي والتجول في هذا الحي! موقع ممتاز - اعرض الخريطة",
+        nearby: [
+          { name: "Tahrir Square", name_ar: "ميدان التحرير" },
+          { name: "Egyptian Museum", name_ar: "المتحف المصري" },
+          { name: "Khan el-Khalili", name_ar: "خان الخليلي" },
+          { name: "Qasr El Nil Bridge", name_ar: "كوبري قصر النيل" },
+          { name: "Cairo Opera House", name_ar: "دار الأوبرا المصرية" },
+          { name: "Nile Corniche", name_ar: "كورنيش النيل" },
+        ],
+        attractions: [
+          {
+            name: "Egyptian Museum",
+            name_ar: "المتحف المصري",
+            distance: "0.5 كم",
+          },
+          {
+            name: "Khan el-Khalili",
+            name_ar: "خان الخليلي",
+            distance: "2.5 كم",
+          },
+          { name: "Cairo Tower", name_ar: "برج القاهرة", distance: "3 كم" },
+          {
+            name: "Citadel of Salah al-Din",
+            name_ar: "قلعة صلاح الدين",
+            distance: "4 كم",
+          },
+          {
+            name: "Giza Pyramids",
+            name_ar: "أهرامات الجيزة",
+            distance: "15 كم",
+          },
+        ],
+        transportation: [
+          {
+            name: "Sadat . Metro",
+            name_ar: "السادات . مترو",
+            distance: "0.3 كم",
+          },
+          {
+            name: "Nasser . Metro",
+            name_ar: "ناصر . مترو",
+            distance: "0.8 كم",
+          },
+          {
+            name: "Opera . Metro",
+            name_ar: "الأوبرا . مترو",
+            distance: "1.2 كم",
+          },
+        ],
+        airports: [
+          {
+            name: "Cairo International Airport",
+            name_ar: "مطار القاهرة الدولي",
+            distance: "18 كم",
+          },
+        ],
+        restaurants: [
+          {
+            name: "Nile Terrace Restaurant",
+            name_ar: "مطعم شرفة النيل",
+            distance: "100 م",
+          },
+          { name: "Omar's Cafe", name_ar: "مقهى عمر", distance: "200 م" },
+          {
+            name: "Koshary Abou Tarek",
+            name_ar: "كشري أبو طارق",
+            distance: "300 م",
+          },
+        ],
+        disclaimer:
+          "The shortest estimated distances for walking or by car are shown. Actual distances may vary.",
+        disclaimer_ar:
+          "يتم عرض أقصر مسافات تقديرية للمشي أو بالسيارة. قد تختلف المسافات الفعلية.",
+      },
+      detailedTerms: [
+        {
+          term: "Pets are not allowed.",
+          term_ar: "لا يُسمح بالحيوانات الأليفة.",
+        },
+        {
+          term: "Credit card pre-authorization required for incidentals.",
+          term_ar: "التحصيل المسبق من بطاقة الائتمان مطلوب للمصروفات الإضافية.",
+        },
+        {
+          term: "Free high-speed WiFi in all rooms and public areas.",
+          term_ar: "واي فاي عالي السرعة مجاني في جميع الغرف والمناطق العامة.",
+        },
+        {
+          term: "Early check-in and late check-out subject to availability.",
+          term_ar: "تسجيل الوصول المبكر والمغادرة المتأخرة حسب التوفر.",
+        },
+      ],
+      faq: [
+        {
+          question:
+            "What type of breakfast is served at InterContinental Cairo Semiramis?",
+          question_ar:
+            "ما نوع وجبة الإفطار المقدمة في فندق سميراميس إنتركونتيننتال القاهرة؟",
+          answer:
+            "The hotel offers Continental, American, and Buffet breakfast options.",
+          answer_ar: "يقدم الفندق خيارات إفطار قارية وأمريكية وبوفيه.",
+        },
+        {
+          question:
+            "Is there a restaurant at InterContinental Cairo Semiramis?",
+          question_ar: "هل يتوفر مطعم في فندق سميراميس إنتركونتيننتال القاهرة؟",
+          answer:
+            "Yes, the hotel features multiple restaurants and bars including rooftop dining.",
+          answer_ar:
+            "نعم، يضم الفندق عدة مطاعم وبارات بما في ذلك المطاعم على السطح.",
+        },
+        {
+          question:
+            "What activities can be done at InterContinental Cairo Semiramis?",
+          question_ar:
+            "ما الأنشطة التي يمكن القيام بها في فندق سميراميس إنتركونتيننتال القاهرة؟",
+          answer:
+            "Guests can enjoy the outdoor pool, spa, fitness center, casino, and shopping arcade.",
+          answer_ar:
+            "يمكن للضيوف الاستمتاع بالمسبح الخارجي والسبا ومركز اللياقة البدنية والكازينو ومركز التسوق.",
+        },
+        {
+          question:
+            "How far is InterContinental Cairo Semiramis from downtown Cairo?",
+          question_ar:
+            "ما بعد فندق سميراميس إنتركونتيننتال القاهرة عن وسط القاهرة؟",
+          answer:
+            "The hotel is located in the heart of downtown Cairo at Tahrir Square.",
+          answer_ar: "يقع الفندق في قلب وسط القاهرة في ميدان التحرير.",
+        },
+        {
+          question:
+            "Is there a swimming pool at InterContinental Cairo Semiramis?",
+          question_ar: "هل يتوفر مسبح في فندق سميراميس إنتركونتيننتال القاهرة؟",
+          answer:
+            "Yes, the hotel features an outdoor swimming pool with Nile views.",
+          answer_ar: "نعم، يضم الفندق مسبحاً خارجياً بإطلالات على النيل.",
+        },
+      ],
+    },
   },
   {
     id: 3,
@@ -1498,15 +1779,17 @@ export const hotelsEgyptData = [
       "https://cf.bstatic.com/xdata/images/hotel/max1024x768/141836424.jpg?k=e9f9a5e1c6a5c1e2c5a5e21da2e390c5772e46dd23e0c5fc76e56e22a6e5d3c5&o=&hp=1",
       "https://cf.bstatic.com/xdata/images/hotel/max1024x768/141836426.jpg?k=c1e2c5a5e21da2e390c5772e46dd23e0c5fc76e56e22a6e5d3c5e9f9a5e1c6a5&o=&hp=1",
       "https://cf.bstatic.com/xdata/images/hotel/max1024x768/141836428.jpg?k=d3c5e9f9a5e1c6a5c1e2c5a5e21da2e390c5772e46dd23e0c5fc76e56e22a6e5&o=&hp=1",
-      "https://cf.bstatic.com/xdata/images/hotel/max1024x768/141836430.jpg?k=e21da2e390c5772e46dd23e0c5fc76e56e22a6e5d3c5e9f9a5e1c6a5c1e2c5a5&o=&hp=1"
+      "https://cf.bstatic.com/xdata/images/hotel/max1024x768/141836430.jpg?k=e21da2e390c5772e46dd23e0c5fc76e56e22a6e5d3c5e9f9a5e1c6a5c1e2c5a5&o=&hp=1",
     ],
     rating: 4.5,
     stars: 4,
     priceUSD: 75,
     price: "From $75/night",
     price_ar: "ابتداءً من $75/الليلة",
-    description: "Modern apartment with stunning Nile views in prestigious Zamalek district, next to Cairo Marriott Hotel. Perfect for families and extended stays with fully equipped facilities and prime location.",
-    description_ar: "شقة حديثة مع إطلالات خلابة على النيل في حي الزمالك المرموق، بجوار فندق ماريوت القاهرة. مثالية للعائلات والإقامات الطويلة مع مرافق مجهزة بالكامل وموقع متميز.",
+    description:
+      "Modern apartment with stunning Nile views in prestigious Zamalek district, next to Cairo Marriott Hotel. Perfect for families and extended stays with fully equipped facilities and prime location.",
+    description_ar:
+      "شقة حديثة مع إطلالات خلابة على النيل في حي الزمالك المرموق، بجوار فندق ماريوت القاهرة. مثالية للعائلات والإقامات الطويلة مع مرافق مجهزة بالكامل وموقع متميز.",
     features: [
       "Panoramic Nile View",
       "Fully Equipped Kitchen",
@@ -1517,7 +1800,7 @@ export const hotelsEgyptData = [
       "Balcony",
       "24-Hour Security",
       "Elevator",
-      "Near Marriott Hotel"
+      "Near Marriott Hotel",
     ],
     features_ar: [
       "إطلالة بانورامية على النيل",
@@ -1529,9 +1812,9 @@ export const hotelsEgyptData = [
       "شرفة",
       "أمن على مدار الساعة",
       "مصعد",
-      "بالقرب من فندق ماريوت"
+      "بالقرب من فندق ماريوت",
     ],
-    reviews: 456
+    reviews: 456,
   },
   {
     id: 4,
@@ -1547,15 +1830,17 @@ export const hotelsEgyptData = [
       "https://cf.bstatic.com/xdata/images/hotel/max1024x768/235262015.jpg?k=c1e2c5a5e21da2e390c5772e46dd23e0c5fc76e56e22a6e5d3c5e9f9a5e1c6a5&o=&hp=1",
       "https://cf.bstatic.com/xdata/images/hotel/max1024x768/235262017.jpg?k=e21da2e390c5772e46dd23e0c5fc76e56e22a6e5d3c5e9f9a5e1c6a5c1e2c5a5&o=&hp=1",
       "https://cf.bstatic.com/xdata/images/hotel/max1024x768/235262019.jpg?k=a5e1c6a5c1e2c5a5e21da2e390c5772e46dd23e0c5fc76e56e22a6e5d3c5e9f9&o=&hp=1",
-      "https://cf.bstatic.com/xdata/images/hotel/max1024x768/235262021.jpg?k=d3c5e9f9a5e1c6a5c1e2c5a5e21da2e390c5772e46dd23e0c5fc76e56e22a6e5&o=&hp=1"
+      "https://cf.bstatic.com/xdata/images/hotel/max1024x768/235262021.jpg?k=d3c5e9f9a5e1c6a5c1e2c5a5e21da2e390c5772e46dd23e0c5fc76e56e22a6e5&o=&hp=1",
     ],
     rating: 4.7,
     stars: 5,
     priceUSD: 140,
     price: "From $140/night",
     price_ar: "ابتداءً من $140/الليلة",
-    description: "Luxury 5-star hotel in the heart of Cairo featuring spectacular Nile views, world-class dining, and modern amenities. Part of the prestigious Nile City Towers complex with direct access to shopping and entertainment.",
-    description_ar: "فندق فاخر 5 نجوم في قلب القاهرة يتميز بإطلالات رائعة على النيل ومطاعم عالمية ووسائل راحة حديثة. جزء من مجمع نايل سيتي تاورز المرموق مع وصول مباشر للتسوق والترفيه.",
+    description:
+      "Luxury 5-star hotel in the heart of Cairo featuring spectacular Nile views, world-class dining, and modern amenities. Part of the prestigious Nile City Towers complex with direct access to shopping and entertainment.",
+    description_ar:
+      "فندق فاخر 5 نجوم في قلب القاهرة يتميز بإطلالات رائعة على النيل ومطاعم عالمية ووسائل راحة حديثة. جزء من مجمع نايل سيتي تاورز المرموق مع وصول مباشر للتسوق والترفيه.",
     features: [
       "Nile River View",
       "Outdoor Pool",
@@ -1568,7 +1853,7 @@ export const hotelsEgyptData = [
       "Shopping Mall Access",
       "Rooftop Bar",
       "Concierge Service",
-      "Valet Parking"
+      "Valet Parking",
     ],
     features_ar: [
       "إطلالة على نهر النيل",
@@ -1582,9 +1867,163 @@ export const hotelsEgyptData = [
       "وصول لمركز التسوق",
       "بار على السطح",
       "خدمة الكونسيرج",
-      "مواقف سيارات"
+      "مواقف سيارات",
     ],
-    reviews: 1678
+    reviews: 1678,
+    bookingInfo: {
+      chain: {
+        name: "Fairmont Hotels & Resorts",
+        name_ar: "فيرمونت للفنادق والمنتجعات",
+      },
+      sustainability: {
+        name: "Sustainability Certificate",
+        name_ar: "شهادة الاستدامة",
+      },
+      accommodationFeatures: {
+        location: {
+          description:
+            "Excellent location: high ratings from recent guests (9.2)",
+          description_ar: "موقع ممتاز: تقييمات عالية من الضيوف الأخيرين (9.2)",
+        },
+        comfort: {
+          description:
+            "Want a good night's sleep? This hotel received a high rating for its comfortable beds.",
+          description_ar:
+            "تريد ليلة نوم جيدة؟ حصل هذا الفندق على تقييم عالٍ لأسِرَّته المريحة.",
+        },
+        breakfast: {
+          description:
+            "Information about breakfast: Continental, American, and Buffet",
+          description_ar: "معلومات عن الإفطار: قاري، أمريكي، وبوفيه",
+        },
+        parking: {
+          description: "Private parking available at the hotel",
+          description_ar: "موقف سيارات خاص متوفر في الفندق",
+        },
+        loyalty: {
+          description:
+            "Most loyal customers: Guests frequent this accommodation more than most other accommodations",
+          description_ar:
+            "أكثر العملاء ولاءً: الضيوف يترددون على هذا المكان أكثر من معظم أماكن الإقامة الأخرى",
+        },
+      },
+      areaAround: {
+        description:
+          "Guests love walking and strolling in this neighborhood! Excellent location - Show map",
+        description_ar:
+          "الضيوف يحبون المشي والتجول في هذا الحي! موقع ممتاز - اعرض الخريطة",
+        nearby: [
+          { name: "Nile City Towers", name_ar: "أبراج نايل سيتي" },
+          { name: "Nile Corniche", name_ar: "كورنيش النيل" },
+          { name: "Cairo Tower", name_ar: "برج القاهرة" },
+          { name: "Zamalek District", name_ar: "حي الزمالك" },
+          { name: "Gezira Island", name_ar: "جزيرة الجزيرة" },
+        ],
+        attractions: [
+          { name: "Cairo Tower", name_ar: "برج القاهرة", distance: "1.5 كم" },
+          {
+            name: "Egyptian Museum",
+            name_ar: "المتحف المصري",
+            distance: "3 كم",
+          },
+          { name: "Khan el-Khalili", name_ar: "خان الخليلي", distance: "4 كم" },
+          {
+            name: "Citadel of Salah al-Din",
+            name_ar: "قلعة صلاح الدين",
+            distance: "5 كم",
+          },
+          {
+            name: "Giza Pyramids",
+            name_ar: "أهرامات الجيزة",
+            distance: "16 كم",
+          },
+        ],
+        transportation: [
+          {
+            name: "Zamalek . Metro",
+            name_ar: "الزمالك . مترو",
+            distance: "1 كم",
+          },
+          {
+            name: "Opera . Metro",
+            name_ar: "الأوبرا . مترو",
+            distance: "1.5 كم",
+          },
+        ],
+        airports: [
+          {
+            name: "Cairo International Airport",
+            name_ar: "مطار القاهرة الدولي",
+            distance: "16 كم",
+          },
+        ],
+        restaurants: [
+          {
+            name: "Nile City Mall Restaurants",
+            name_ar: "مطاعم مول نايل سيتي",
+            distance: "50 م",
+          },
+          { name: "Rooftop Bar", name_ar: "بار السطح", distance: "0 م" },
+          {
+            name: "Zamalek Restaurants",
+            name_ar: "مطاعم الزمالك",
+            distance: "500 م",
+          },
+        ],
+        disclaimer:
+          "The shortest estimated distances for walking or by car are shown. Actual distances may vary.",
+        disclaimer_ar:
+          "يتم عرض أقصر مسافات تقديرية للمشي أو بالسيارة. قد تختلف المسافات الفعلية.",
+      },
+      detailedTerms: [
+        {
+          term: "Pets are not allowed.",
+          term_ar: "لا يُسمح بالحيوانات الأليفة.",
+        },
+        {
+          term: "Credit card pre-authorization required for incidentals.",
+          term_ar: "التحصيل المسبق من بطاقة الائتمان مطلوب للمصروفات الإضافية.",
+        },
+        {
+          term: "Free high-speed WiFi in all rooms and public areas.",
+          term_ar: "واي فاي عالي السرعة مجاني في جميع الغرف والمناطق العامة.",
+        },
+        {
+          term: "Direct access to Nile City shopping mall.",
+          term_ar: "وصول مباشر إلى مول نايل سيتي للتسوق.",
+        },
+      ],
+      faq: [
+        {
+          question: "What type of breakfast is served at Fairmont Nile City?",
+          question_ar: "ما نوع وجبة الإفطار المقدمة في فيرمونت نايل سيتي؟",
+          answer:
+            "The hotel offers Continental, American, and Buffet breakfast options.",
+          answer_ar: "يقدم الفندق خيارات إفطار قارية وأمريكية وبوفيه.",
+        },
+        {
+          question: "Is there a restaurant at Fairmont Nile City?",
+          question_ar: "هل يتوفر مطعم في فيرمونت نايل سيتي؟",
+          answer:
+            "Yes, the hotel features multiple fine dining restaurants and a rooftop bar.",
+          answer_ar: "نعم، يضم الفندق عدة مطاعم فاخرة وبار على السطح.",
+        },
+        {
+          question: "Does Fairmont Nile City have a swimming pool?",
+          question_ar: "هل يتوفر مسبح في فيرمونت نايل سيتي؟",
+          answer:
+            "Yes, the hotel features an outdoor swimming pool with Nile views.",
+          answer_ar: "نعم، يضم الفندق مسبحاً خارجياً بإطلالات على النيل.",
+        },
+        {
+          question: "Is there shopping available at Fairmont Nile City?",
+          question_ar: "هل يتوفر تسوق في فيرمونت نايل سيتي؟",
+          answer:
+            "Yes, the hotel has direct access to Nile City shopping mall.",
+          answer_ar: "نعم، الفندق لديه وصول مباشر إلى مول نايل سيتي للتسوق.",
+        },
+      ],
+    },
   },
   {
     id: 5,
@@ -1600,15 +2039,17 @@ export const hotelsEgyptData = [
       "https://cf.bstatic.com/xdata/images/hotel/max1024x768/147382947.jpg?k=e9f9a5e1c6a5c1e2c5a5e21da2e390c5772e46dd23e0c5fc76e56e22a6e5d3c5&o=&hp=1",
       "https://cf.bstatic.com/xdata/images/hotel/max1024x768/147382949.jpg?k=c1e2c5a5e21da2e390c5772e46dd23e0c5fc76e56e22a6e5d3c5e9f9a5e1c6a5&o=&hp=1",
       "https://cf.bstatic.com/xdata/images/hotel/max1024x768/147382951.jpg?k=d3c5e9f9a5e1c6a5c1e2c5a5e21da2e390c5772e46dd23e0c5fc76e56e22a6e5&o=&hp=1",
-      "https://cf.bstatic.com/xdata/images/hotel/max1024x768/147382953.jpg?k=e21da2e390c5772e46dd23e0c5fc76e56e22a6e5d3c5e9f9a5e1c6a5c1e2c5a5&o=&hp=1"
+      "https://cf.bstatic.com/xdata/images/hotel/max1024x768/147382953.jpg?k=e21da2e390c5772e46dd23e0c5fc76e56e22a6e5d3c5e9f9a5e1c6a5c1e2c5a5&o=&hp=1",
     ],
     rating: 4.6,
     stars: 5,
     priceUSD: 135,
     price: "From $135/night",
     price_ar: "ابتداءً من $135/الليلة",
-    description: "Elegant 5-star French luxury hotel on Gezirah Island offering panoramic Nile views and refined French elegance. Features sophisticated rooms, gourmet dining, and world-class amenities in the heart of Cairo.",
-    description_ar: "فندق فاخر فرنسي 5 نجوم أنيق على جزيرة الجزيرة يوفر إطلالات بانورامية على النيل وأناقة فرنسية راقية. يضم غرفاً فاخرة ومطاعم راقية ووسائل راحة عالمية في قلب القاهرة.",
+    description:
+      "Elegant 5-star French luxury hotel on Gezirah Island offering panoramic Nile views and refined French elegance. Features sophisticated rooms, gourmet dining, and world-class amenities in the heart of Cairo.",
+    description_ar:
+      "فندق فاخر فرنسي 5 نجوم أنيق على جزيرة الجزيرة يوفر إطلالات بانورامية على النيل وأناقة فرنسية راقية. يضم غرفاً فاخرة ومطاعم راقية ووسائل راحة عالمية في قلب القاهرة.",
     features: [
       "Panoramic Nile View",
       "Outdoor Pool",
@@ -1621,7 +2062,7 @@ export const hotelsEgyptData = [
       "Casino",
       "Meeting Facilities",
       "Concierge Service",
-      "Airport Shuttle"
+      "Airport Shuttle",
     ],
     features_ar: [
       "إطلالة بانورامية على النيل",
@@ -1635,9 +2076,9 @@ export const hotelsEgyptData = [
       "كازينو",
       "مرافق الاجتماعات",
       "خدمة الكونسيرج",
-      "خدمة نقل المطار"
+      "خدمة نقل المطار",
     ],
-    reviews: 1523
+    reviews: 1523,
   },
   {
     id: 6,
@@ -1653,15 +2094,17 @@ export const hotelsEgyptData = [
       "https://cf.bstatic.com/xdata/images/hotel/max1024x768/168547391.jpg?k=c1e2c5a5e21da2e390c5772e46dd23e0c5fc76e56e22a6e5d3c5e9f9a5e1c6a5&o=&hp=1",
       "https://cf.bstatic.com/xdata/images/hotel/max1024x768/168547393.jpg?k=e21da2e390c5772e46dd23e0c5fc76e56e22a6e5d3c5e9f9a5e1c6a5c1e2c5a5&o=&hp=1",
       "https://cf.bstatic.com/xdata/images/hotel/max1024x768/168547395.jpg?k=a5e1c6a5c1e2c5a5e21da2e390c5772e46dd23e0c5fc76e56e22a6e5d3c5e9f9&o=&hp=1",
-      "https://cf.bstatic.com/xdata/images/hotel/max1024x768/168547397.jpg?k=d3c5e9f9a5e1c6a5c1e2c5a5e21da2e390c5772e46dd23e0c5fc76e56e22a6e5&o=&hp=1"
+      "https://cf.bstatic.com/xdata/images/hotel/max1024x768/168547397.jpg?k=d3c5e9f9a5e1c6a5c1e2c5a5e21da2e390c5772e46dd23e0c5fc76e56e22a6e5&o=&hp=1",
     ],
     rating: 4.5,
     stars: 5,
     priceUSD: 125,
     price: "From $125/night",
     price_ar: "ابتداءً من $125/الليلة",
-    description: "Luxury serviced residences in the prestigious Zamalek district with stunning Nile views. Offers spacious apartments with full kitchens, perfect for extended stays and families seeking comfort and convenience.",
-    description_ar: "إقامة فاخرة مخدومة في حي الزمالك المرموق مع إطلالات خلابة على النيل. يوفر شققاً واسعة مع مطابخ كاملة، مثالية للإقامات الطويلة والعائلات التي تسعى للراحة والملاءمة.",
+    description:
+      "Luxury serviced residences in the prestigious Zamalek district with stunning Nile views. Offers spacious apartments with full kitchens, perfect for extended stays and families seeking comfort and convenience.",
+    description_ar:
+      "إقامة فاخرة مخدومة في حي الزمالك المرموق مع إطلالات خلابة على النيل. يوفر شققاً واسعة مع مطابخ كاملة، مثالية للإقامات الطويلة والعائلات التي تسعى للراحة والملاءمة.",
     features: [
       "Nile River View",
       "Full Kitchen",
@@ -1674,7 +2117,7 @@ export const hotelsEgyptData = [
       "Business Center",
       "Restaurant",
       "Parking",
-      "Concierge Service"
+      "Concierge Service",
     ],
     features_ar: [
       "إطلالة على نهر النيل",
@@ -1688,10 +2131,10 @@ export const hotelsEgyptData = [
       "مركز أعمال",
       "مطعم",
       "مواقف سيارات",
-      "خدمة الكونسيرج"
+      "خدمة الكونسيرج",
     ],
-    reviews: 1289
-  }
+    reviews: 1289,
+  },
 ];
 
 // Hotels in Saudi Arabia Data
@@ -1710,15 +2153,17 @@ export const hotelsSaudiData = [
       "https://cf.bstatic.com/xdata/images/hotel/max1024x768/96847381.jpg?k=c1e2c5a5e21da2e390c5772e46dd23e0c5fc76e56e22a6e5d3c5e9f9a5e1c6a5&o=&hp=1",
       "https://cf.bstatic.com/xdata/images/hotel/max1024x768/96847383.jpg?k=e21da2e390c5772e46dd23e0c5fc76e56e22a6e5d3c5e9f9a5e1c6a5c1e2c5a5&o=&hp=1",
       "https://cf.bstatic.com/xdata/images/hotel/max1024x768/96847385.jpg?k=d3c5e9f9a5e1c6a5c1e2c5a5e21da2e390c5772e46dd23e0c5fc76e56e22a6e5&o=&hp=1",
-      "https://cf.bstatic.com/xdata/images/hotel/max1024x768/96847387.jpg?k=b9f3e8f9a5e1c6a5c1e2c5a5e21da2e390c5772e46dd23e0c5fc76e56e22a6e5&o=&hp=1"
+      "https://cf.bstatic.com/xdata/images/hotel/max1024x768/96847387.jpg?k=b9f3e8f9a5e1c6a5c1e2c5a5e21da2e390c5772e46dd23e0c5fc76e56e22a6e5&o=&hp=1",
     ],
     rating: 4.6,
     stars: 5,
     priceUSD: 450,
     price: "From $450/night",
     price_ar: "ابتداءً من $450/الليلة",
-    description: "Located in the iconic Abraj Al-Bait complex, this luxury hotel is part of the world's second-tallest building and offers stunning views of Masjid al-Haram. Connected directly to the Holy Mosque via air-conditioned walkways, the hotel features elegant rooms with marble bathrooms, multiple international dining options, and a premium shopping mall. The Clock Tower Museum and prayer facilities are available for guests.",
-    description_ar: "يقع هذا الفندق الفاخر في مجمع أبراج البيت الشهير، وهو جزء من ثاني أطول مبنى في العالم ويوفر إطلالات خلابة على المسجد الحرام. متصل مباشرة بالمسجد الحرام عبر ممرات مكيفة، يضم الفندق غرفاً أنيقة مع حمامات رخامية وخيارات طعام عالمية متعددة ومركز تسوق متميز. يتوفر متحف برج الساعة ومرافق الصلاة للنزلاء.",
+    description:
+      "Located in the iconic Abraj Al-Bait complex, this luxury hotel is part of the world's second-tallest building and offers stunning views of Masjid al-Haram. Connected directly to the Holy Mosque via air-conditioned walkways, the hotel features elegant rooms with marble bathrooms, multiple international dining options, and a premium shopping mall. The Clock Tower Museum and prayer facilities are available for guests.",
+    description_ar:
+      "يقع هذا الفندق الفاخر في مجمع أبراج البيت الشهير، وهو جزء من ثاني أطول مبنى في العالم ويوفر إطلالات خلابة على المسجد الحرام. متصل مباشرة بالمسجد الحرام عبر ممرات مكيفة، يضم الفندق غرفاً أنيقة مع حمامات رخامية وخيارات طعام عالمية متعددة ومركز تسوق متميز. يتوفر متحف برج الساعة ومرافق الصلاة للنزلاء.",
     features: [
       "Direct Access to Masjid al-Haram",
       "Haram View Rooms",
@@ -1737,7 +2182,7 @@ export const hotelsSaudiData = [
       "Valet Parking",
       "Currency Exchange",
       "Meeting & Conference Rooms",
-      "Concierge Service"
+      "Concierge Service",
     ],
     features_ar: [
       "وصول مباشر إلى المسجد الحرام",
@@ -1757,9 +2202,9 @@ export const hotelsSaudiData = [
       "مواقف سيارات",
       "صرف عملات",
       "غرف اجتماعات ومؤتمرات",
-      "خدمة الكونسيرج"
+      "خدمة الكونسيرج",
     ],
-    reviews: 12847
+    reviews: 12847,
   },
   {
     id: 2,
@@ -1775,15 +2220,17 @@ export const hotelsSaudiData = [
       "https://cf.bstatic.com/xdata/images/hotel/max1024x768/285847394.jpg?k=c1e2c5a5e21da2e390c5772e46dd23e0c5fc76e56e22a6e5d3c5e9f9a5e1c6a5&o=&hp=1",
       "https://cf.bstatic.com/xdata/images/hotel/max1024x768/285847396.jpg?k=a5e1c6a5c1e2c5a5e21da2e390c5772e46dd23e0c5fc76e56e22a6e5d3c5e9f9&o=&hp=1",
       "https://cf.bstatic.com/xdata/images/hotel/max1024x768/285847398.jpg?k=d3c5e9f9a5e1c6a5c1e2c5a5e21da2e390c5772e46dd23e0c5fc76e56e22a6e5&o=&hp=1",
-      "https://cf.bstatic.com/xdata/images/hotel/max1024x768/285847400.jpg?k=b9f3e8f9a5e1c6a5c1e2c5a5e21da2e390c5772e46dd23e0c5fc76e56e22a6e5&o=&hp=1"
+      "https://cf.bstatic.com/xdata/images/hotel/max1024x768/285847400.jpg?k=b9f3e8f9a5e1c6a5c1e2c5a5e21da2e390c5772e46dd23e0c5fc76e56e22a6e5&o=&hp=1",
     ],
     rating: 4.5,
     stars: 5,
     priceUSD: 280,
     price: "From $280/night",
     price_ar: "ابتداءً من $280/الليلة",
-    description: "Situated just steps away from the Prophet's Mosque, this contemporary 5-star hotel combines modern luxury with traditional hospitality. The Pullman ZamZam features elegantly appointed rooms with premium bedding, marble bathrooms, and stunning views of the Holy Mosque. Guests enjoy direct access to Masjid an-Nabawi, multiple international restaurants serving halal cuisine, and dedicated prayer facilities on every floor. The hotel offers special packages for Umrah and Hajj pilgrims with experienced multilingual staff.",
-    description_ar: "يقع هذا الفندق العصري الفاخر على بعد خطوات من المسجد النبوي الشريف، ويجمع بين الرفاهية الحديثة والضيافة التقليدية. يضم بولمان زمزم غرفاً مفروشة بأناقة مع أسرّة فاخرة وحمامات رخامية وإطلالات خلابة على المسجد الحرام. يستمتع الضيوف بالوصول المباشر إلى المسجد النبوي ومطاعم عالمية متعددة تقدم المأكولات الحلال ومرافق صلاة مخصصة في كل طابق. يقدم الفندق باقات خاصة للحجاج والمعتمرين مع طاقم متعدد اللغات ذو خبرة.",
+    description:
+      "Situated just steps away from the Prophet's Mosque, this contemporary 5-star hotel combines modern luxury with traditional hospitality. The Pullman ZamZam features elegantly appointed rooms with premium bedding, marble bathrooms, and stunning views of the Holy Mosque. Guests enjoy direct access to Masjid an-Nabawi, multiple international restaurants serving halal cuisine, and dedicated prayer facilities on every floor. The hotel offers special packages for Umrah and Hajj pilgrims with experienced multilingual staff.",
+    description_ar:
+      "يقع هذا الفندق العصري الفاخر على بعد خطوات من المسجد النبوي الشريف، ويجمع بين الرفاهية الحديثة والضيافة التقليدية. يضم بولمان زمزم غرفاً مفروشة بأناقة مع أسرّة فاخرة وحمامات رخامية وإطلالات خلابة على المسجد الحرام. يستمتع الضيوف بالوصول المباشر إلى المسجد النبوي ومطاعم عالمية متعددة تقدم المأكولات الحلال ومرافق صلاة مخصصة في كل طابق. يقدم الفندق باقات خاصة للحجاج والمعتمرين مع طاقم متعدد اللغات ذو خبرة.",
     features: [
       "Direct Access to Prophet's Mosque",
       "Masjid an-Nabawi View Rooms",
@@ -1802,7 +2249,7 @@ export const hotelsSaudiData = [
       "Laundry Service",
       "Currency Exchange",
       "Valet Parking",
-      "Airport Shuttle"
+      "Airport Shuttle",
     ],
     features_ar: [
       "وصول مباشر إلى المسجد النبوي",
@@ -1822,9 +2269,9 @@ export const hotelsSaudiData = [
       "خدمة غسيل الملابس",
       "صرف عملات",
       "مواقف سيارات",
-      "خدمة نقل المطار"
+      "خدمة نقل المطار",
     ],
-    reviews: 8456
+    reviews: 8456,
   },
   {
     id: 3,
@@ -1840,15 +2287,17 @@ export const hotelsSaudiData = [
       "https://cf.bstatic.com/xdata/images/hotel/max1024x768/215847394.jpg?k=c1e2c5a5e21da2e390c5772e46dd23e0c5fc76e56e22a6e5d3c5e9f9a5e1c6a5&o=&hp=1",
       "https://cf.bstatic.com/xdata/images/hotel/max1024x768/215847396.jpg?k=e21da2e390c5772e46dd23e0c5fc76e56e22a6e5d3c5e9f9a5e1c6a5c1e2c5a5&o=&hp=1",
       "https://cf.bstatic.com/xdata/images/hotel/max1024x768/215847398.jpg?k=d3c5e9f9a5e1c6a5c1e2c5a5e21da2e390c5772e46dd23e0c5fc76e56e22a6e5&o=&hp=1",
-      "https://cf.bstatic.com/xdata/images/hotel/max1024x768/215847400.jpg?k=b9f3e8f9a5e1c6a5c1e2c5a5e21da2e390c5772e46dd23e0c5fc76e56e22a6e5&o=&hp=1"
+      "https://cf.bstatic.com/xdata/images/hotel/max1024x768/215847400.jpg?k=b9f3e8f9a5e1c6a5c1e2c5a5e21da2e390c5772e46dd23e0c5fc76e56e22a6e5&o=&hp=1",
     ],
     rating: 4.7,
     stars: 5,
     priceUSD: 320,
     price: "From $320/night",
     price_ar: "ابتداءً من $320/الليلة",
-    description: "An oasis of luxury in Riyadh's prestigious Diplomatic Quarter, The Ritz-Carlton offers palatial accommodations set within beautifully landscaped gardens. This iconic property features spacious rooms and suites with Italian marble bathrooms, traditional Arabian décor, and modern amenities. Guests enjoy access to award-winning restaurants, a world-class spa, outdoor pools, tennis courts, and exclusive business facilities. The hotel's impeccable service and elegant ambiance make it the preferred choice for dignitaries, business executives, and discerning travelers.",
-    description_ar: "واحة من الفخامة في الحي الدبلوماسي المرموق بالرياض، يوفر فندق ريتز-كارلتون أماكن إقامة فخمة محاطة بحدائق جميلة. يضم هذا العقار الشهير غرفاً وأجنحة واسعة مع حمامات رخامية إيطالية وديكور عربي تقليدي ووسائل راحة حديثة. يستمتع الضيوف بالوصول إلى مطاعم حائزة على جوائز ومنتجع صحي عالمي المستوى ومسابح خارجية وملاعب تنس ومرافق أعمال حصرية. الخدمة اللا تشوبها شائبة والأجواء الأنيقة تجعله الخيار المفضل للدبلوماسيين ورجال الأعمال والمسافرين المميزين.",
+    description:
+      "An oasis of luxury in Riyadh's prestigious Diplomatic Quarter, The Ritz-Carlton offers palatial accommodations set within beautifully landscaped gardens. This iconic property features spacious rooms and suites with Italian marble bathrooms, traditional Arabian décor, and modern amenities. Guests enjoy access to award-winning restaurants, a world-class spa, outdoor pools, tennis courts, and exclusive business facilities. The hotel's impeccable service and elegant ambiance make it the preferred choice for dignitaries, business executives, and discerning travelers.",
+    description_ar:
+      "واحة من الفخامة في الحي الدبلوماسي المرموق بالرياض، يوفر فندق ريتز-كارلتون أماكن إقامة فخمة محاطة بحدائق جميلة. يضم هذا العقار الشهير غرفاً وأجنحة واسعة مع حمامات رخامية إيطالية وديكور عربي تقليدي ووسائل راحة حديثة. يستمتع الضيوف بالوصول إلى مطاعم حائزة على جوائز ومنتجع صحي عالمي المستوى ومسابح خارجية وملاعب تنس ومرافق أعمال حصرية. الخدمة اللا تشوبها شائبة والأجواء الأنيقة تجعله الخيار المفضل للدبلوماسيين ورجال الأعمال والمسافرين المميزين.",
     features: [
       "Palatial Rooms & Suites",
       "Italian Marble Bathrooms",
@@ -1867,7 +2316,7 @@ export const hotelsSaudiData = [
       "Concierge Service",
       "Butler Service (Suites)",
       "Limousine Service",
-      "Valet Parking"
+      "Valet Parking",
     ],
     features_ar: [
       "غرف وأجنحة فخمة",
@@ -1887,9 +2336,9 @@ export const hotelsSaudiData = [
       "خدمة الكونسيرج",
       "خدمة الخادم الشخصي (الأجنحة)",
       "خدمة الليموزين",
-      "مواقف سيارات"
+      "مواقف سيارات",
     ],
-    reviews: 5234
+    reviews: 5234,
   },
   {
     id: 4,
@@ -1905,15 +2354,17 @@ export const hotelsSaudiData = [
       "https://cf.bstatic.com/xdata/images/hotel/max1024x768/184739203.jpg?k=c1e2c5a5e21da2e390c5772e46dd23e0c5fc76e56e22a6e5d3c5e9f9a5e1c6a5&o=&hp=1",
       "https://cf.bstatic.com/xdata/images/hotel/max1024x768/184739205.jpg?k=a5e1c6a5c1e2c5a5e21da2e390c5772e46dd23e0c5fc76e56e22a6e5d3c5e9f9&o=&hp=1",
       "https://cf.bstatic.com/xdata/images/hotel/max1024x768/184739207.jpg?k=d3c5e9f9a5e1c6a5c1e2c5a5e21da2e390c5772e46dd23e0c5fc76e56e22a6e5&o=&hp=1",
-      "https://cf.bstatic.com/xdata/images/hotel/max1024x768/184739209.jpg?k=b9f3e8f9a5e1c6a5c1e2c5a5e21da2e390c5772e46dd23e0c5fc76e56e22a6e5&o=&hp=1"
+      "https://cf.bstatic.com/xdata/images/hotel/max1024x768/184739209.jpg?k=b9f3e8f9a5e1c6a5c1e2c5a5e21da2e390c5772e46dd23e0c5fc76e56e22a6e5&o=&hp=1",
     ],
     rating: 4.4,
     stars: 5,
     priceUSD: 220,
     price: "From $220/night",
     price_ar: "ابتداءً من $220/الليلة",
-    description: "Perfectly positioned on Jeddah's renowned Corniche, this beachfront resort offers breathtaking Red Sea panoramas and direct access to a pristine private beach. The hotel features contemporary rooms and suites with floor-to-ceiling windows, marble bathrooms, and modern amenities. Guests can indulge in diverse international cuisine at multiple restaurants, relax at the outdoor pool with poolside bar, or enjoy water sports activities. The property offers excellent facilities for both business travelers with extensive meeting spaces and leisure guests seeking Red Sea relaxation. Close to shopping malls, historic Al-Balad district, and King Abdulaziz International Airport.",
-    description_ar: "يقع هذا المنتجع الشاطئي في موقع مثالي على كورنيش جدة الشهير، ويوفر إطلالات بانورامية خلابة على البحر الأحمر ووصولاً مباشراً إلى شاطئ خاص نظيف. يضم الفندق غرفاً وأجنحة عصرية مع نوافذ ممتدة من الأرض حتى السقف وحمامات رخامية ووسائل راحة حديثة. يمكن للضيوف الاستمتاع بالمأكولات العالمية المتنوعة في مطاعم متعددة، أو الاسترخاء في المسبح الخارجي مع بار المسبح، أو الاستمتاع بأنشطة الرياضات المائية. يوفر العقار مرافق ممتازة لرجال الأعمال مع مساحات اجتماعات واسعة والضيوف الباحثين عن الاسترخاء على البحر الأحمر. قريب من مراكز التسوق ومنطقة البلد التاريخية ومطار الملك عبد العزيز الدولي.",
+    description:
+      "Perfectly positioned on Jeddah's renowned Corniche, this beachfront resort offers breathtaking Red Sea panoramas and direct access to a pristine private beach. The hotel features contemporary rooms and suites with floor-to-ceiling windows, marble bathrooms, and modern amenities. Guests can indulge in diverse international cuisine at multiple restaurants, relax at the outdoor pool with poolside bar, or enjoy water sports activities. The property offers excellent facilities for both business travelers with extensive meeting spaces and leisure guests seeking Red Sea relaxation. Close to shopping malls, historic Al-Balad district, and King Abdulaziz International Airport.",
+    description_ar:
+      "يقع هذا المنتجع الشاطئي في موقع مثالي على كورنيش جدة الشهير، ويوفر إطلالات بانورامية خلابة على البحر الأحمر ووصولاً مباشراً إلى شاطئ خاص نظيف. يضم الفندق غرفاً وأجنحة عصرية مع نوافذ ممتدة من الأرض حتى السقف وحمامات رخامية ووسائل راحة حديثة. يمكن للضيوف الاستمتاع بالمأكولات العالمية المتنوعة في مطاعم متعددة، أو الاسترخاء في المسبح الخارجي مع بار المسبح، أو الاستمتاع بأنشطة الرياضات المائية. يوفر العقار مرافق ممتازة لرجال الأعمال مع مساحات اجتماعات واسعة والضيوف الباحثين عن الاسترخاء على البحر الأحمر. قريب من مراكز التسوق ومنطقة البلد التاريخية ومطار الملك عبد العزيز الدولي.",
     features: [
       "Private Beach on Red Sea",
       "Panoramic Sea View Rooms",
@@ -1933,7 +2384,7 @@ export const hotelsSaudiData = [
       "Kids Club",
       "Airport Shuttle Service",
       "Concierge Service",
-      "Valet Parking"
+      "Valet Parking",
     ],
     features_ar: [
       "شاطئ خاص على البحر الأحمر",
@@ -1954,10 +2405,10 @@ export const hotelsSaudiData = [
       "نادي الأطفال",
       "خدمة نقل المطار",
       "خدمة الكونسيرج",
-      "مواقف سيارات"
+      "مواقف سيارات",
     ],
-    reviews: 6782
-  }
+    reviews: 6782,
+  },
 ];
 
 // Packages Data
@@ -1970,7 +2421,8 @@ export const packagesData = [
     duration_ar: "7 أيام",
     country: "Turkey",
     country_ar: "تركيا",
-    image: "images/destinations/istanbul.jpg",
+    image:
+      "https://images.unsplash.com/photo-1524521482848-7099149580c3?w=500&h=400&fit=crop",
     priceUSD: 1299,
     price: "From $1,299",
     price_ar: "ابتداءً من $1,299",
@@ -1981,7 +2433,7 @@ export const packagesData = [
       "Daily breakfast",
       "Istanbul city tour",
       "Bosphorus cruise",
-      "Airport transfers"
+      "Airport transfers",
     ],
     includes_ar: [
       "رحلات طيران ذهاباً وإياباً",
@@ -1989,12 +2441,12 @@ export const packagesData = [
       "إفطار يومي",
       "جولة في مدينة إسطنبول",
       "رحلة بحرية في البوسفور",
-      "تنقلات المطار"
+      "تنقلات المطار",
     ],
     description: "Complete Istanbul and Turkish Riviera experience",
     description_ar: "تجربة متكاملة لإسطنبول والريفيرا التركية",
     departure: "Cairo International Airport",
-    departure_ar: "مطار القاهرة الدولي"
+    departure_ar: "مطار القاهرة الدولي",
   },
   {
     id: 2,
@@ -2004,7 +2456,8 @@ export const packagesData = [
     duration_ar: "6 أيام",
     country: "Georgia",
     country_ar: "جورجيا",
-    image: "images/destinations/tbilisi-batumi.jpg",
+    image:
+      "https://images.unsplash.com/photo-1570158382954-577b6375c008?w=500&h=400&fit=crop",
     priceUSD: 1099,
     price: "From $1,099",
     price_ar: "ابتداءً من $1,099",
@@ -2015,7 +2468,7 @@ export const packagesData = [
       "All meals",
       "Tbilisi tour",
       "Batumi beach day",
-      "Wine tasting"
+      "Wine tasting",
     ],
     includes_ar: [
       "يشمل الرحلات",
@@ -2023,12 +2476,12 @@ export const packagesData = [
       "جميع الوجبات",
       "جولة تبليسي",
       "يوم شاطئ باتومي",
-      "تذوق النبيذ"
+      "تذوق النبيذ",
     ],
     description: "Discover Georgia's culture and natural beauty",
     description_ar: "اكتشف ثقافة جورجيا وجمالها الطبيعي",
     departure: "Cairo International Airport",
-    departure_ar: "مطار القاهرة الدولي"
+    departure_ar: "مطار القاهرة الدولي",
   },
   {
     id: 3,
@@ -2038,7 +2491,8 @@ export const packagesData = [
     duration_ar: "5 أيام",
     country: "Azerbaijan",
     country_ar: "أذربيجان",
-    image: "images/destinations/baku-qabala.jpg",
+    image:
+      "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=500&h=400&fit=crop",
     priceUSD: 999,
     price: "From $999",
     price_ar: "ابتداءً من $999",
@@ -2049,7 +2503,7 @@ export const packagesData = [
       "Breakfast & dinner",
       "Baku city tour",
       "Qabala mountain resort",
-      "Shaki Palace visit"
+      "Shaki Palace visit",
     ],
     includes_ar: [
       "رحلات طيران",
@@ -2057,12 +2511,12 @@ export const packagesData = [
       "إفطار وعشاء",
       "جولة في مدينة باكو",
       "منتجع قبالا الجبلي",
-      "زيارة قصر شاكي"
+      "زيارة قصر شاكي",
     ],
     description: "Modern Baku and mountainous Qabala experience",
     description_ar: "تجربة باكو الحديثة وجبال قبالا",
     departure: "Cairo International Airport",
-    departure_ar: "مطار القاهرة الدولي"
+    departure_ar: "مطار القاهرة الدولي",
   },
   {
     id: 4,
@@ -2072,7 +2526,8 @@ export const packagesData = [
     duration_ar: "4 أيام",
     country: "Egypt",
     country_ar: "مصر",
-    image: "images/destinations/sharm-el-sheikh.jpg",
+    image:
+      "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=500&h=400&fit=crop",
     priceUSD: 599,
     price: "From $599",
     price_ar: "ابتداءً من $599",
@@ -2083,7 +2538,7 @@ export const packagesData = [
       "All meals",
       "Beach activities",
       "Snorkeling trip",
-      "Water sports"
+      "Water sports",
     ],
     includes_ar: [
       "رحلة من القاهرة",
@@ -2091,12 +2546,12 @@ export const packagesData = [
       "جميع الوجبات",
       "أنشطة شاطئية",
       "رحلة سنوركلنج",
-      "رياضات مائية"
+      "رياضات مائية",
     ],
     description: "Relax and explore Egypt's premier beach destination",
     description_ar: "استرخِ واستكشف أبرز وجهات الشاطئ في مصر",
     departure: "Cairo International Airport",
-    departure_ar: "مطار القاهرة الدولي"
+    departure_ar: "مطار القاهرة الدولي",
   },
   {
     id: 5,
@@ -2106,7 +2561,8 @@ export const packagesData = [
     duration_ar: "5 أيام",
     country: "UAE",
     country_ar: "الإمارات",
-    image: "images/destinations/dubai.jpg",
+    image:
+      "https://images.unsplash.com/photo-1512453909311-335c3ba12522?w=500&h=400&fit=crop",
     priceUSD: 1399,
     price: "From $1,399",
     price_ar: "ابتداءً من $1,399",
@@ -2117,7 +2573,7 @@ export const packagesData = [
       "Daily breakfast",
       "Dubai city tour",
       "Desert safari",
-      "Gold Souk visit"
+      "Gold Souk visit",
     ],
     includes_ar: [
       "رحلات طيران",
@@ -2125,12 +2581,12 @@ export const packagesData = [
       "إفطار يومي",
       "جولة في مدينة دبي",
       "سفاري الصحراء",
-      "زيارة سوق الذهب"
+      "زيارة سوق الذهب",
     ],
     description: "Experience luxury and modernity in Dubai",
     description_ar: "اختبر الرفاهية والحداثة في دبي",
     departure: "Cairo International Airport",
-    departure_ar: "مطار القاهرة الدولي"
+    departure_ar: "مطار القاهرة الدولي",
   },
   {
     id: 6,
@@ -2155,7 +2611,7 @@ export const packagesData = [
       "New Year's Eve Gala Dinner",
       "Desert Safari with BBQ Dinner",
       "Private airport transfers",
-      "All taxes and tourism fees included"
+      "All taxes and tourism fees included",
     ],
     includes_ar: [
       "الإقامة 4 ليالٍ في فندق Carlton Downtown Hotel ⭐4",
@@ -2167,16 +2623,18 @@ export const packagesData = [
       "عشاء احتفالية ليلة رأس السنة",
       "سفاري الصحراء المسائي مع عشاء باربكيو",
       "تنقلات خاصة من وإلى مطار دبي الدولي",
-      "جميع الضرائب ورسوم السياحة"
+      "جميع الضرائب ورسوم السياحة",
     ],
-    description: "Celebrate New Year's Eve 2026 in Dubai with luxury experiences, gala dinner, and iconic attractions",
-    description_ar: "احتفل بليلة رأس السنة 2026 في دبي مع تجارب فاخرة، عشاء احتفالي، ومعالم شهيرة",
+    description:
+      "Celebrate New Year's Eve 2026 in Dubai with luxury experiences, gala dinner, and iconic attractions",
+    description_ar:
+      "احتفل بليلة رأس السنة 2026 في دبي مع تجارب فاخرة، عشاء احتفالي، ومعالم شهيرة",
     departure: "International Airports",
     departure_ar: "المطارات الدولية",
     dates: "December 29, 2025 - January 2, 2026",
     dates_ar: "29 ديسمبر 2025 إلى 2 يناير 2026",
     maxPeople: 4,
-    maxPeople_ar: "4 أشخاص"
+    maxPeople_ar: "4 أشخاص",
   },
   {
     id: 7,
@@ -2186,7 +2644,8 @@ export const packagesData = [
     duration_ar: "4 أيام / 3 ليالٍ",
     country: "Georgia",
     country_ar: "جورجيا",
-    image: "images/destinations/tbilisi-batumi.jpg",
+    image:
+      "https://images.unsplash.com/photo-1570158382954-577b6375c008?w=500&h=400&fit=crop",
     priceUSD: 1299,
     price: "From $1,299",
     price_ar: "ابتداءً من $1,299",
@@ -2200,7 +2659,7 @@ export const packagesData = [
       "Ananuri - Zhinvali - Gudauri Tour",
       "Narikala Cable Car Ride",
       "All tours & transfers on private basis",
-      "Departure Transfer"
+      "Departure Transfer",
     ],
     includes_ar: [
       "الإقامة 3 ليالٍ في فندق Ambassadori ★5",
@@ -2211,16 +2670,18 @@ export const packagesData = [
       "جولة أنانوري - زينفالي - جوداوري",
       "رحلة تلفريك ناريكالا",
       "جميع الجولات والتنقلات على أساس خاص",
-      "نقل المغادرة"
+      "نقل المغادرة",
     ],
-    description: "Celebrate New Year 2026 in magical Tbilisi with Christmas Village, Gala Dinner, and scenic mountain tours",
-    description_ar: "احتفل برأس السنة 2026 في تبليسي الساحرة مع قرية عيد الميلاد، عشاء احتفالي، وجولات جبلية خلابة",
+    description:
+      "Celebrate New Year 2026 in magical Tbilisi with Christmas Village, Gala Dinner, and scenic mountain tours",
+    description_ar:
+      "احتفل برأس السنة 2026 في تبليسي الساحرة مع قرية عيد الميلاد، عشاء احتفالي، وجولات جبلية خلابة",
     departure: "International Airports",
     departure_ar: "المطارات الدولية",
     dates: "December 30, 2025 - January 2, 2026",
     dates_ar: "30 ديسمبر 2025 إلى 2 يناير 2026",
     maxPeople: 4,
-    maxPeople_ar: "4 أشخاص"
+    maxPeople_ar: "4 أشخاص",
   },
   {
     id: 8,
@@ -2230,7 +2691,7 @@ export const packagesData = [
     duration_ar: "5 أيام / 4 ليالٍ",
     country: "Azerbaijan",
     country_ar: "أذربيجان",
-    image: "images/destinations/baku-qabala.jpg",
+    image: "images/packages/azerbaijan.jpg",
     priceUSD: 899,
     price: "From $899",
     price_ar: "ابتداءً من $899",
@@ -2242,7 +2703,7 @@ export const packagesData = [
       "Quba & Shahdag Mountain Resort Tour",
       "Shopping tour in Baku",
       "Private car with English-speaking driver/guide",
-      "Daily bottled water (0.5L per person)"
+      "Daily bottled water (0.5L per person)",
     ],
     includes_ar: [
       "الإقامة 4 ليالٍ في الفندق مع وجبة الإفطار",
@@ -2251,14 +2712,16 @@ export const packagesData = [
       "جولة قوبا ومنتجع شاهداغ الجبلي",
       "جولة تسوق في باكو",
       "سيارة خاصة مع سائق/مرشد يتحدث الإنجليزية",
-      "زجاجة مياه يومياً (0.5 لتر للشخص)"
+      "زجاجة مياه يومياً (0.5 لتر للشخص)",
     ],
-    description: "Experience the beauty of Azerbaijan - from Baku's modern architecture to Quba's natural charm and Shahdag Mountain Resort",
-    description_ar: "استمتع بجمال أذربيجان - من عمارة باكو الحديثة إلى سحر قوبا الطبيعي ومنتجع شاهداغ الجبلي",
+    description:
+      "Experience the beauty of Azerbaijan - from Baku's modern architecture to Quba's natural charm and Shahdag Mountain Resort",
+    description_ar:
+      "استمتع بجمال أذربيجان - من عمارة باكو الحديثة إلى سحر قوبا الطبيعي ومنتجع شاهداغ الجبلي",
     departure: "Heydar Aliyev International Airport (GYD)",
     departure_ar: "مطار حيدر علييف الدولي (GYD)",
     maxPeople: 6,
-    maxPeople_ar: "6 أشخاص"
+    maxPeople_ar: "6 أشخاص",
   },
   {
     id: 9,
@@ -2268,7 +2731,8 @@ export const packagesData = [
     duration_ar: "4 أيام / 3 ليالٍ",
     country: "Egypt",
     country_ar: "مصر",
-    image: "images/destinations/sharm-el-sheikh.jpg", // TODO: Add images/packages/luxor-aswan.jpg
+    image:
+      "https://images.unsplash.com/photo-1572252009286-268acec5ca0a?w=500&h=400&fit=crop",
     priceUSD: 499,
     price: "From $499",
     price_ar: "ابتداءً من $499",
@@ -2286,7 +2750,7 @@ export const packagesData = [
       "Nubian Village & Botanical Island",
       "All entrance tickets",
       "Transfers between Luxor & Aswan",
-      "Professional tour guide"
+      "Professional tour guide",
     ],
     includes_ar: [
       "الإقامة 3 ليالٍ (فنادق 3★، 4★، أو 5★)",
@@ -2301,13 +2765,15 @@ export const packagesData = [
       "القرية النوبية والجزيرة النباتية",
       "جميع تذاكر الدخول",
       "التنقلات بين الأقصر وأسوان",
-      "مرشد سياحي محترف"
+      "مرشد سياحي محترف",
     ],
-    description: "Discover Egypt's ancient wonders in Luxor & Aswan - temples, tombs, and Nile cruises with multiple hotel options (3★: Karnak/Hapy, 4★: Temple Hotel/Citymax, 5★: Sonesta/Tulip)",
-    description_ar: "اكتشف عجائب مصر القديمة في الأقصر وأسوان - معابد، مقابر، ورحلات النيل مع خيارات فندقية متعددة (3★: كرنك/هابي، 4★: تمبل هوتيل/سيتي ماكس، 5★: سونيستا/توليب)",
+    description:
+      "Discover Egypt's ancient wonders in Luxor & Aswan - temples, tombs, and Nile cruises with multiple hotel options (3★: Karnak/Hapy, 4★: Temple Hotel/Citymax, 5★: Sonesta/Tulip)",
+    description_ar:
+      "اكتشف عجائب مصر القديمة في الأقصر وأسوان - معابد، مقابر، ورحلات النيل مع خيارات فندقية متعددة (3★: كرنك/هابي، 4★: تمبل هوتيل/سيتي ماكس، 5★: سونيستا/توليب)",
     departure: "Luxor or Cairo",
     departure_ar: "الأقصر أو القاهرة",
     maxPeople: 8,
-    maxPeople_ar: "8 أشخاص"
-  }
+    maxPeople_ar: "8 أشخاص",
+  },
 ];

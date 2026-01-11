@@ -31,53 +31,13 @@ const About = () => {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-teal-600 via-teal-500 to-blue-600 text-white py-24 px-4 overflow-hidden">
-        {/* Decorative background elements */}
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-0 left-0 w-96 h-96 bg-white rounded-full -translate-x-1/2 -translate-y-1/2"></div>
-          <div className="absolute bottom-0 right-0 w-96 h-96 bg-white rounded-full translate-x-1/2 translate-y-1/2"></div>
-          <div className="absolute top-1/2 left-1/2 w-64 h-64 bg-white rounded-full -translate-x-1/2 -translate-y-1/2"></div>
-        </div>
-        
-        {/* Content */}
-        <div className="relative max-w-5xl mx-auto text-center z-10">
-          <div className="inline-block mb-6">
-            <span className="inline-block px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-sm font-semibold border border-white/30">
-              {language === 'ar' ? 'وكالة سفر رائدة' : 'Premier Travel Agency'}
-            </span>
-          </div>
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
-            {translations[language].aboutMilesTravel}
-          </h1>
-          <p className="text-xl md:text-2xl text-gray-100 mb-8 max-w-3xl mx-auto leading-relaxed">
-            {translations[language].discoverTheWorld}
-          </p>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <a 
-              href="https://www.miles-travel.com" 
-              target="_blank" 
-              rel="noopener noreferrer" 
-              className="inline-flex items-center gap-2 bg-white text-teal-600 px-8 py-4 rounded-lg font-bold hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
-            >
-              <Globe className="w-5 h-5" />
-              {language === 'ar' ? 'زر موقعنا' : 'Visit Our Website'}
-            </a>
-            <a 
-              href="https://www.miles-travel.com" 
-              target="_blank" 
-              rel="noopener noreferrer" 
-              className="text-white/90 hover:text-white transition font-medium text-lg underline decoration-2 underline-offset-4"
-            >
-              www.miles-travel.com
-            </a>
-          </div>
-        </div>
-        
-        {/* Bottom wave decoration */}
-        <div className="absolute bottom-0 left-0 right-0">
-          <svg className="w-full h-12 text-gray-50" fill="currentColor" viewBox="0 0 1200 120" preserveAspectRatio="none">
-            <path d="M0,0 C150,100 350,0 500,50 C650,100 850,0 1000,50 L1200,50 L1200,120 L0,120 Z"></path>
-          </svg>
+      <section className="bg-gradient-to-r from-teal-600 to-blue-600 text-white py-20 px-4">
+        <div className="max-w-4xl mx-auto text-center">
+          <h1 className="text-5xl font-bold mb-4">{translations[language].aboutMilesTravel}</h1>
+          <p className="text-xl text-gray-100 mb-4">{translations[language].discoverTheWorld}</p>
+          <a href="https://www.miles-travel.com" target="_blank" rel="noopener noreferrer" className="text-white hover:text-teal-200 transition font-medium">
+            www.miles-travel.com
+          </a>
         </div>
       </section>
 
@@ -171,4 +131,3 @@ const About = () => {
 };
 
 export default About;
-

@@ -52,9 +52,9 @@ const Header = () => {
   ];
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md shadow-md border-b border-gray-100">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-white shadow-sm">
       {/* Top bar */}
-      <div className="bg-gradient-to-r from-teal-600 via-teal-600 to-blue-600 text-white py-2.5 px-4">
+      <div className="bg-gradient-to-r from-teal-600 to-teal-700 text-white py-2.5 px-4">
         <div className={`max-w-7xl mx-auto flex justify-between items-center text-sm ${language === 'ar' ? 'flex-row-reverse' : ''}`}>
           <div className={`flex gap-4 ${language === 'ar' ? 'flex-row-reverse' : ''}`}>
             <div className="flex items-center gap-3">
@@ -75,20 +75,19 @@ const Header = () => {
       </div>
 
       {/* Main header */}
-      <div className={`max-w-7xl mx-auto px-4 sm:px-6 py-4 flex justify-between items-center ${language === 'ar' ? 'flex-row-reverse' : ''}`}>
+      <div className={`max-w-7xl mx-auto px-4 sm:px-6 py-3 flex justify-between items-center ${language === 'ar' ? 'flex-row-reverse' : ''}`}>
         {/* Logo */}
         <Logo />
 
         {/* Desktop Navigation */}
-        <nav className={`hidden lg:flex gap-6 ${language === 'ar' ? 'flex-row-reverse' : ''}`}>
+        <nav className={`hidden lg:flex gap-8 ${language === 'ar' ? 'flex-row-reverse' : ''}`}>
           {navItems.map((item) => (
             <Link
               key={item.path}
               to={item.path}
-              className="text-gray-700 hover:text-teal-600 font-medium transition-all duration-200 text-[15px] relative group"
+              className="text-gray-700 hover:text-teal-600 font-medium transition-colors duration-200 text-[15px]"
             >
               {item.name}
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-teal-600 transition-all duration-200 group-hover:w-full"></span>
             </Link>
           ))}
         </nav>
@@ -97,7 +96,7 @@ const Header = () => {
         <div className={`flex items-center gap-4 ${language === 'ar' ? 'flex-row-reverse' : ''}`}>
           <button 
             onClick={() => window.open('https://wa.me/201515196284', '_blank')}
-            className="hidden md:block bg-gradient-to-r from-teal-600 to-teal-700 hover:from-teal-700 hover:to-teal-800 text-white px-6 py-2.5 rounded-lg font-semibold transition-all duration-200 shadow-md hover:shadow-lg transform hover:scale-105"
+            className="hidden md:block bg-gradient-to-r from-teal-600 to-teal-700 hover:from-teal-700 hover:to-teal-800 text-white px-6 py-2.5 rounded-lg font-semibold transition-all duration-200 shadow-sm hover:shadow-md"
           >
             {translations[language].bookNow}
           </button>
@@ -105,7 +104,7 @@ const Header = () => {
           {/* Mobile Menu Toggle */}
           <button
             onClick={toggleMobileMenu}
-            className="lg:hidden text-gray-800 hover:text-teal-600 transition-colors duration-200 p-2 rounded-lg hover:bg-gray-100"
+            className="lg:hidden text-gray-800 hover:text-teal-600 transition-colors duration-200"
           >
             {mobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
           </button>
@@ -114,12 +113,12 @@ const Header = () => {
 
       {/* Mobile Menu */}
       {mobileMenuOpen && (
-        <div className={`lg:hidden bg-white border-t border-gray-200 py-4 px-4 space-y-2 shadow-xl animate-in slide-in-from-top ${language === 'ar' ? 'text-right' : ''}`}>
+        <div className={`lg:hidden bg-white border-t border-gray-200 py-4 px-4 space-y-2 shadow-lg ${language === 'ar' ? 'text-right' : ''}`}>
           {navItems.map((item) => (
             <Link
               key={item.path}
               to={item.path}
-              className="block text-gray-700 hover:bg-teal-50 hover:text-teal-600 px-4 py-3 rounded-lg transition-all duration-200 font-medium"
+              className="block text-gray-700 hover:bg-teal-50 hover:text-teal-600 px-4 py-3 rounded-lg transition-all duration-200"
               onClick={() => setMobileMenuOpen(false)}
             >
               {item.name}
@@ -127,7 +126,7 @@ const Header = () => {
           ))}
           <button 
             onClick={() => window.open('https://wa.me/201515196284', '_blank')}
-            className="w-full bg-gradient-to-r from-teal-600 to-teal-700 hover:from-teal-700 hover:to-teal-800 text-white px-6 py-3 rounded-lg font-semibold transition-all duration-200 shadow-lg hover:shadow-xl transform hover:scale-105"
+            className="w-full bg-gradient-to-r from-teal-600 to-teal-700 hover:from-teal-700 hover:to-teal-800 text-white px-6 py-3 rounded-lg font-semibold transition-all duration-200 shadow-md"
           >
             {translations[language].bookNow}
           </button>
