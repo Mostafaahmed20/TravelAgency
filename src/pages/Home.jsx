@@ -140,7 +140,7 @@ const Home = () => {
     scheduleCalculation();
     window.addEventListener('resize', scheduleCalculation);
     return () => window.removeEventListener('resize', scheduleCalculation);
-  }, [egyptHotelsByCity.length, saudiHotelsByCity.length, packagesByCity.length]);
+  }, [egyptCities.length, saudiCities.length, packagesByCity.length]);
 
   // Clamp scroll values to max scroll
   useEffect(() => {
@@ -382,7 +382,7 @@ const Home = () => {
       {renderCityBasedSection(
         translations[language].hotelsInSaudiArabia,
         translations[language].hotelsInSaudiDesc,
-        saudiHotelsByCity,
+        saudiCities,
         expandedSaudiCity,
         setExpandedSaudiCity,
         saudiCityScroll,
