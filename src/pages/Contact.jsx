@@ -33,7 +33,7 @@ const Contact = () => {
       `Message:\n${formData.message}`;
     
     const encodedMessage = encodeURIComponent(whatsappMessage);
-    const whatsappUrl = `https://wa.me/201515196284?text=${encodedMessage}`;
+    const whatsappUrl = `https://wa.me/966575910818?text=${encodedMessage}`;
     
     // Open WhatsApp
     window.open(whatsappUrl, '_blank');
@@ -56,8 +56,8 @@ const Contact = () => {
     {
       icon: <Phone className="w-6 h-6" />,
       titleKey: 'phone',
-      details: '0115 1519628',
-      link: 'https://wa.me/201515196284'
+      details: '+966 57 591 0818',
+      link: 'https://wa.me/966575910818'
     },
     {
       icon: <Mail className="w-6 h-6" />,

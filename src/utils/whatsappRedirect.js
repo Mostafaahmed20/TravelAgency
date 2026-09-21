@@ -1,6 +1,6 @@
 // WhatsApp redirect utility
 // Change WHATSAPP_NUMBER to your business number (include country code, no + symbol)
-const WHATSAPP_NUMBER = '201515196284'; // Egypt: +201515196284 (015 15196284)
+const WHATSAPP_NUMBER = '966575910818'; // Saudi Arabia: +966 57 591 0818
 
 export const sendWhatsAppMessage = (formData, type) => {
   let message = '';

@@ -95,7 +95,7 @@ const Header = () => {
         {/* CTA Button + Mobile Menu */}
         <div className={`flex items-center gap-4 ${language === 'ar' ? 'flex-row-reverse' : ''}`}>
           <button 
-            onClick={() => window.open('https://wa.me/201515196284', '_blank')}
+            onClick={() => window.open('https://wa.me/966575910818', '_blank')}
             className="hidden md:block bg-gradient-to-r from-teal-600 to-teal-700 hover:from-teal-700 hover:to-teal-800 text-white px-6 py-2.5 rounded-lg font-semibold transition-all duration-200 shadow-sm hover:shadow-md"
           >
             {translations[language].bookNow}
@@ -125,7 +125,7 @@ const Header = () => {
             </Link>
           ))}
           <button 
-            onClick={() => window.open('https://wa.me/201515196284', '_blank')}
+            onClick={() => window.open('https://wa.me/966575910818', '_blank')}
             className="w-full bg-gradient-to-r from-teal-600 to-teal-700 hover:from-teal-700 hover:to-teal-800 text-white px-6 py-3 rounded-lg font-semibold transition-all duration-200 shadow-md"
           >
             {translations[language].bookNow}

@@ -30,7 +30,7 @@ const DestinationCard = ({ id, image, title, title_ar, description, description_
   const handleBookNow = () => {
     const message = `🏨 Hotel Interest: ${title}\n\nI am interested in this hotel and need support to book it. Please assist me.`;
     const encodedMessage = encodeURIComponent(message);
-    const whatsappUrl = `https://wa.me/201515196284?text=${encodedMessage}`;
+    const whatsappUrl = `https://wa.me/966575910818?text=${encodedMessage}`;
     window.open(whatsappUrl, '_blank');
   };
   return (

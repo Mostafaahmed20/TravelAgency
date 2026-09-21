@@ -428,7 +428,7 @@ const Home = () => {
             {translations[language].whatsappCtaDescription}
           </p>
           <a
-            href="https://wa.me/201515196284?text=Hello%20I%20want%20to%20explore%20travel%20packages"
+            href="https://wa.me/966575910818?text=Hello%20I%20want%20to%20explore%20travel%20packages"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-block bg-white text-teal-600 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-50 transition-all duration-200 shadow-md hover:shadow-lg"

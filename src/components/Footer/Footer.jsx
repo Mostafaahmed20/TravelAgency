@@ -61,8 +61,8 @@ const Footer = () => {
             <ul className="space-y-3 text-sm">
               <li className={`flex items-center gap-2 ${language === 'ar' ? 'flex-row-reverse justify-end' : ''}`}>
                 <Phone size={16} className="text-teal-400 flex-shrink-0" />
-                <a href="https://wa.me/201515196284" className="hover:text-teal-400 transition">
-                  <span dir="ltr" className="inline-block">0115 1519628</span>
+                <a href="https://wa.me/966575910818" className="hover:text-teal-400 transition">
+                  <span dir="ltr" className="inline-block">+966 57 591 0818</span>
                 </a>
               </li>
               <li className={`flex items-center gap-2 ${language === 'ar' ? 'flex-row-reverse justify-end' : ''}`}>
