@@ -1,18 +1,20 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Miles Travel</title>
-    <script type="text/javascript">
-      var pathSegmentsToKeep = 1;
-      var l = window.location;
-      l.replace(
-        l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
-        l.pathname.split('/').slice(0, 1 + pathSegmentsToKeep).join('/') + '/?/' +
-        l.pathname.slice(1).split('/').slice(pathSegmentsToKeep).join('/')
-      );
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Miles Travel - Page Not Found</title>
+    <script>
+      // Redirect to index.html for React Router to handle
+      sessionStorage.redirect = location.href;
+      location.replace(location.pathname.split('/').slice(0, -1).join('/') + '/index.html');
     </script>
   </head>
   <body>
+    <noscript>
+      <h1>Page Not Found</h1>
+      <p>If you're seeing this, JavaScript is disabled. Please enable JavaScript to use this application.</p>
+      <p><a href="/">Go to Home Page</a></p>
+    </noscript>
   </body>
 </html>
